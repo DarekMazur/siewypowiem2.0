@@ -1,3 +1,5 @@
+import StyledComponentsRegistry from '../../lib/registry';
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -5,7 +7,9 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 };
