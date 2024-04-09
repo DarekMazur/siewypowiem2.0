@@ -1,3 +1,9 @@
+'use client';
+
+import StyledComponentsRegistry from '../../lib/registry';
+import GlobalStyle from '@/styles/GlobalStyle';
+import { theme } from './utils/theme';
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -5,7 +11,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <GlobalStyle theme={theme} />
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 };
