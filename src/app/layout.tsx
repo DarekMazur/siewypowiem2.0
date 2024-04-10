@@ -2,7 +2,7 @@
 
 import GlobalStyle from '@/styles/GlobalStyle';
 import StyledComponentsRegistry from '../../lib/registry';
-import theme from './utils/theme';
+import theme from '../utils/theme';
 
 const RootLayout = ({
   children,
