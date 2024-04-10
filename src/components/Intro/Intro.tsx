@@ -1,8 +1,18 @@
+import Image from 'next/image';
+import icon from '../../assets/icons/logo.svg';
+import { StyledIntro } from './Intro.styles';
+
 const Intro = () => {
   return (
-    <h1>
-      <span>SIĘ</span> <span>WYPOWIEM</span>
-    </h1>
+    <StyledIntro>
+      <div>
+        <span>SIĘ</span>
+        <Image priority src={icon} alt='' />
+      </div>
+      <div>
+        <span>WYPOWIEM</span>
+      </div>
+    </StyledIntro>
   );
 };
 

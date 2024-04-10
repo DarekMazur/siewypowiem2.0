@@ -1,7 +1,8 @@
 'use client';
 
 import GlobalStyle from '@/styles/GlobalStyle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Intro/Intro';
@@ -11,19 +12,39 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  const [runIntro, setRunIntro] = useState(true);
+  const [runIntro, setRunIntro] = useState(false);
 
-  const intro = () => setTimeout(() => setRunIntro(false), 3000);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (
+        !(
+          sessionStorage.getItem('isIntroShown') &&
+          JSON.parse(sessionStorage.getItem('isIntroShown') as string).value
+        )
+      ) {
+        const intro = () => setRunIntro(false);
+        setTimeout(() => {
+          sessionStorage.isIntroShown = JSON.stringify({ value: true });
+          setRunIntro(true);
+        }, 3000);
 
-  intro();
+        intro();
+      } else {
+        setRunIntro(true);
+      }
+    }
+  }, []);
 
   return (
     <html lang='en'>
       <body>
-        <GlobalStyle theme={theme} />
-        <StyledComponentsRegistry>
-          {runIntro ? <Intro /> : children}
-        </StyledComponentsRegistry>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <StyledComponentsRegistry>
+            {!runIntro ? <Intro /> : null}
+            {children}
+          </StyledComponentsRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );
