@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lintFix": "eslint --fix",
     "preTest": "jest --watchAll",
     "test": "jest"
   },
