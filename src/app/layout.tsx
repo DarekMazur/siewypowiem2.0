@@ -1,8 +1,8 @@
 'use client';
 
-import StyledComponentsRegistry from '../../lib/registry';
 import GlobalStyle from '@/styles/GlobalStyle';
-import { theme } from './utils/theme';
+import StyledComponentsRegistry from '../../lib/registry';
+import theme from './utils/theme';
 
 const RootLayout = ({
   children,
