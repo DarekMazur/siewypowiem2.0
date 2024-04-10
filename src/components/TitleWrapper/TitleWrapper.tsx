@@ -1,9 +1,11 @@
+import { StyledTitleWrapper } from './TitleWrapper.styles';
+
 const TitleWrapper = () => {
   return (
-    <div style={{ position: 'relative', zIndex: '1' }}>
+    <StyledTitleWrapper>
       <h1>Się Wypowiem</h1>
       <p>by Jillian</p>
-    </div>
+    </StyledTitleWrapper>
   );
 };
 
