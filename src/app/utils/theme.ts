@@ -24,7 +24,7 @@ const bungeeShade = Bungee_Shade({
   subsets: ['latin'],
 });
 
-export const theme = {
+const theme = {
   colors: {
     white: '#FCFCFF',
     grey: '#E9E8EA',
@@ -48,3 +48,5 @@ export const theme = {
     s: '1rem',
   },
 };
+
+export default theme;
