@@ -4,12 +4,14 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-      font-size: 62.5%;
-      font-family: ${({ theme }) => theme.fonts.main};
-      background-color: ${({ theme }) => theme.colors.white};
-    }
+    font-size: 62.5%;
+    font-family: ${({ theme }) => theme.fonts.main};
+    background-color: ${({ theme }) => theme.colors.white};
+  }
     
   body {
+    margin: 0;
+    padding: 0;
     color: ${({ theme }) => theme.colors.black};
     font-size: ${({ theme }) => theme.fontSize.m};
     line-height: 2rem;

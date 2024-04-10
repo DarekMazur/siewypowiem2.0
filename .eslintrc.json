@@ -8,8 +8,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals", 
-    "airbnb", 
+    "next/core-web-vitals",
+    "airbnb",
     "airbnb-typescript",
     "plugin:prettier/recommended"
   ],
@@ -22,12 +22,9 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
     "import/extensions": "off",
