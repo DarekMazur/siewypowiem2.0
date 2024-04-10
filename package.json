@@ -14,7 +14,7 @@
     "*.{js,css,ts,tsx,jsx}": [
       "prettier --write",
       "eslint --fix",
-      "test --passWithNoTests"
+      "jest --passWithNoTests"
     ]
   },
   "dependencies": {
