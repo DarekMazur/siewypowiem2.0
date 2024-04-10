@@ -1,14 +1,15 @@
 import HeroSection from '../HeroSection/HeroSection';
 import MainNav from '../MainNav/MainNav';
 import TitleWrapper from '../TitleWrapper/TitleWrapper';
+import { StyledHeader } from './Header.styles';
 
 const Header = () => {
   return (
-    <header>
+    <StyledHeader>
       <TitleWrapper />
       <MainNav />
       <HeroSection />
-    </header>
+    </StyledHeader>
   );
 };
 

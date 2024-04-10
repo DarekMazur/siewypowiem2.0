@@ -1,6 +1,6 @@
 const MainNav = () => {
   return (
-    <nav>
+    <nav style={{ position: 'relative', zIndex: '1' }}>
       <ul>
         <li>Item 1</li>
         <li>Item 2</li>

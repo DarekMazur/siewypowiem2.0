@@ -1,6 +1,6 @@
 const TitleWrapper = () => {
   return (
-    <div>
+    <div style={{ position: 'relative', zIndex: '1' }}>
       <h1>Się Wypowiem</h1>
       <p>by Jillian</p>
     </div>
