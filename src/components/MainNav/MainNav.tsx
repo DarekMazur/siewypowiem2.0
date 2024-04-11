@@ -1,14 +1,17 @@
+import { forwardRef } from 'react';
 import SocialMenu from '../SocialMenu/SocialMenu';
 import { StyledMainNav } from './MainNav.styles';
 import MainNavList from './MainNavList/MainNavList';
 
-const MainNav = () => {
+type Ref = HTMLElement;
+
+const MainNav = forwardRef<Ref>((_, ref) => {
   return (
-    <StyledMainNav>
+    <StyledMainNav ref={ref}>
       <MainNavList />
       <SocialMenu />
     </StyledMainNav>
   );
-};
+});
 
 export default MainNav;

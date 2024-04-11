@@ -1,12 +1,15 @@
+import { forwardRef } from 'react';
 import { StyledTitleWrapper } from './TitleWrapper.styles';
 
-const TitleWrapper = () => {
+type Ref = HTMLDivElement;
+
+const TitleWrapper = forwardRef<Ref>((_, ref) => {
   return (
-    <StyledTitleWrapper>
+    <StyledTitleWrapper ref={ref}>
       <h1>Się Wypowiem</h1>
       <p>by Jillian</p>
     </StyledTitleWrapper>
   );
-};
+});
 
 export default TitleWrapper;
