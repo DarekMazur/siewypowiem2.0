@@ -8,12 +8,13 @@ const Header = () => {
   const titleRef = createRef<HTMLDivElement>();
   const navRef = createRef<HTMLElement>();
 
-  const [headerTop, setHeaderTop] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
   useEffect(() => {
-    if (titleRef.current && navRef.current) {
-      setHeaderTop(
-        (titleRef.current as HTMLElement).offsetHeight +
+    if (titleRef.current && navRef.current && typeof window !== 'undefined') {
+      setSectionHeight(
+        window.innerHeight -
+          (titleRef.current as HTMLElement).offsetHeight -
           (navRef.current as HTMLElement).offsetHeight,
       );
     }
@@ -23,7 +24,7 @@ const Header = () => {
     <StyledHeader>
       <TitleWrapper ref={titleRef} />
       <MainNav ref={navRef} />
-      <HeroSection sectionHeight={window.innerHeight - headerTop} />
+      <HeroSection sectionHeight={sectionHeight} />
     </StyledHeader>
   );
 };
