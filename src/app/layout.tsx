@@ -3,6 +3,7 @@
 import GlobalStyle from '@/styles/GlobalStyle';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import Header from '@/components/Header/Header';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Intro/Intro';
@@ -42,6 +43,7 @@ const RootLayout = ({
           <GlobalStyle />
           <StyledComponentsRegistry>
             {!runIntro ? <Intro /> : null}
+            <Header />
             {children}
           </StyledComponentsRegistry>
         </ThemeProvider>
