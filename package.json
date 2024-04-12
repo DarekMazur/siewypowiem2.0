@@ -58,5 +58,10 @@
     "msw": "^2.2.13",
     "prettier": "^3.2.5",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

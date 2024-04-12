@@ -30,7 +30,8 @@
     "import/extensions": "off",
     "react/jsx-no-useless-fragment": "off",
     "no-nested-ternary": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "global-require": "off"
   },
   "ignorePatterns": ["vite.config.ts"],
   "settings": {
