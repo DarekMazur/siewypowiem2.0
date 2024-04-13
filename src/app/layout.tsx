@@ -7,6 +7,7 @@ import Header from '@/components/Header/Header';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Intro/Intro';
+import { MockProvider } from './mockProvider';
 
 const RootLayout = ({
   children,
@@ -39,14 +40,16 @@ const RootLayout = ({
   return (
     <html lang='en'>
       <body>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <StyledComponentsRegistry>
-            {!runIntro ? <Intro /> : null}
-            <Header />
-            {children}
-          </StyledComponentsRegistry>
-        </ThemeProvider>
+        <MockProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <StyledComponentsRegistry>
+              {!runIntro ? <Intro /> : null}
+              <Header />
+              {children}
+            </StyledComponentsRegistry>
+          </ThemeProvider>
+        </MockProvider>
       </body>
     </html>
   );

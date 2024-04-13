@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lintFix": "eslint --fix",
     "preTest": "jest --watchAll",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,css,ts,tsx,jsx}": [
@@ -24,13 +25,17 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@reduxjs/toolkit": "^2.2.3",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-redux": "^9.1.0",
     "styled-components": "^6.1.8",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@mswjs/data": "^0.16.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.3.0",
     "@types/node": "^20",
@@ -51,7 +56,13 @@
     "husky": "^9.0.11",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "msw": "^2.2.13",
     "prettier": "^3.2.5",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
