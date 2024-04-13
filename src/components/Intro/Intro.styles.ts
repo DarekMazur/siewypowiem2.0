@@ -43,6 +43,7 @@ export const StyledIntro = styled.div`
   font-family: ${({ theme }) => theme.fonts.intro};
   color: ${({ theme }) => theme.colors.orange};
   line-height: 11.5rem;
+  z-index: 999;
 
   div {
     height: 50vh;
