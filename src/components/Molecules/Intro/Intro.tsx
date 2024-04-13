@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import icon from '../../assets/icons/logo.svg';
+import icon from '../../../assets/icons/logo.svg';
 import { StyledIntro } from './Intro.styles';
 
 const Intro = () => {

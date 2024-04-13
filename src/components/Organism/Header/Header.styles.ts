@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import hero from '../../assets/hero.jpg';
+import hero from '../../../assets/hero.jpg';
 
 export const StyledHeader = styled.header`
   width: 100%;

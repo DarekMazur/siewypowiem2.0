@@ -3,10 +3,10 @@
 import GlobalStyle from '@/styles/GlobalStyle';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import Header from '@/components/Header/Header';
+import Header from '@/components/Organism/Header/Header';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
-import Intro from '../components/Intro/Intro';
+import Intro from '../components/Molecules/Intro/Intro';
 import { MockProvider } from './mockProvider';
 
 const RootLayout = ({

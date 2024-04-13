@@ -1,7 +1,7 @@
 import { createRef, useEffect, useState } from 'react';
-import HeroSection from '../HeroSection/HeroSection';
-import MainNav from '../MainNav/MainNav';
-import TitleWrapper from '../TitleWrapper/TitleWrapper';
+import HeroSection from '../../Molecules/HeroSection/HeroSection';
+import MainNav from '../../Molecules/MainNav/MainNav';
+import TitleWrapper from '../../Molecules/TitleWrapper/TitleWrapper';
 import { StyledHeader } from './Header.styles';
 
 const Header = () => {
