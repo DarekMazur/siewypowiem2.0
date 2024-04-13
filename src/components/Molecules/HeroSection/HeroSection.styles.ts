@@ -7,6 +7,7 @@ interface IHeroStyleProps {
 export const StyledHeroSection = styled.section<IHeroStyleProps>`
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: ${({ $sectionHeight }) => `${$sectionHeight}px`};
