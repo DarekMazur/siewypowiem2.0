@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lintFix": "eslint --fix",
     "preTest": "jest --watchAll",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,css,ts,tsx,jsx}": [
