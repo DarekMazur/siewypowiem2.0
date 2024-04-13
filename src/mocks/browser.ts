@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { setupWorker } from 'msw/browser';
-import { handlers } from './handlers';
-import { db } from './db.ts';
 import { faker } from '@faker-js/faker';
+import { handlers } from './handlers';
+import { db } from './db';
+import { IArticleType, ICategoryType, ICommentType, IUserType } from './types';
 
 declare global {
   interface Window {
@@ -46,11 +48,186 @@ createCategories();
 createUsers();
 createArticles();
 
+const comments = db.comment.getAll();
+const users = db.user.getAll();
+const categories = db.category.getAll();
+const articles = db.article.getAll();
+
+const getID = (model: 'user' | 'article' | 'comment' | 'category') => {
+  const length = db[model].count();
+
+  const element = db[model].getAll()[Math.floor(Math.random() * length)];
+
+  return element.id;
+};
+
+const updateComments = () => {
+  comments.forEach((comment) => {
+    const author = db.user.findFirst({
+      where: {
+        id: {
+          equals: getID('user'),
+        },
+      },
+    });
+
+    const commentedArticle = db.article.findFirst({
+      where: {
+        id: {
+          equals: getID('article'),
+        },
+      },
+    });
+
+    db.comment.update({
+      where: {
+        id: {
+          equals: comment.id,
+        },
+      },
+      data: {
+        attributes: {
+          author: author as any | IUserType, // eslint-disable-line @typescript-eslint/no-explicit-any
+          article: commentedArticle as any | IArticleType, // eslint-disable-line @typescript-eslint/no-explicit-any
+        },
+      },
+    });
+  });
+};
+
+const updateArticles = () => {
+  articles.forEach((article) => {
+    const articleCategories = [];
+    const articleComments = db.comment.findMany({
+      where: {
+        attributes: {
+          article: {
+            id: {
+              equals: article.id,
+            },
+          },
+        },
+      },
+    });
+
+    for (
+      let i = 0;
+      i < Math.floor(Math.random() * db.category.count());
+      i += 1
+    ) {
+      const randomCategoryID = Math.floor(
+        Math.random() * (db.category.count() + 1),
+      );
+      if (categories[randomCategoryID]) {
+        articleCategories.push(categories[randomCategoryID]);
+      }
+    }
+
+    const author = db.user.findFirst({
+      where: {
+        id: {
+          equals: getID('user'),
+        },
+      },
+    });
+
+    db.article.update({
+      where: {
+        id: {
+          equals: article.id,
+        },
+      },
+      data: {
+        attributes: {
+          author: author as any | IUserType, // eslint-disable-line @typescript-eslint/no-explicit-any
+          categories: articleCategories as any | Array<ICategoryType>, // eslint-disable-line @typescript-eslint/no-explicit-any
+          comments: articleComments || ([] as any | Array<ICommentType>), // eslint-disable-line @typescript-eslint/no-explicit-any
+        },
+      },
+    });
+  });
+};
+
+const updateCategories = () => {
+  db.article.getAll().forEach((article) => {
+    const categoriesList: Array<number> = [];
+
+    if (
+      article.attributes.categories &&
+      article.attributes.categories.length > 0
+    ) {
+      article.attributes.categories.forEach((category) => {
+        categoriesList.push(category.id);
+      });
+    }
+    db.category.updateMany({
+      where: {
+        id: {
+          in: categoriesList,
+        },
+      },
+      data: {
+        attributes: {
+          articles: (prevList) => [...prevList, article],
+        },
+      },
+    });
+  });
+};
+
+const updateUsers = () => {
+  users.forEach((author) => {
+    const articlesList = db.article.findMany({
+      where: {
+        attributes: {
+          author: {
+            id: {
+              equals: author.id,
+            },
+          },
+        },
+      },
+    });
+
+    const commetsList = db.comment.findMany({
+      where: {
+        attributes: {
+          author: {
+            id: {
+              equals: author.id,
+            },
+          },
+        },
+      },
+    });
+
+    db.user.update({
+      where: {
+        id: {
+          equals: author.id,
+        },
+      },
+      data: {
+        articles: articlesList || [],
+        comments: commetsList || [],
+      },
+    });
+  });
+};
+
+updateComments();
+updateArticles();
+updateCategories();
+updateUsers();
+
 window.mocks = {
   createCategories,
   createUsers,
   createComments,
   createArticles,
+  updateComments,
+  updateArticles,
+  updateUsers,
   getUsers: () => db.user.getAll(),
   getArticles: () => db.article.getAll(),
   getComments: () => db.comment.getAll(),

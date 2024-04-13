@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { faker } from '@faker-js/faker';
 import { factory, oneOf, manyOf, primaryKey, nullable } from '@mswjs/data';
+import { IRoleTypes } from './types';
 
 faker.seed(123);
 
-export const roles = [
+export const roles: Array<IRoleTypes> = [
   {
     id: 1,
     name: 'Administrator',
@@ -40,7 +41,8 @@ export const db = factory({
     confirmed: () => faker.datatype.boolean(0.8),
     blocked: () => faker.datatype.boolean(0.15),
     uuid: primaryKey(faker.string.uuid),
-    role: () => roles[faker.number.int({ min: 0, max: roles.length - 1 })],
+    role: () =>
+      roles[faker.number.int({ min: 0, max: roles.length - 1 })] as any, // eslint-disable-line @typescript-eslint/no-explicit-any
     articles: manyOf('article'),
     comments: manyOf('comment'),
     avatar: {
