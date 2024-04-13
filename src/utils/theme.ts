@@ -32,6 +32,8 @@ const theme = {
     orange: '#BC4D13',
     black: '#25363D',
     blue: '#1078A1',
+    brown: '#8d411b',
+    red: '#c91414',
   },
 
   fonts: {
