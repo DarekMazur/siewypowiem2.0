@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import Header from '@/components/Organism/Header/Header';
 import { store } from '@/store';
 import { Provider } from 'react-redux';
+import dynamic from 'next/dynamic';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Molecules/Intro/Intro';
@@ -17,6 +18,10 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   const [runIntro, setRunIntro] = useState(false);
+
+  const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
+    ssr: false,
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -45,6 +50,14 @@ const RootLayout = ({
         <MSWConfig>
           <Provider store={store}>
             <ThemeProvider theme={theme}>
+              <AnimatedCursor
+                color='37,54,61'
+                innerSize={8}
+                outerSize={35}
+                innerScale={1}
+                outerScale={1.6}
+                outerAlpha={0.9}
+              />
               <GlobalStyle />
               <StyledComponentsRegistry>
                 {!runIntro ? <Intro /> : null}
