@@ -9,6 +9,6 @@ export const StyledHeroCategories = styled.p`
 
   img {
     position: relative;
-    bottom: -7px;
+    bottom: -0.7rem;
   }
 `;

@@ -21,7 +21,7 @@ const HeroCategories = ({
         priority
         src={icon}
         alt=''
-        style={{ position: 'relative', bottom: '-7px' }}
+        style={{ position: 'relative', bottom: '-0.7rem' }}
       />{' '}
       {categoriesTitles.join(', ')}
     </StyledHeroCategories>
