@@ -1,9 +1,11 @@
 import {
   Lobster,
   Mulish,
-  Great_Vibes,
+  Mate_SC,
   Bungee_Shade,
   Abril_Fatface,
+  Italianno,
+  Parisienne,
 } from 'next/font/google';
 
 const lobster = Lobster({
@@ -18,7 +20,19 @@ const mulish = Mulish({
   subsets: ['latin'],
 });
 
-const greatVibes = Great_Vibes({
+const parisienne = Parisienne({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+});
+
+const mateSC = Mate_SC({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+});
+
+const italianno = Italianno({
   weight: '400',
   style: 'normal',
   subsets: ['latin'],
@@ -53,7 +67,9 @@ const theme = {
   fonts: {
     main: mulish.style.fontFamily,
     headers: lobster.style.fontFamily,
-    hand: greatVibes.style.fontFamily,
+    alt: mateSC.style.fontFamily,
+    hand: parisienne.style.fontFamily,
+    altHand: italianno.style.fontFamily,
     intro: bungeeShade.style.fontFamily,
     serif: abrilFatface.style.fontFamily,
   },
