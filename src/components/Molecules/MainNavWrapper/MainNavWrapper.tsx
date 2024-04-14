@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import SocialMenu from '../SocialMenu/SocialMenu';
-import MainNavList from './MainNavList/MainNavList';
+import MainNavList from '../NavigationList/NavigationList';
 import { StyledNavigation } from '../Navigatio/Navigatio.styles';
 
 type Ref = HTMLElement;

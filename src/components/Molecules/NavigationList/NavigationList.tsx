@@ -1,5 +1,5 @@
 import MainNavListItem from './MainNavLIstItem/MainNavListItem';
-import { StyledMainNavList } from './MainNavList.styles';
+import { StyledMainNavList } from './NavigationList.styles';
 
 const navList = [
   {
