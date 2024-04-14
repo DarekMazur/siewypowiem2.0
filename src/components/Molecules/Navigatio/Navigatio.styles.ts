@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMainNav = styled.nav`
+export const StyledNavigation = styled.nav`
   position: relative;
   display: flex;
   justify-content: space-between;
