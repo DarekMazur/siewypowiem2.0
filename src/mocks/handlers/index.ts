@@ -25,10 +25,10 @@ export const handlers = [
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const res: any = [];
+    const responseModel: any = { data: [] };
 
     articles.forEach((article) =>
-      res.push({
+      responseModel.data.push({
         id: article.id,
         attributes: {
           uuid: article.attributes.uuid,
@@ -57,10 +57,11 @@ export const handlers = [
     );
 
     if (pageSize) {
-      return HttpResponse.json(res.slice(0, Number(pageSize)));
+      const res = { data: [...responseModel.data.slice(0, Number(pageSize))] };
+      return HttpResponse.json(res);
     }
-    return HttpResponse.json(res);
-    // return HttpResponse.json({ response });
+
+    return HttpResponse.json(responseModel);
   }),
   http.get('/api/categories', () => {
     return HttpResponse.json(db.category.getAll());

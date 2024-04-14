@@ -1,6 +1,10 @@
 import { IArticleType } from '@/mocks/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+interface IArticleResponse {
+  data: Array<IArticleType>;
+}
+
 export const articlesApi = createApi({
   reducerPath: 'articlesApi',
   baseQuery: fetchBaseQuery({
@@ -8,13 +12,13 @@ export const articlesApi = createApi({
   }),
   tagTypes: ['Articles'],
   endpoints: (builder) => ({
-    getArticles: builder.query<IArticleType[], void>({
+    getArticles: builder.query<IArticleResponse, void>({
       query: () => ({
         url: 'articles?populate=*&sort=publishedAt:desc',
       }),
       providesTags: ['Articles'],
     }),
-    getLastArticle: builder.query<IArticleType[], void>({
+    getLastArticle: builder.query<IArticleResponse, void>({
       query: () => ({
         url: 'articles?populate=*&sort=publishedAt:desc&pagination[pageSize]=1',
       }),
