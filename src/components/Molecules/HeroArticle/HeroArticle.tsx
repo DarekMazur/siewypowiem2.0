@@ -14,11 +14,13 @@ const HeroArticle = () => {
       {article ? (
         <StyledHeroArticle>
           <Link href='/'>
-            <HeroTitle title={article[0].attributes.title} />
+            <HeroTitle title={article.data[0].attributes.title} />
             <Handwritting>
-              by {article[0].attributes.author.username}
+              by {article.data[0].attributes.author.username}
             </Handwritting>
-            <ArticleDate date={dateFormat(article[0].attributes.publishedAt)} />
+            <ArticleDate
+              date={dateFormat(article.data[0].attributes.publishedAt)}
+            />
           </Link>
         </StyledHeroArticle>
       ) : (
