@@ -7,6 +7,7 @@ import Header from '@/components/Organism/Header/Header';
 import { store } from '@/store';
 import { Provider } from 'react-redux';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/Organism/Footer/Footer';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Molecules/Intro/Intro';
@@ -67,6 +68,7 @@ const RootLayout = ({
                 {!runIntro ? <Intro /> : null}
                 <Header />
                 {children}
+                <Footer />
               </StyledComponentsRegistry>
             </ThemeProvider>
           </Provider>
