@@ -4,10 +4,12 @@ import GlobalStyle from '@/styles/GlobalStyle';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Header from '@/components/Organism/Header/Header';
+import { store } from '@/store';
+import { Provider } from 'react-redux';
 import StyledComponentsRegistry from '../../lib/registry';
 import theme from '../utils/theme';
 import Intro from '../components/Molecules/Intro/Intro';
-import { MockProvider } from './mockProvider';
+import MSWConfig from './MSWConfig';
 
 const RootLayout = ({
   children,
@@ -40,16 +42,18 @@ const RootLayout = ({
   return (
     <html lang='en'>
       <body>
-        <MockProvider>
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <StyledComponentsRegistry>
-              {!runIntro ? <Intro /> : null}
-              <Header />
-              {children}
-            </StyledComponentsRegistry>
-          </ThemeProvider>
-        </MockProvider>
+        <MSWConfig>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <GlobalStyle />
+              <StyledComponentsRegistry>
+                {!runIntro ? <Intro /> : null}
+                <Header />
+                {children}
+              </StyledComponentsRegistry>
+            </ThemeProvider>
+          </Provider>
+        </MSWConfig>
       </body>
     </html>
   );

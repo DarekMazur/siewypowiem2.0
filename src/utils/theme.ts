@@ -1,4 +1,10 @@
-import { Lobster, Mulish, Great_Vibes, Bungee_Shade } from 'next/font/google';
+import {
+  Lobster,
+  Mulish,
+  Great_Vibes,
+  Bungee_Shade,
+  Abril_Fatface,
+} from 'next/font/google';
 
 const lobster = Lobster({
   weight: '400',
@@ -24,6 +30,12 @@ const bungeeShade = Bungee_Shade({
   subsets: ['latin'],
 });
 
+const abrilFatface = Abril_Fatface({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+});
+
 const theme = {
   colors: {
     white: '#FCFCFF',
@@ -32,6 +44,10 @@ const theme = {
     orange: '#BC4D13',
     black: '#25363D',
     blue: '#1078A1',
+    brown: '#8d411b',
+    red: '#c91414',
+    glassBgr: '#fcfcff08',
+    glassShadow: '#8687955e',
   },
 
   fonts: {
@@ -39,6 +55,7 @@ const theme = {
     headers: lobster.style.fontFamily,
     hand: greatVibes.style.fontFamily,
     intro: bungeeShade.style.fontFamily,
+    serif: abrilFatface.style.fontFamily,
   },
 
   fontSize: {
