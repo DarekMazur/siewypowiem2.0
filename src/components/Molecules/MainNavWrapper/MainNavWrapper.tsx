@@ -5,7 +5,7 @@ import MainNavList from './MainNavList/MainNavList';
 
 type Ref = HTMLElement;
 
-const MainNav = forwardRef<Ref>((_, ref) => {
+const MainNavWrapper = forwardRef<Ref>((_, ref) => {
   return (
     <StyledMainNav ref={ref}>
       <MainNavList />
@@ -14,4 +14,4 @@ const MainNav = forwardRef<Ref>((_, ref) => {
   );
 });
 
-export default MainNav;
+export default MainNavWrapper;
