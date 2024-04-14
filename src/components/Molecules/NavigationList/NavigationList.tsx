@@ -1,5 +1,5 @@
-import MainNavListItem from './MainNavLIstItem/MainNavListItem';
-import { StyledMainNavList } from './NavigationList.styles';
+import NavigationListItem from './NavigationListItem/NavigationListItem';
+import { StyledNavigationList } from './NavigationList.styles';
 
 const navList = [
   {
@@ -16,14 +16,14 @@ const navList = [
   },
 ];
 
-const MainNavList = () => {
+const NavigationList = () => {
   return (
-    <StyledMainNavList>
+    <StyledNavigationList>
       {navList.map((item) => (
-        <MainNavListItem key={item.name} name={item.name} url={item.url} />
+        <NavigationListItem key={item.name} name={item.name} url={item.url} />
       ))}
-    </StyledMainNavList>
+    </StyledNavigationList>
   );
 };
 
-export default MainNavList;
+export default NavigationList;

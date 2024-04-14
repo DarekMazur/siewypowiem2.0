@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface IStyledMainNavListItem {
+interface IStyledNavigationListItem {
   $isCurrent?: boolean;
 }
 
-export const StyledMainNavListItem = styled.li<IStyledMainNavListItem>`
+export const StyledNavigationListItem = styled.li<IStyledNavigationListItem>`
   margin: 0 4rem 0 0;
   padding-bottom: 0.5rem;
   border-bottom: ${({ $isCurrent, theme }) =>

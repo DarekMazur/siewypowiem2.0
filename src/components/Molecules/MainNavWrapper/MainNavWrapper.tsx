@@ -1,14 +1,14 @@
 import { forwardRef } from 'react';
 import SocialMenu from '../SocialMenu/SocialMenu';
-import MainNavList from '../NavigationList/NavigationList';
-import { StyledNavigation } from '../Navigatio/Navigatio.styles';
+import NavigationList from '../NavigationList/NavigationList';
+import { StyledNavigation } from '../Navigation/Navigation.styles';
 
 type Ref = HTMLElement;
 
 const MainNavWrapper = forwardRef<Ref>((_, ref) => {
   return (
     <StyledNavigation ref={ref}>
-      <MainNavList />
+      <NavigationList />
       <SocialMenu />
     </StyledNavigation>
   );
