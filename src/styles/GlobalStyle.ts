@@ -12,16 +12,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 62.5%;
     font-family: ${({ theme }) => theme.fonts.main};
-    background-color: ${({ theme }) => theme.colors.white};
     scroll-behavior: smooth;
   }
-    
+  
   body {
     margin: 0;
     padding: 0;
     color: ${({ theme }) => theme.colors.black};
     font-size: ${({ theme }) => theme.fontSize.m};
     line-height: 2rem;
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   h1, h2, h3, h4, h5, h6 {

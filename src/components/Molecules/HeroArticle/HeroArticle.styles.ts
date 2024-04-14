@@ -9,7 +9,6 @@ export const StyledHeroArticle = styled.div`
   backdrop-filter: blur(0.4rem);
   -webkit-backdrop-filter: blur(0.7rem);
   border-radius: 1rem;
-  cursor: pointer;
 
   a {
     color: unset;
