@@ -2,6 +2,13 @@
 import { http, HttpResponse } from 'msw';
 import { db } from '../db';
 
+const capitalizeeFirstLetter = (string: string) => {
+  const getFirstLetter = string.charAt(0).toUpperCase();
+  const capitalizedString = getFirstLetter + string.slice(1);
+
+  return capitalizedString;
+};
+
 export const handlers = [
   http.get('/api/comments', () => {
     return HttpResponse.json(db.comment.getAll());
@@ -27,7 +34,25 @@ export const handlers = [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const responseModel: any = { data: [] };
 
-    articles.forEach((article) =>
+    articles.forEach((article) => {
+      const categories: Array<{ attributes: { title: string } }> = [];
+
+      if (
+        article.attributes.categories &&
+        article.attributes.categories.length > 0
+      ) {
+        article.attributes.categories.forEach((category) => {
+          const mockCategory = {
+            attributes: {
+              title: capitalizeeFirstLetter(
+                category.attributes.title as string,
+              ),
+            },
+          };
+          categories.push(mockCategory);
+        });
+      }
+
       responseModel.data.push({
         id: article.id,
         attributes: {
@@ -42,6 +67,7 @@ export const handlers = [
           tags: article.attributes.tags,
           body: article.attributes.body,
           cover: article.attributes.cover,
+          categories,
           author: {
             id: article.attributes.author?.id,
             username: article.attributes.author?.username,
@@ -53,8 +79,8 @@ export const handlers = [
             },
           },
         },
-      }),
-    );
+      });
+    });
 
     if (pageSize) {
       const res = { data: [...responseModel.data.slice(0, Number(pageSize))] };
