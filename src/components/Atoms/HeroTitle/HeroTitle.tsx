@@ -4,7 +4,7 @@ import { StyledHeroTitle } from './HeroTitle.styles';
 
 const HeroTitle = ({ title }: { title: string }) => {
   return (
-    <StyledHeroTitle>
+    <StyledHeroTitle role='link'>
       <Highlighted>{highlightText(title)[0]}</Highlighted>{' '}
       {highlightText(title)[1]}
     </StyledHeroTitle>

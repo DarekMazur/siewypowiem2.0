@@ -51,12 +51,16 @@ const RootLayout = ({
           <Provider store={store}>
             <ThemeProvider theme={theme}>
               <AnimatedCursor
-                color='37,54,61'
-                innerSize={8}
-                outerSize={35}
+                color='252,252,255'
+                innerSize={0}
+                outerSize={30}
                 innerScale={1}
-                outerScale={1.6}
-                outerAlpha={0.9}
+                outerScale={2}
+                outerAlpha={0.8}
+                showSystemCursor
+                outerStyle={{
+                  mixBlendMode: 'difference',
+                }}
               />
               <GlobalStyle />
               <StyledComponentsRegistry>
