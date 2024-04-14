@@ -1,27 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
 import { useGetLastArticleQuery } from '@/store';
-import { dateFormat } from '@/utils/dateFormat';
 import { StyledHeroSection } from './HeroSection.styles';
 import Loader from '../Loader/Loader';
-
-const HeroArticle = () => {
-  const { data: article } = useGetLastArticleQuery();
-
-  return (
-    <>
-      {article ? (
-        <>
-          <p>{article[0].attributes.title}</p>
-          <p>by {article[0].attributes.author.username}</p>
-          <p>{dateFormat(article[0].attributes.publishedAt)}</p>
-        </>
-      ) : (
-        <p>Nothing to see...</p>
-      )}
-    </>
-  );
-};
+import HeroArticle from '../HeroArticle/HeroArticle';
 
 interface IHeroProps {
   sectionHeight: number;
