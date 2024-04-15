@@ -6,6 +6,7 @@ import {
   Abril_Fatface,
   Italianno,
   Parisienne,
+  VT323,
 } from 'next/font/google';
 
 const lobster = Lobster({
@@ -50,6 +51,12 @@ const abrilFatface = Abril_Fatface({
   subsets: ['latin'],
 });
 
+const vt323 = VT323({
+  weight: '400',
+  style: 'normal',
+  subsets: ['latin'],
+});
+
 const theme = {
   colors: {
     white: '#FCFCFF',
@@ -72,6 +79,7 @@ const theme = {
     altHand: italianno.style.fontFamily,
     intro: bungeeShade.style.fontFamily,
     serif: abrilFatface.style.fontFamily,
+    mono: vt323.style.fontFamily,
   },
 
   fontSize: {
