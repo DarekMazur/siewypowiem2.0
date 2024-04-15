@@ -1,7 +1,7 @@
 import { createRef, useEffect, useState } from 'react';
 import HeroSection from '../../Molecules/HeroSection/HeroSection';
-import MainNav from '../../Molecules/MainNav/MainNav';
-import TitleWrapper from '../../Molecules/TitleWrapper/TitleWrapper';
+import MainNavWrapper from '../../Molecules/MainNavWrapper/MainNavWrapper';
+import TitleWrapper from '../../Molecules/HeaderTitleWrapper/HeaderTitleWrapper';
 import { StyledHeader } from './Header.styles';
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <TitleWrapper ref={titleRef} />
-      <MainNav ref={navRef} />
+      <MainNavWrapper ref={navRef} />
       <HeroSection sectionHeight={sectionHeight} />
     </StyledHeader>
   );

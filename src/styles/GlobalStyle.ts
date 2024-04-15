@@ -7,9 +7,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fab, fas, far);
 
 const GlobalStyle = createGlobalStyle`
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
 
   html {
-    box-sizing: border-box;
     font-size: 62.5%;
     font-family: ${({ theme }) => theme.fonts.main};
     scroll-behavior: smooth;
