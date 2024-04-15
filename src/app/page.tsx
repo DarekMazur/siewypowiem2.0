@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <main style={{ height: '130vh' }}>
+    <main>
       <p>Lorem ipsum</p>
     </main>
   );
