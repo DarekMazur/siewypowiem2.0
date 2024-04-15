@@ -3,6 +3,8 @@ import { FooterWrapper } from '@/components/Molecules/FooterWrapper/FooterWrappe
 import { StyledNavigation } from '@/components/Molecules/Navigation/Navigation.styles';
 import NavigationList from '@/components/Molecules/NavigationList/NavigationList';
 import SocialMenu from '@/components/Molecules/SocialMenu/SocialMenu';
+import { convertToRoman } from '@/utils/convertToRoman';
+import { getYear } from '@/utils/getYear';
 import theme from '@/utils/theme';
 import Link from 'next/link';
 
@@ -31,9 +33,10 @@ const Footer = () => {
           justifyContent: 'center',
           alignItems: 'center',
           padding: '5rem 0 1rem',
+          fontFamily: theme.fonts.serif,
         }}
       >
-        &copy; 2024
+        Jillian &copy; {convertToRoman(getYear())}
       </div>
       <div
         style={{
