@@ -1,0 +1,53 @@
+/* eslint-disable @next/next/no-img-element */
+import { IArticleType, ICategoryType } from '@/mocks/types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import { StyledArticlesListItem } from './ArticlesListItem.styles';
+
+const ArticlesListItem = ({ article }: { article: IArticleType }) => {
+  const stringityArray = (list: Array<ICategoryType>) => {
+    const stringify: Array<string> = [];
+
+    list.forEach((listItem) => stringify.push(listItem.attributes.title));
+
+    return stringify.join(', ');
+  };
+
+  const spliceParagraph = (paragraph: string) => {
+    const stringToArray = paragraph.split(' ');
+
+    if (stringToArray.length > 20) {
+      return `${stringToArray.slice(0, 25).join(' ')}[...]`;
+    }
+
+    return paragraph;
+  };
+
+  return (
+    <StyledArticlesListItem>
+      <div>
+        <p>{stringityArray(article.attributes.categories)}</p>
+        <div>
+          {article.attributes.likes.toString()}{' '}
+          <FontAwesomeIcon icon={['fas', 'heart']} />
+        </div>
+      </div>
+      <Link href='/'>
+        <h3>{article.attributes.title}</h3>
+      </Link>
+      <img
+        src={article.attributes.cover.data.attributes.url}
+        alt={article.attributes.cover.data.attributes.name}
+        style={{ maxWidth: '400px', padding: '0', margin: '0' }}
+      />
+      <p>
+        {article.attributes.description ||
+          spliceParagraph(article.attributes.body)}
+      </p>
+      <p>by {article.attributes.author.username}</p>
+      <Link href='/'>Read more</Link>
+    </StyledArticlesListItem>
+  );
+};
+
+export default ArticlesListItem;
