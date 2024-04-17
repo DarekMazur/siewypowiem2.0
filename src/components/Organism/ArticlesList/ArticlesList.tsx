@@ -10,7 +10,12 @@ const ArticlesList = ({ articles }: { articles: Array<IArticleType> }) => {
         {articles
           ? articles
               ?.slice(1, 7)
-              .map((article) => <ArticlesListItem article={article} />)
+              .map((article) => (
+                <ArticlesListItem
+                  key={article.attributes.uuid}
+                  article={article}
+                />
+              ))
           : null}
       </StyledArticleList>
       <GoToBlog />
