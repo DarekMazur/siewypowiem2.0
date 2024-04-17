@@ -70,6 +70,7 @@ export interface IUserType {
 }
 
 export interface IInstaType {
+  permalink: string;
   media_url: string;
   media_type: 'IMAGE' | 'CAROUSEL_ALBUM';
   id: number;

@@ -101,6 +101,7 @@ export const db = factory({
   },
 
   instagram: {
+    permalink: () => faker.image.urlLoremFlickr({ category: 'cats' }),
     media_url: () => faker.image.urlLoremFlickr({ category: 'cats' }),
     media_type: () => 'IMAGE',
     id: () => faker.number.int(),

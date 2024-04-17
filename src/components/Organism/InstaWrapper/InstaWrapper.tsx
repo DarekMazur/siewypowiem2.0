@@ -1,21 +1,43 @@
 import { IInstaType } from '@/mocks/types';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import { StyledInstaWrapper } from './InstaWrapper.styles';
 
 const InstaWrapper = ({ instagram }: { instagram: Array<IInstaType> }) => {
+  const getRandom = (images: Array<IInstaType>) => {
+    const randomizeImages: Array<IInstaType> = [];
+    const indexList: Array<number> = [];
+
+    for (let i = 0; indexList.length < 3; i += 1) {
+      const randomIndex = Math.floor(Math.random() * (images.length - 1));
+      if (!indexList.find((index) => index === randomIndex)) {
+        indexList.push(randomIndex);
+        randomizeImages.push(images[randomIndex]);
+      }
+    }
+
+    return randomizeImages;
+  };
+
   return (
-    <section>
-      {instagram.slice(0, 3).map((instaImg) => (
-        <Image
-          key={instaImg.id}
-          src={instaImg.media_url}
-          alt={`Insta photo ${instaImg.id}`}
-          width={250}
-          height={0}
-          loading='lazy'
-          style={{ width: '250px', height: 'auto' }}
-        />
+    <StyledInstaWrapper>
+      <FontAwesomeIcon icon={['fab', 'instagram']} />
+      {getRandom(instagram).map((instaImg) => (
+        <div key={instaImg.id}>
+          <Link href={instaImg.permalink} target='_blank' rel='norefferer'>
+            <Image
+              src={instaImg.media_url}
+              alt={`Insta photo ${instaImg.id}`}
+              // width={400}
+              // height={400}
+              loading='lazy'
+              fill
+            />
+          </Link>
+        </div>
       ))}
-    </section>
+    </StyledInstaWrapper>
   );
 };
 
