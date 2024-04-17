@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Likes from '@/components/Atoms/Likes/Likes';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
+import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
+import { StyledLink } from '@/components/Atoms/Link/Link.styles';
 import { StyledArticlesListItem } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
@@ -31,9 +33,9 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
         <p>{stringityArray(article.attributes.categories)}</p>
         <Likes count={article.attributes.likes} />
       </div>
-      <Link href='/'>
-        <h3>{article.attributes.title}</h3>
-      </Link>
+      <StyledLink href='/' $color='blue'>
+        <ArticleTitle title={article.attributes.title} />
+      </StyledLink>
       <ArticleThumb
         name={article.attributes.cover.data.attributes.name}
         url={article.attributes.cover.data.attributes.url}
