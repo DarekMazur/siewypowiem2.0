@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const ArticleContentWrapper = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const ArticleListItemWrapper = styled.article`
   position: relative;
   overflow: hidden;

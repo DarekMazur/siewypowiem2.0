@@ -6,7 +6,10 @@ import Link from 'next/link';
 import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
 import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
 import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.styles';
-import { ArticleListItemWrapper } from './ArticlesListItem.styles';
+import {
+  ArticleContentWrapper,
+  ArticleListItemWrapper,
+} from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
   const [isOver, setIsOver] = useState(false);
@@ -40,17 +43,23 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
       />
       <div>
         <Link href='/'>
-          <ArticleTitle title={article.attributes.title} />
-          <ArticleShortHeader
-            categories={article.attributes.categories}
-            likes={article.attributes.likes}
-          />
-          <p>
-            {article.attributes.description ||
-              spliceParagraph(article.attributes.body)}
-          </p>
-          <ArticleAuthor>by {article.attributes.author.username}</ArticleAuthor>
-          <ArticleCta call='Read more' isOver={isOver} />
+          <ArticleContentWrapper>
+            <div>
+              <ArticleTitle title={article.attributes.title} />
+              <ArticleShortHeader
+                categories={article.attributes.categories}
+                likes={article.attributes.likes}
+              />
+            </div>
+            <p>
+              {article.attributes.description ||
+                spliceParagraph(article.attributes.body)}
+            </p>
+            <ArticleAuthor>
+              by {article.attributes.author.username}
+            </ArticleAuthor>
+            <ArticleCta call='Read more' isOver={isOver} />
+          </ArticleContentWrapper>
         </Link>
       </div>
     </ArticleListItemWrapper>
