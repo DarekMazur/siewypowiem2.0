@@ -22,11 +22,11 @@ export const StyledLink = styled(Link)<{
   &::after {
     content: '';
     position: absolute;
-    width: 110%;
+    width: calc(100% + 1rem);
     height: 0.2rem;
     background: ${({ $color, theme }) =>
       $color ? theme.colors[$color] : theme.colors.black};
-    left: -5%;
+    left: -0.5rem;
     bottom: -0.3rem;
     transition: transform 200ms ease-in-out;
     transform-origin: 0 0;
