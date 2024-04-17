@@ -3,7 +3,7 @@ import { IArticleType, ICategoryType } from '@/mocks/types';
 import Link from 'next/link';
 import Likes from '@/components/Atoms/Likes/Likes';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
-import Image from 'next/image';
+import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import { StyledArticlesListItem } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
@@ -34,16 +34,9 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
       <Link href='/'>
         <h3>{article.attributes.title}</h3>
       </Link>
-      <Image
-        src={article.attributes.cover.data.attributes.url}
-        alt={article.attributes.cover.data.attributes.name}
-        width={400}
-        height={0}
-        style={{
-          height: 'auto',
-          padding: '0',
-          margin: '0',
-        }}
+      <ArticleThumb
+        name={article.attributes.cover.data.attributes.name}
+        url={article.attributes.cover.data.attributes.url}
       />
       <p>
         {article.attributes.description ||
