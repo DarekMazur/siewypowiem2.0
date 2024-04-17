@@ -1,21 +1,15 @@
-/* eslint-disable @next/next/no-img-element */
-import { IArticleType, ICategoryType } from '@/mocks/types';
-import Likes from '@/components/Atoms/Likes/Likes';
+import { IArticleType } from '@/mocks/types';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
-import { StyledLink } from '@/components/Atoms/Link/Link.styles';
-import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
-import { StyledArticlesListItem } from './ArticlesListItem.styles';
+import { useState } from 'react';
+import Link from 'next/link';
+import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
+import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
+import { ArticleListItemWrapper } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
-  const stringityArray = (list: Array<ICategoryType>) => {
-    const stringify: Array<string> = [];
-
-    list.forEach((listItem) => stringify.push(listItem.attributes.title));
-
-    return stringify.join(', ');
-  };
+  const [isOver, setIsOver] = useState(false);
 
   const spliceParagraph = (paragraph: string) => {
     const stringToArray = paragraph.split(' ');
@@ -27,30 +21,39 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
     return paragraph;
   };
 
+  const handleMouseEnter = () => {
+    setIsOver(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOver(false);
+  };
+
   return (
-    <StyledArticlesListItem>
-      <div>
-        <ArticleCategories
-          categories={stringityArray(article.attributes.categories)}
-        />
-        <Likes count={article.attributes.likes} />
-      </div>
-      <StyledLink href='/' $color='blue'>
-        <ArticleTitle title={article.attributes.title} />
-      </StyledLink>
+    <ArticleListItemWrapper
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <ArticleThumb
         name={article.attributes.cover.data.attributes.name}
         url={article.attributes.cover.data.attributes.url}
       />
-      <p>
-        {article.attributes.description ||
-          spliceParagraph(article.attributes.body)}
-      </p>
-      <Handwritting>by {article.attributes.author.username}</Handwritting>
-      <StyledLink href='/' $color='orange'>
-        Read more
-      </StyledLink>
-    </StyledArticlesListItem>
+      <div>
+        <Link href='/'>
+          <ArticleTitle title={article.attributes.title} />
+          <ArticleShortHeader
+            categories={article.attributes.categories}
+            likes={article.attributes.likes}
+          />
+          <p>
+            {article.attributes.description ||
+              spliceParagraph(article.attributes.body)}
+          </p>
+          <Handwritting>by {article.attributes.author.username}</Handwritting>
+          <ArticleCta call='Read more' isOver={isOver} />
+        </Link>
+      </div>
+    </ArticleListItemWrapper>
   );
 };
 
