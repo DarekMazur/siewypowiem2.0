@@ -7,7 +7,7 @@ interface IThumbProps {
 }
 
 const ArticleThumb: FC<IThumbProps> = ({ name, url }) => {
-  return <StyledArticleThumb src={url} alt={name} width={450} height={0} />;
+  return <StyledArticleThumb src={url} alt={name} fill />;
 };
 
 export default ArticleThumb;

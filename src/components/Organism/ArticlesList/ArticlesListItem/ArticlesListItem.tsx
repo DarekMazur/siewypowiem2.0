@@ -1,11 +1,11 @@
 import { IArticleType } from '@/mocks/types';
-import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
 import { useState } from 'react';
 import Link from 'next/link';
 import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
 import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
+import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.styles';
 import { ArticleListItemWrapper } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
@@ -49,7 +49,7 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
             {article.attributes.description ||
               spliceParagraph(article.attributes.body)}
           </p>
-          <Handwritting>by {article.attributes.author.username}</Handwritting>
+          <ArticleAuthor>by {article.attributes.author.username}</ArticleAuthor>
           <ArticleCta call='Read more' isOver={isOver} />
         </Link>
       </div>

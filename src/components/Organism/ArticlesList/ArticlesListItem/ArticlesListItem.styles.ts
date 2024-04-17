@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const ArticleListItemWrapper = styled.article`
   position: relative;
   overflow: hidden;
+  min-height: 40rem;
+  border-radius: 1rem;
 
   & > div {
-    border: 1px solid red;
+    border: ${({ theme }) => `0.2rem solid ${theme.colors.orange}`};
+    border-radius: 1rem;
     padding: 1rem;
     width: calc(100% - 2rem);
     height: calc(100% - 2rem);
