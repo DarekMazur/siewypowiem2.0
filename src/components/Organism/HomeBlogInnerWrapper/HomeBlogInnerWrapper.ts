@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeBlogInnerWrapper = styled.div`
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
