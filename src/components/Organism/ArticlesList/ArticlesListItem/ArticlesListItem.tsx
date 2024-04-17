@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { IArticleType, ICategoryType } from '@/mocks/types';
-import Link from 'next/link';
 import Likes from '@/components/Atoms/Likes/Likes';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
@@ -45,7 +44,9 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
           spliceParagraph(article.attributes.body)}
       </p>
       <Handwritting>by {article.attributes.author.username}</Handwritting>
-      <Link href='/'>Read more</Link>
+      <StyledLink href='/' $color='orange'>
+        Read more
+      </StyledLink>
     </StyledArticlesListItem>
   );
 };
