@@ -23,11 +23,11 @@ export interface IArticleType {
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
-    isSticky: () => boolean;
+    isSticky: boolean;
     title: string;
     description: string;
-    likes: () => number;
-    tags: () => string;
+    likes: number;
+    tags: string;
     body: string;
     cover: {
       data: {
