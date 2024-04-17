@@ -16,11 +16,30 @@ const navList = [
   },
 ];
 
-const NavigationList = () => {
+const NavigationList = ({
+  color,
+}: {
+  color?:
+    | 'white'
+    | 'grey'
+    | 'transparentGrey'
+    | 'orange'
+    | 'black'
+    | 'blue'
+    | 'brown'
+    | 'red'
+    | 'glassBgr'
+    | 'glassShadow';
+}) => {
   return (
     <StyledNavigationList>
       {navList.map((item) => (
-        <NavigationListItem key={item.name} name={item.name} url={item.url} />
+        <NavigationListItem
+          key={item.name}
+          name={item.name}
+          url={item.url}
+          color={color}
+        />
       ))}
     </StyledNavigationList>
   );

@@ -11,8 +11,8 @@ const FooterMainSection = () => {
         <Title title='Sie Wypowiem' author='Jillian' tag='h2' />
       </div>
       <StyledNavigation $isFooter>
-        <NavigationList />
-        <SocialMenu />
+        <NavigationList color='orange' />
+        <SocialMenu color='orange' />
       </StyledNavigation>
     </StyledFooterMainSection>
   );
