@@ -68,3 +68,11 @@ export interface IUserType {
     url: string;
   };
 }
+
+export interface IInstaType {
+  media_url: string;
+  media_type: 'IMAGE' | 'CAROUSEL_ALBUM';
+  id: number;
+  caption: string;
+  uuid?: string;
+}
