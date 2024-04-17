@@ -1,19 +1,20 @@
 import { IArticleType } from '@/mocks/types';
 import GoToBlog from '@/components/Atoms/GoToBlog/GoToBlog';
+import { usePathname } from 'next/navigation';
 import ArticlesListItem from './ArticlesListItem/ArticlesListItem';
 import { ArticlesWrapper, StyledArticleList } from './ArticlesList.styles';
 
 const ArticlesList = ({ articles }: { articles: Array<IArticleType> }) => {
+  const pathname = usePathname();
+
   return (
     <ArticlesWrapper>
       <StyledArticleList>
         {articles
-          ? articles
-              ?.slice(1, 7)
-              .map((article) => <ArticlesListItem article={article} />)
+          ? articles.map((article) => <ArticlesListItem article={article} />)
           : null}
       </StyledArticleList>
-      <GoToBlog />
+      {pathname === '/' ? <GoToBlog /> : null}
     </ArticlesWrapper>
   );
 };
