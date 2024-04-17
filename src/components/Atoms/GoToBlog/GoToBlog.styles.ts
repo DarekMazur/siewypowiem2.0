@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const StyledBlogLink = styled.div`
+export const StyledBlogLink = styled.button`
+  background-color: transparent;
+  border: none;
   display: flex;
   justify-content: center;
   margin: 3rem 0;
   height: 4rem;
   overflow-y: hidden;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 
   &:hover {
     a {
