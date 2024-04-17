@@ -5,6 +5,7 @@ import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.style
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
 import { StyledLink } from '@/components/Atoms/Link/Link.styles';
+import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import { StyledArticlesListItem } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
@@ -29,7 +30,9 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
   return (
     <StyledArticlesListItem>
       <div>
-        <p>{stringityArray(article.attributes.categories)}</p>
+        <ArticleCategories
+          categories={stringityArray(article.attributes.categories)}
+        />
         <Likes count={article.attributes.likes} />
       </div>
       <StyledLink href='/' $color='blue'>
