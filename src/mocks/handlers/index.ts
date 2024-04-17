@@ -89,6 +89,11 @@ export const handlers = [
 
     return HttpResponse.json(responseModel);
   }),
+
+  http.get('/api/categories', () => {
+    return HttpResponse.json(db.category.getAll());
+  }),
+
   http.get('/api/categories', () => {
     return HttpResponse.json(db.category.getAll());
   }),

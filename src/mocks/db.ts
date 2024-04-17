@@ -99,4 +99,12 @@ export const db = factory({
       articles: manyOf('article'),
     },
   },
+
+  instagram: {
+    media_url: () => faker.image.url(),
+    media_type: () => 'IMAGE',
+    id: () => faker.number.int(),
+    caption: () => faker.lorem.words({ min: 0, max: 14 }),
+    uuid: primaryKey(faker.string.uuid),
+  },
 });

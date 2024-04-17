@@ -11,16 +11,23 @@ const Home = () => {
   const { data: articles, isLoading, error } = useGetArticlesQuery();
 
   return (
-    <BlogWrapper>
-      <section>
-        <h2>Latest on blog</h2>
-        <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
-        <HomeBlogInnerWrapper>
-          {articles ? <ArticlesList articles={articles.data} /> : null}
-          <HomeAbout />
-        </HomeBlogInnerWrapper>
-      </section>
-    </BlogWrapper>
+    <>
+      <BlogWrapper>
+        <section>
+          <h2>Latest on blog</h2>
+          <Loader
+            isLoading={isLoading}
+            isError={!!error}
+            isReady={!!articles}
+          />
+          <HomeBlogInnerWrapper>
+            {articles ? <ArticlesList articles={articles.data} /> : null}
+            <HomeAbout />
+          </HomeBlogInnerWrapper>
+        </section>
+      </BlogWrapper>
+      <section>Lorem insta dolor</section>
+    </>
   );
 };
 
