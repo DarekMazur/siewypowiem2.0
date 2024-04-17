@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
-export const StyledSocialMenu = styled.div`
+export const StyledSocialMenu = styled.div<{
+  $color?:
+    | 'white'
+    | 'grey'
+    | 'transparentGrey'
+    | 'orange'
+    | 'black'
+    | 'blue'
+    | 'brown'
+    | 'red'
+    | 'glassBgr'
+    | 'glassShadow';
+}>`
   display: flex;
   align-items: flex-start;
 
@@ -12,7 +24,8 @@ export const StyledSocialMenu = styled.div`
     font-size: ${({ theme }) => theme.fontSize.l};
 
     a {
-      color: ${({ theme }) => theme.colors.blue};
+      color: ${({ theme, $color }) =>
+        $color ? theme.colors[$color] : theme.colors.blue};
     }
   }
 `;

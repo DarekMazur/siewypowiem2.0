@@ -2,9 +2,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { StyledSocialMenu } from './SocialMenu.styles';
 
-const SocialMenu = () => {
+const SocialMenu = ({
+  color,
+}: {
+  color?:
+    | 'white'
+    | 'grey'
+    | 'transparentGrey'
+    | 'orange'
+    | 'black'
+    | 'blue'
+    | 'brown'
+    | 'red'
+    | 'glassBgr'
+    | 'glassShadow';
+}) => {
   return (
-    <StyledSocialMenu>
+    <StyledSocialMenu $color={color}>
       <span>Follow me </span>
       <ul>
         <li>

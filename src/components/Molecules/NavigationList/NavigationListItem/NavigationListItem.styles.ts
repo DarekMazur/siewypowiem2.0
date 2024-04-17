@@ -2,6 +2,17 @@ import styled from 'styled-components';
 
 interface IStyledNavigationListItem {
   $isCurrent?: boolean;
+  $color?:
+    | 'white'
+    | 'grey'
+    | 'transparentGrey'
+    | 'orange'
+    | 'black'
+    | 'blue'
+    | 'brown'
+    | 'red'
+    | 'glassBgr'
+    | 'glassShadow';
 }
 
 export const StyledNavigationListItem = styled.li<IStyledNavigationListItem>`
@@ -15,7 +26,8 @@ export const StyledNavigationListItem = styled.li<IStyledNavigationListItem>`
     width: 110%;
     transform: ${({ $isCurrent }) =>
       $isCurrent ? `scaleX(1) translateX(-5%)` : `scaleX(0) translateX(-5%)`};
-    background-color: ${({ theme }) => theme.colors.blue};
+    background-color: ${({ theme, $color }) =>
+      $color ? theme.colors[$color] : theme.colors.blue};
     transform-origin: 0 0;
     transition: transform 200ms ease-in-out;
   }
@@ -30,7 +42,8 @@ export const StyledNavigationListItem = styled.li<IStyledNavigationListItem>`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme, $color }) =>
+      $color ? theme.colors[$color] : theme.colors.blue};
     font-weight: 600;
   }
 `;
