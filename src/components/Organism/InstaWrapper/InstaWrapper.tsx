@@ -29,8 +29,6 @@ const InstaWrapper = ({ instagram }: { instagram: Array<IInstaType> }) => {
             <Image
               src={instaImg.media_url}
               alt={`Insta photo ${instaImg.id}`}
-              // width={400}
-              // height={400}
               loading='lazy'
               fill
             />
