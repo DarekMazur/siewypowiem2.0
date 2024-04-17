@@ -1,4 +1,5 @@
 import Avatar from '@/components/Atoms/Avatar/Avatar';
+import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import { data } from '@/utils/data';
 
 const HomeAbout = () => {
@@ -13,7 +14,7 @@ const HomeAbout = () => {
     >
       <h2>About</h2>
       <Avatar username={data.username} image={data.avatar} />
-      <p>{data.username}</p>
+      <Handwritting>{data.username}</Handwritting>
       <p>{data.bio}</p>
     </aside>
   );

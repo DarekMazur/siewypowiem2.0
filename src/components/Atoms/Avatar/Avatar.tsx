@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from 'react';
+import { StyledAvatar } from './Avatar.styles';
 
 interface IAvatarProps {
   username: string;
@@ -8,14 +9,12 @@ interface IAvatarProps {
 
 const Avatar: FC<IAvatarProps> = ({ username, image }) => {
   return (
-    <img
+    <StyledAvatar
       src={image}
       alt={username}
-      style={{
-        width: '150px',
-        borderRadius: '50%',
-        margin: '2rem 0 0',
-      }}
+      width={150}
+      height={150}
+      loading='lazy'
     />
   );
 };

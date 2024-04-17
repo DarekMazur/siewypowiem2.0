@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { IArticleType, ICategoryType } from '@/mocks/types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import Likes from '@/components/Atoms/Likes/Likes';
+import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import { StyledArticlesListItem } from './ArticlesListItem.styles';
 
 const ArticlesListItem = ({ article }: { article: IArticleType }) => {
@@ -27,10 +28,7 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
     <StyledArticlesListItem>
       <div>
         <p>{stringityArray(article.attributes.categories)}</p>
-        <div>
-          {article.attributes.likes.toString()}{' '}
-          <FontAwesomeIcon icon={['fas', 'heart']} />
-        </div>
+        <Likes count={article.attributes.likes} />
       </div>
       <Link href='/'>
         <h3>{article.attributes.title}</h3>
@@ -44,7 +42,7 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
         {article.attributes.description ||
           spliceParagraph(article.attributes.body)}
       </p>
-      <p>by {article.attributes.author.username}</p>
+      <Handwritting>by {article.attributes.author.username}</Handwritting>
       <Link href='/'>Read more</Link>
     </StyledArticlesListItem>
   );
