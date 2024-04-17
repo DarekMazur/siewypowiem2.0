@@ -19,7 +19,9 @@ export const handlers = [
   http.get('/api/articles', async ({ request }) => {
     const url = await new URL(request.url);
 
-    const pageSize = url.searchParams.get('pagination[pageSize]');
+    const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
+    const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
+
     const articles = db.article.getAll();
     articles.sort((a, b) => {
       const dateA = a.attributes.publishedAt
@@ -32,7 +34,17 @@ export const handlers = [
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const responseModel: any = { data: [] };
+    const responseModel: any = {
+      data: [],
+      meta: {
+        pagination: {
+          page: currentPage || 1,
+          pageSize,
+          pageCount: Math.ceil(db.article.count() / pageSize),
+          total: db.article.count(),
+        },
+      },
+    };
 
     articles.forEach((article) => {
       const categories: Array<{ attributes: { title: string } }> = [];
@@ -83,7 +95,15 @@ export const handlers = [
     });
 
     if (pageSize) {
-      const res = { data: [...responseModel.data.slice(0, Number(pageSize))] };
+      const res = {
+        data: [
+          ...responseModel.data.slice(
+            ((currentPage || 1) - 1) * pageSize + (currentPage === 1 ? 0 : 1),
+            (currentPage || 1) * pageSize,
+          ),
+        ],
+        meta: { ...responseModel.meta },
+      };
       return HttpResponse.json(res);
     }
 

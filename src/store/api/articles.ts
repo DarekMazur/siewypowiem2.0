@@ -1,8 +1,9 @@
-import { IArticleType } from '@/mocks/types';
+import { IArticleType, IMetaType } from '@/mocks/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IArticleResponse {
   data: Array<IArticleType>;
+  meta: IMetaType;
 }
 
 export const articlesApi = createApi({

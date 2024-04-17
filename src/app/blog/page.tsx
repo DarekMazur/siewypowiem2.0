@@ -15,7 +15,9 @@ export const Blog = () => {
       }}
     >
       <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
-      {articles ? <ArticlesList articles={articles.data} /> : null}
+      {articles ? (
+        <ArticlesList articles={articles.data} meta={articles.meta} />
+      ) : null}
     </main>
   );
 };
