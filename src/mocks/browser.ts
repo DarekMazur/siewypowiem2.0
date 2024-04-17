@@ -43,10 +43,17 @@ const createUsers = () => {
   }
 };
 
+const createInsta = () => {
+  for (let i = 0; i < faker.number.int({ min: 20, max: 100 }); i += 1) {
+    db.instagram.create({ uuid: faker.string.uuid() });
+  }
+};
+
 createComments();
 createCategories();
 createUsers();
 createArticles();
+createInsta();
 
 const comments = db.comment.getAll();
 const users = db.user.getAll();
@@ -221,6 +228,7 @@ updateCategories();
 updateUsers();
 
 window.mocks = {
+  createInsta,
   createCategories,
   createUsers,
   createComments,
@@ -232,4 +240,5 @@ window.mocks = {
   getArticles: () => db.article.getAll(),
   getComments: () => db.comment.getAll(),
   getCategories: () => db.category.getAll(),
+  getInsta: () => db.instagram.getAll(),
 };

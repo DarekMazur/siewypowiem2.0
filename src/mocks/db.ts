@@ -99,4 +99,13 @@ export const db = factory({
       articles: manyOf('article'),
     },
   },
+
+  instagram: {
+    permalink: () => faker.image.urlLoremFlickr({ category: 'cats' }),
+    media_url: () => faker.image.urlLoremFlickr({ category: 'cats' }),
+    media_type: () => 'IMAGE',
+    id: () => faker.number.int(),
+    caption: () => faker.lorem.words({ min: 0, max: 14 }),
+    uuid: primaryKey(faker.string.uuid),
+  },
 });

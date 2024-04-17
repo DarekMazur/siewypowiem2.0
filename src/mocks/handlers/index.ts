@@ -89,7 +89,17 @@ export const handlers = [
 
     return HttpResponse.json(responseModel);
   }),
+
   http.get('/api/categories', () => {
     return HttpResponse.json(db.category.getAll());
+  }),
+
+  http.get('/api/categories', () => {
+    return HttpResponse.json(db.category.getAll());
+  }),
+
+  http.get('https://graph.instagram.com/6971679376294579/media', () => {
+    const res = db.instagram.getAll();
+    return HttpResponse.json({ data: [...res] });
   }),
 ];
