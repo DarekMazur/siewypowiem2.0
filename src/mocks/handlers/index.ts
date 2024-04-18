@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/no-extraneous-dependencies */
 import { http, HttpResponse } from 'msw';
 import { db } from '../db';
@@ -13,9 +14,98 @@ export const handlers = [
   http.get('/api/comments', () => {
     return HttpResponse.json(db.comment.getAll());
   }),
-  http.get('/api/users', () => {
-    return HttpResponse.json(db.user.getAll());
+
+  http.get('/api/users', async ({ request }) => {
+    const url = await new URL(request.url);
+
+    const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
+    const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
+
+    const users = db.user.getAll();
+    users.sort((a, b) => {
+      const dateA = a.username as string;
+      const dateB = b.username as string;
+
+      if (dateA < dateB) {
+        return -1;
+      }
+
+      if (dateA > dateB) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    const responseModel: any = {
+      data: [],
+      meta: {
+        pagination: {
+          page: currentPage || 1,
+          pageSize,
+          pageCount: Math.ceil(db.user.count() / pageSize),
+          total: db.user.count(),
+        },
+      },
+    };
+
+    users.forEach((user) => {
+      const articles: Array<{ attributes: { title: string } }> = [];
+      const comments: Array<{ id: number }> = [];
+
+      if (user.articles && user.articles.length > 0) {
+        user.articles.forEach((article) => {
+          const mockArticle = {
+            attributes: {
+              title: article.attributes.title as string,
+            },
+          };
+          articles.push(mockArticle);
+        });
+      }
+
+      if (user.comments && user.comments.length > 0) {
+        user.comments.forEach((comment) => {
+          const mockComment = {
+            id: comment.id as number,
+          };
+          comments.push(mockComment);
+        });
+      }
+
+      responseModel.data.push({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        confirmed: user.confirmed,
+        blocked: user.blocked,
+        uuid: user.uuid,
+        role: user.role,
+        articles: [],
+        comments: [],
+        avatar: {
+          name: user.avatar.name,
+          url: user.avatar.url,
+        },
+      });
+    });
+
+    if (pageSize) {
+      const res = {
+        data: [
+          ...responseModel.data.slice(
+            ((currentPage || 1) - 1) * pageSize,
+            (currentPage || 1) * pageSize,
+          ),
+        ],
+        meta: { ...responseModel.meta },
+      };
+      return HttpResponse.json(res);
+    }
+
+    return HttpResponse.json(responseModel);
   }),
+
   http.get('/api/articles', async ({ request }) => {
     const url = await new URL(request.url);
 
@@ -33,7 +123,6 @@ export const handlers = [
       return dateB - dateA;
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const responseModel: any = {
       data: [],
       meta: {
@@ -110,12 +199,82 @@ export const handlers = [
     return HttpResponse.json(responseModel);
   }),
 
-  http.get('/api/categories', () => {
-    return HttpResponse.json(db.category.getAll());
-  }),
+  http.get('/api/categories', async ({ request }) => {
+    const url = await new URL(request.url);
 
-  http.get('/api/categories', () => {
-    return HttpResponse.json(db.category.getAll());
+    const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
+    const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
+
+    const categories = db.category.getAll();
+    categories.sort((a, b) => {
+      const dateA = a.attributes.title as string;
+      const dateB = b.attributes.title as string;
+
+      if (dateA < dateB) {
+        return -1;
+      }
+
+      if (dateA > dateB) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    const responseModel: any = {
+      data: [],
+      meta: {
+        pagination: {
+          page: currentPage || 1,
+          pageSize,
+          pageCount: Math.ceil(db.category.count() / pageSize),
+          total: db.category.count(),
+        },
+      },
+    };
+
+    categories.forEach((category) => {
+      const articles: Array<{ attributes: { title: string } }> = [];
+
+      if (
+        category.attributes.articles &&
+        category.attributes.articles.length > 0
+      ) {
+        category.attributes.articles.forEach((article) => {
+          const mockArticle = {
+            attributes: {
+              title: article.attributes.title as string,
+            },
+          };
+          articles.push(mockArticle);
+        });
+      }
+
+      responseModel.data.push({
+        id: category.id,
+        attributes: {
+          title: category.attributes.title,
+          uuid: category.attributes.uuid,
+          description: category.attributes.description,
+          articles,
+        },
+      });
+    });
+
+    if (pageSize) {
+      const res = {
+        data: [
+          ...responseModel.data.slice(
+            ((currentPage || 1) - 1) * pageSize,
+            (currentPage || 1) * pageSize,
+          ),
+        ],
+        meta: { ...responseModel.meta },
+      };
+      return HttpResponse.json(res);
+    }
+
+    return HttpResponse.json(responseModel);
   }),
 
   http.get('https://graph.instagram.com/6971679376294579/media', () => {
