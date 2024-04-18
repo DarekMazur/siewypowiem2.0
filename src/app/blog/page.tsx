@@ -5,7 +5,11 @@ import ArticlesList from '@/components/Organism/ArticlesList/ArticlesList';
 import { useGetArticlesQuery } from '@/store';
 
 export const Blog = () => {
-  const { data: articles, isLoading, error } = useGetArticlesQuery();
+  const {
+    data: articles,
+    isLoading,
+    error,
+  } = useGetArticlesQuery({ pageSize: 24, page: 1 });
   return (
     <main
       style={{

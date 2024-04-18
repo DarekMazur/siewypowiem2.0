@@ -9,7 +9,11 @@ import { useGetArticlesQuery, useGetInstaQuery } from '@/store';
 import InstaWrapper from '@/components/Organism/InstaWrapper/InstaWrapper';
 
 const Home = () => {
-  const { data: articles, isLoading, error } = useGetArticlesQuery();
+  const {
+    data: articles,
+    isLoading,
+    error,
+  } = useGetArticlesQuery({ pageSize: 7, page: 1 });
   const {
     data: instagram,
     isLoading: isInstaLoading,
@@ -22,9 +26,7 @@ const Home = () => {
         <h2>Latest on blog</h2>
         <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
         <HomeBlogInnerWrapper>
-          {articles ? (
-            <ArticlesList articles={articles.data.slice(1, 7)} />
-          ) : null}
+          {articles ? <ArticlesList articles={articles.data.slice(1)} /> : null}
           <HomeAbout />
         </HomeBlogInnerWrapper>
       </section>

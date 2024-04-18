@@ -15,12 +15,14 @@ const ArticlesList = ({
 
   return (
     <ArticlesWrapper>
-      {console.log(meta)}
       <StyledArticleList>
         {articles
-          ? articles.map((article) => <ArticlesListItem article={article} />)
+          ? articles.map((article) => (
+              <ArticlesListItem article={article} key={article.id} />
+            ))
           : null}
       </StyledArticleList>
+      {console.log(meta)}
       {pathname === '/' ? <GoToBlog /> : null}
     </ArticlesWrapper>
   );

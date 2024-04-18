@@ -22,6 +22,8 @@ export const handlers = [
     const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
     const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
 
+    console.log(pageSize);
+
     const articles = db.article.getAll();
     articles.sort((a, b) => {
       const dateA = a.attributes.publishedAt
@@ -104,6 +106,7 @@ export const handlers = [
         ],
         meta: { ...responseModel.meta },
       };
+      console.log(res);
       return HttpResponse.json(res);
     }
 
