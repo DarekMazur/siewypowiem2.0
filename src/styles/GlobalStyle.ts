@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.black};
     font-size: ${({ theme }) => theme.fontSize.m};
     line-height: 2rem;
-    background-color: ${({ theme }) => theme.colors.grey};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   h1, h2, h3, h4, h5, h6 {
