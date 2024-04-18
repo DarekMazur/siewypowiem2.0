@@ -9,7 +9,7 @@ export const Blog = () => {
     data: articles,
     isLoading,
     error,
-  } = useGetArticlesQuery({ pageSize: 24, page: 1 });
+  } = useGetArticlesQuery({ pageSize: 6, page: 1 });
   return (
     <main
       style={{

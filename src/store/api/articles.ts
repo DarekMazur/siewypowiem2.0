@@ -20,7 +20,7 @@ export const articlesApi = createApi({
   endpoints: (builder) => ({
     getArticles: builder.query<IArticleResponse, IQuery>({
       query: ({ pageSize, page }) => ({
-        url: `articles?populate=*&sort=publishedAt:desc&pagiantion[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
+        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
       }),
       providesTags: ['Articles'],
     }),
