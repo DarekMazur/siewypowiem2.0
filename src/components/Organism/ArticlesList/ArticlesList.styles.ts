@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const ArticlesWrapper = styled.div`
-  width: 115rem;
+  width: 100%;
 `;
 
 export const StyledArticleList = styled.div`
   display: grid;
   gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(55rem, 1fr));
+  width: 100%;
 `;

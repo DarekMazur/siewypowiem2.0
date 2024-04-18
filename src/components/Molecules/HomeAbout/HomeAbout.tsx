@@ -7,9 +7,13 @@ const HomeAbout = () => {
   return (
     <StyledHomeAbout>
       <h2>About</h2>
-      <Avatar username={data.username} image={data.avatar} />
-      <Handwritting>{data.username}</Handwritting>
-      <p>{data.bio}</p>
+      <div>
+        <Avatar username={data.username} image={data.avatar} />
+        <div>
+          <Handwritting>{data.username}</Handwritting>
+          <p>{data.bio}</p>
+        </div>
+      </div>
     </StyledHomeAbout>
   );
 };
