@@ -30,7 +30,7 @@ export const handlers = [
       const dateB = b.attributes.publishedAt
         ? new Date(b.attributes.publishedAt).getTime()
         : 0;
-      return dateA - dateB;
+      return dateB - dateA;
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,29 +1,17 @@
-import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import Likes from '@/components/Atoms/Likes/Likes';
-import { ICategoryType } from '@/mocks/types';
 import { FC } from 'react';
+import ArticleDate from '@/components/Atoms/ArticleDate/ArticleDate';
 import { StyledArticleShortHeader } from './ArticleShortHeader.styles';
 
 interface IArticleShortHeaderProps {
-  categories: Array<ICategoryType>;
   likes: number;
+  date: string;
 }
 
-const ArticleShortHeader: FC<IArticleShortHeaderProps> = ({
-  categories,
-  likes,
-}) => {
-  const stringityArray = (list: Array<ICategoryType>) => {
-    const stringify: Array<string> = [];
-
-    list.forEach((listItem) => stringify.push(listItem.attributes.title));
-
-    return stringify.join(', ');
-  };
-
+const ArticleShortHeader: FC<IArticleShortHeaderProps> = ({ likes, date }) => {
   return (
-    <StyledArticleShortHeader $isSpace={categories.length > 0}>
-      <ArticleCategories categories={stringityArray(categories)} />
+    <StyledArticleShortHeader>
+      <ArticleDate date={date} />
       <Likes count={likes} />
     </StyledArticleShortHeader>
   );

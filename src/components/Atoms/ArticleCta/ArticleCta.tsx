@@ -1,8 +1,8 @@
 import { StyledArticleCta } from './ArticleCta.styles';
 
-const ArticleCta = ({ call, isOver }: { call: string; isOver: boolean }) => {
+const ArticleCta = ({ call }: { call: string }) => {
   return (
-    <StyledArticleCta $isOver={isOver}>
+    <StyledArticleCta>
       <span>{call}</span>
     </StyledArticleCta>
   );

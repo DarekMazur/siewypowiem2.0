@@ -6,7 +6,7 @@ export const ArticlesWrapper = styled.div`
 
 export const StyledArticleList = styled.div`
   display: grid;
-  gap: 2.5rem;
+  gap: 5rem;
   grid-template-columns: repeat(auto-fit, minmax(55rem, 1fr));
   width: 100%;
 `;
