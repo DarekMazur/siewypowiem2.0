@@ -2,21 +2,33 @@ import styled from 'styled-components';
 
 export const ArticleContentWrapper = styled.div<{ $isHidden?: boolean }>`
   display: flex;
-  width: 100%;
+  width: calc(100% - 2rem);
   height: 20rem;
   flex-direction: column;
-  z-index: 1;
+  z-index: 0;
   bottom: 0;
-  left: 0;
+  left: 1rem;
   position: absolute;
-  background-color: white;
   padding: 1rem;
   overflow: hidden;
+  backdrop-filter: blur(0.4rem);
 
   div:first-of-type {
     transition: transform 200ms ease-in-out;
     transform: ${({ $isHidden }) =>
       $isHidden ? 'translateY(-100%)' : 'translateY(0)'};
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20rem;
+    bottom: 0;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.white};
+    z-index: -1;
+    opacity: 0.7;
   }
 `;
 
