@@ -2,6 +2,12 @@ import { ICategoryType, IUserType } from '@/mocks/types';
 import { FC, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useScrollPosition from '@/hooks/useScrollPosition';
+import Checkbox from '@/components/Atoms/Checkbox/Checkbox';
+import {
+  FilterListWrapper,
+  FilterOptions,
+  FilterWrapper,
+} from './Filter.styles';
 
 interface IFilterProps {
   users: Array<IUserType>;
@@ -26,60 +32,38 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   };
 
   return (
-    <aside
-      style={{
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        zIndex: '5',
-        display: 'flex',
-        opacity: isSidebarHidden ? '0' : '1',
-        transition:
-          'transform 200ms 100ms ease-in-out, opacity 200ms ease-in-out',
-        transform: isVisible ? 'translateX(0)' : 'translateX(-20rem)',
-      }}
-    >
-      <div
-        style={{
-          width: '20rem',
-          padding: '6rem 1rem 0',
-          margin: '0',
-          height: '100vh',
-          background: 'white',
-        }}
-      >
+    <FilterWrapper $isSidebarHidden={isSidebarHidden} $isVisible={isVisible}>
+      <FilterOptions>
         <p>Categories:</p>
         {categories ? (
-          <ul style={{ listStyle: 'none', padding: '0' }}>
+          <FilterListWrapper>
             {categories.map((category) => (
               <li key={category.id}>
-                <label htmlFor={category.id.toString()}>
-                  <input
-                    type='checkbox'
-                    name={category.id.toString()}
-                    id={category.id.toString()}
-                  />
-                  {category.attributes.title}
-                </label>
+                <Checkbox
+                  name={category.id.toString()}
+                  id={category.id.toString()}
+                  label={category.attributes.title}
+                />
               </li>
             ))}
-          </ul>
+          </FilterListWrapper>
         ) : null}
         <p>Authors:</p>
         {users ? (
-          <ul style={{ listStyle: 'none', padding: '0' }}>
+          <FilterListWrapper>
             {users.map((user) => (
               <li key={user.uuid}>
-                <label htmlFor={user.uuid}>
-                  <input type='checkbox' name={user.uuid} id={user.uuid} />
-                  {user.username}
-                </label>
+                <Checkbox
+                  name={user.uuid}
+                  id={user.uuid}
+                  label={user.username}
+                />
               </li>
             ))}
-          </ul>
+          </FilterListWrapper>
         ) : null}
         <p>Pinned:</p>
-        <ul style={{ listStyle: 'none', padding: '0' }}>
+        <FilterListWrapper>
           <li>
             <label htmlFor='pinned'>
               <input type='checkbox' name='pinned' id='pinned' />
@@ -92,8 +76,8 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
               No
             </label>
           </li>
-        </ul>
-      </div>
+        </FilterListWrapper>
+      </FilterOptions>
       <FontAwesomeIcon
         icon={['fas', 'filter']}
         style={{
@@ -104,7 +88,7 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
         }}
         onClick={handleFilterClick}
       />
-    </aside>
+    </FilterWrapper>
   );
 };
 
