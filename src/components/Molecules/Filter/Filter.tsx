@@ -19,6 +19,10 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
+  const [filteredCategories, setFilteredCategories] = useState(categories);
+  const [filteredUsers, setFilteredUsers] = useState(users);
+  const [filteredPinned, setFilteredPinned] = useState([]);
+
   useEffect(
     () =>
       scrollPosition > window.innerHeight / 2
@@ -29,6 +33,19 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   const handleFilterClick = () => {
     setIsVisible((prevState) => !prevState);
+  };
+
+  const handleCheck = (e, model) => {
+    if (e.target.checked) {
+      setFilteredCategories((prevState) => [
+        ...prevState,
+        categories.find((category) => category.id === Number(e.target.id)),
+      ]);
+    } else {
+      setFilteredCategories((prevState) =>
+        prevState.filter((prev) => prev.id !== Number(e.target.id)),
+      );
+    }
   };
 
   return (
@@ -43,6 +60,12 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
                   name={category.id.toString()}
                   id={category.id.toString()}
                   label={category.attributes.title}
+                  checked={
+                    !!filteredCategories.find(
+                      (checkedCategory) => checkedCategory.id === category.id,
+                    )
+                  }
+                  handleCheck={(e) => handleCheck(e, 'categories')}
                 />
               </li>
             ))}
