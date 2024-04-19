@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 const Checkbox = ({
   name,
   id,
@@ -9,17 +11,15 @@ const Checkbox = ({
   id: string;
   label: string;
   checked: boolean;
-  handleCheck: () => {};
+  handleCheck: (e: ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
     <label htmlFor={id}>
-      {/* {console.log(checked)}
-      {console.log(id)} */}
       <input
         type='checkbox'
         name={name}
         id={id}
-        onChange={handleCheck}
+        onChange={(e) => handleCheck(e)}
         checked={checked}
       />
       {label}

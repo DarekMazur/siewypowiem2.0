@@ -1,5 +1,5 @@
 import { ICategoryType, IUserType } from '@/mocks/types';
-import { FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useScrollPosition from '@/hooks/useScrollPosition';
 import Checkbox from '@/components/Atoms/Checkbox/Checkbox';
@@ -21,7 +21,10 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   const [filteredCategories, setFilteredCategories] = useState(categories);
   const [filteredUsers, setFilteredUsers] = useState(users);
-  const [filteredPinned, setFilteredPinned] = useState([]);
+  const [filteredIsSticky, setFilteredIsSticky] = useState<Array<string>>([
+    'pinned',
+    'not_pinned',
+  ]);
 
   useEffect(
     () =>
@@ -35,16 +38,52 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
     setIsVisible((prevState) => !prevState);
   };
 
-  const handleCheck = (e, model) => {
+  const handleCheck = (
+    e: ChangeEvent<HTMLInputElement>,
+    model: 'categories' | 'users' | 'isSticky',
+  ) => {
     if (e.target.checked) {
-      setFilteredCategories((prevState) => [
-        ...prevState,
-        categories.find((category) => category.id === Number(e.target.id)),
-      ]);
+      switch (model) {
+        case 'categories':
+          setFilteredCategories((prevState) => [
+            ...prevState,
+            categories.find(
+              (category) => category.id === Number(e.target.id),
+            ) as ICategoryType,
+          ]);
+          break;
+        case 'users':
+          setFilteredUsers((prevState) => [
+            ...prevState,
+            users.find((user) => user.uuid === e.target.id) as IUserType,
+          ]);
+          break;
+        case 'isSticky':
+          setFilteredIsSticky((prevState) => [...prevState, e.target.id]);
+          break;
+        default:
+          break;
+      }
     } else {
-      setFilteredCategories((prevState) =>
-        prevState.filter((prev) => prev.id !== Number(e.target.id)),
-      );
+      switch (model) {
+        case 'categories':
+          setFilteredCategories((prevState) =>
+            prevState.filter((category) => category.id !== Number(e.target.id)),
+          );
+          break;
+        case 'users':
+          setFilteredUsers((prevState) =>
+            prevState.filter((user) => user.uuid !== e.target.id),
+          );
+          break;
+        case 'isSticky':
+          setFilteredIsSticky((prevState) =>
+            prevState.filter((pinned) => pinned !== e.target.id),
+          );
+          break;
+        default:
+          break;
+      }
     }
   };
 
@@ -80,6 +119,12 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
                   name={user.uuid}
                   id={user.uuid}
                   label={user.username}
+                  checked={
+                    !!filteredUsers.find(
+                      (checkedUser) => checkedUser.uuid === user.uuid,
+                    )
+                  }
+                  handleCheck={(e) => handleCheck(e, 'users')}
                 />
               </li>
             ))}
@@ -87,18 +132,22 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
         ) : null}
         <p>Pinned:</p>
         <FilterListWrapper>
-          <li>
-            <label htmlFor='pinned'>
-              <input type='checkbox' name='pinned' id='pinned' />
-              Yes
-            </label>
-          </li>
-          <li>
-            <label htmlFor='not_pinned'>
-              <input type='checkbox' name='not_pinned' id='not_pinned' />
-              No
-            </label>
-          </li>
+          {[
+            { status: 'pinned', label: 'Yes' },
+            { status: 'not_pinned', label: 'No' },
+          ].map((pin) => (
+            <li key={pin.status}>
+              <Checkbox
+                name={pin.status}
+                id={pin.status}
+                label={pin.label}
+                checked={
+                  !!filteredIsSticky.find((checked) => checked === pin.status)
+                }
+                handleCheck={(e) => handleCheck(e, 'isSticky')}
+              />
+            </li>
+          ))}
         </FilterListWrapper>
       </FilterOptions>
       <FontAwesomeIcon
