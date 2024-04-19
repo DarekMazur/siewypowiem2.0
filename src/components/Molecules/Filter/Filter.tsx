@@ -1,8 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ICategoryType, IUserType } from '@/mocks/types';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useScrollPosition from '@/hooks/useScrollPosition';
 import Checkbox from '@/components/Atoms/Checkbox/Checkbox';
+import {
+  modifyCategoriesFilters,
+  modifyPinnedFilters,
+  modifyUsesFilters,
+} from '@/store';
+import { useDispatch } from 'react-redux';
 import {
   FilterListWrapper,
   FilterOptions,
@@ -15,6 +22,7 @@ interface IFilterProps {
 }
 
 const Filter: FC<IFilterProps> = ({ users, categories }) => {
+  const dispatch = useDispatch();
   const scrollPosition = useScrollPosition();
   const [isVisible, setIsVisible] = useState(false);
   const [isSidebarHidden, setIsSidebarHidden] = useState(true);
@@ -25,6 +33,22 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
     'pinned',
     'not_pinned',
   ]);
+
+  useEffect(() => {
+    const categoriesToDisplay: Array<number> = [];
+    filteredCategories.map((category) => categoriesToDisplay.push(category.id));
+    dispatch(modifyCategoriesFilters(categoriesToDisplay));
+  }, [filteredCategories]);
+
+  useEffect(() => {
+    const usersToDisplay: Array<string> = [];
+    filteredUsers.map((user) => usersToDisplay.push(user.uuid));
+    dispatch(modifyUsesFilters(usersToDisplay));
+  }, [filteredUsers]);
+
+  useEffect(() => {
+    dispatch(modifyPinnedFilters([...filteredIsSticky]));
+  }, [filteredIsSticky]);
 
   useEffect(
     () =>
