@@ -17,7 +17,7 @@ TODO hero section with dynamic content depend of path
 TODO blog page sorting
 */
 
-export const Blog = () => {
+export const Page = () => {
   const {
     data: articles,
     isLoading,
@@ -49,4 +49,4 @@ export const Blog = () => {
   );
 };
 
-export default Blog;
+export default Page;
