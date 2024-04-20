@@ -12,9 +12,10 @@ import {
 import { useDispatch } from 'react-redux';
 import {
   FilterListWrapper,
-  FilterOptions,
+  OptionsWrapper,
   FilterWrapper,
 } from './Filter.styles';
+import Sort from '../Sort/Sort';
 
 interface IFilterProps {
   users: Array<IUserType>;
@@ -129,8 +130,9 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   return (
     <FilterWrapper $isSidebarHidden={isSidebarHidden} $isVisible={isVisible}>
-      <div>
-        <FilterOptions>
+      <OptionsWrapper>
+        <div>
+          <p>Filters:</p>
           <p>Categories:</p>
           {categories ? (
             <FilterListWrapper>
@@ -203,17 +205,9 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
               </li>
             ))}
           </FilterListWrapper>
-        </FilterOptions>
-        <div>
-          <label htmlFor='sortValue'>
-            Sort by:
-            <select name='sortValue' id='sortValue'>
-              <option value='title'>Title</option>
-              <option value='publishedAt'>Date</option>
-            </select>
-          </label>
+          <Sort />
         </div>
-      </div>
+      </OptionsWrapper>
       <FontAwesomeIcon
         icon={['fas', 'filter']}
         style={{

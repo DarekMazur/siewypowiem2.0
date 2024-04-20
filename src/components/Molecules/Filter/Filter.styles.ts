@@ -17,7 +17,7 @@ export const FilterWrapper = styled.aside<{
     $isVisible ? 'translateX(0)' : 'translateX(-20rem)'};
 `;
 
-export const FilterOptions = styled.div`
+export const OptionsWrapper = styled.div`
   width: 20rem;
   padding: 6rem 1rem 0;
   margin: 0;
