@@ -136,7 +136,8 @@ export const handlers = [
     };
 
     articles.forEach((article) => {
-      const categories: Array<{ attributes: { title: string } }> = [];
+      const categories: Array<{ attributes: { title: string }; id: number }> =
+        [];
 
       if (
         article.attributes.categories &&
@@ -144,6 +145,7 @@ export const handlers = [
       ) {
         article.attributes.categories.forEach((category) => {
           const mockCategory = {
+            id: category.id,
             attributes: {
               title: capitalizeeFirstLetter(
                 category.attributes.title as string,
@@ -171,6 +173,7 @@ export const handlers = [
           categories,
           author: {
             id: article.attributes.author?.id,
+            uuid: article.attributes.author?.uuid,
             username: article.attributes.author?.username,
             email: article.attributes.author?.email,
             blocked: article.attributes.author?.blocked,

@@ -13,7 +13,7 @@ import {
 ! important features list:
 TODO pinned articles on homepage
 TODO hero section with dynamic content depend of path
-TODO blog page filters
+//TODO blog page filters
 TODO blog page sorting
 */
 

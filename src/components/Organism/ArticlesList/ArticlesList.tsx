@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { getArticles } from '@/utils/getArticles';
 import { useInView } from 'react-intersection-observer';
 import ArticlesLoader from '@/components/Atoms/ArticlesLoader/ArticlesLoader';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store';
 import { ArticlesWrapper, StyledArticleList } from './ArticlesList.styles';
 import ArticlesListItem from './ArticlesListItem/ArticlesListItem';
 
@@ -17,6 +19,16 @@ const ArticlesList = ({
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
+
+  const filtersForCategories = useSelector(
+    (state: RootState) => state.filteredCategories,
+  );
+  const filtersForUsers = useSelector(
+    (state: RootState) => state.filteredUsers,
+  );
+  const filtersForSticky = useSelector(
+    (state: RootState) => state.filteredPinned,
+  );
 
   const [articlesList, setArticlesList] = useState([...articles]);
   const [page, setPage] = useState(
@@ -32,26 +44,75 @@ const ArticlesList = ({
     setPage(page + 1);
   };
 
+  const filterArticles = (articlesToFilter: Array<IArticleType>) => {
+    const toDisplay: Array<IArticleType> = [];
+    const categoriesFiltered: Array<IArticleType> = [];
+    const usersFiltered: Array<IArticleType> = [];
+
+    articlesToFilter.forEach((article) => {
+      if (
+        article.attributes.categories.length === 0 &&
+        filtersForCategories.includes(-1)
+      ) {
+        categoriesFiltered.push(article);
+      }
+    });
+
+    categoriesFiltered.push(
+      ...articlesToFilter.filter((articleWithCategories) =>
+        articleWithCategories.attributes.categories.some((articleCat) =>
+          filtersForCategories.includes(articleCat.id),
+        ),
+      ),
+    );
+
+    usersFiltered.push(
+      ...categoriesFiltered.filter((article) =>
+        filtersForUsers.includes(article.attributes.author.uuid),
+      ),
+    );
+
+    toDisplay.push(
+      ...usersFiltered.filter((article) =>
+        article.attributes.isSticky
+          ? filtersForSticky.includes('pinned')
+          : filtersForSticky.includes('not_pinned'),
+      ),
+    );
+    return toDisplay;
+  };
+
   useEffect(() => {
-    if (inView) {
+    if (
+      inView ||
+      ((document.querySelector('main') as HTMLElement).offsetHeight <
+        window.innerHeight &&
+        articlesList.length < (meta as IMetaType).pagination.total)
+    ) {
       loadMoreArticles();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
+  }, [
+    inView,
+    filtersForCategories,
+    filtersForUsers,
+    filtersForSticky,
+    articlesList,
+  ]);
 
   return (
     <ArticlesWrapper>
       <StyledArticleList>
         {articlesList
-          ? articlesList.map((article) => (
-              <ArticlesListItem article={article} key={article.id} />
+          ? filterArticles(articlesList).map((article) => (
+              <div key={article.id} ref={ref}>
+                <ArticlesListItem article={article} />
+              </div>
             ))
           : null}
       </StyledArticleList>
       {articlesList.length < (meta?.pagination.total || articles.length) ? (
-        <div ref={ref}>
-          <ArticlesLoader />
-        </div>
+        <ArticlesLoader />
       ) : null}
       {pathname === '/' ? <GoToBlog /> : null}
     </ArticlesWrapper>

@@ -27,7 +27,9 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
-  const [filteredCategories, setFilteredCategories] = useState(categories);
+  const [filteredCategories, setFilteredCategories] = useState<
+    Array<ICategoryType | { id: number }>
+  >([...categories, { id: -1 }]);
   const [filteredUsers, setFilteredUsers] = useState(users);
   const [filteredIsSticky, setFilteredIsSticky] = useState<Array<string>>([
     'pinned',
@@ -52,9 +54,11 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   useEffect(
     () =>
-      scrollPosition > window.innerHeight / 2
+      [...document.querySelectorAll('input')].some((input) => !input.checked)
         ? setIsSidebarHidden(false)
-        : setIsSidebarHidden(true),
+        : scrollPosition > window.innerHeight / 2
+          ? setIsSidebarHidden(false)
+          : setIsSidebarHidden(true),
     [scrollPosition],
   );
 
@@ -69,6 +73,10 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
     if (e.target.checked) {
       switch (model) {
         case 'categories':
+          if (e.target.id === 'no_category') {
+            setFilteredCategories((prevState) => [...prevState, { id: -1 }]);
+            break;
+          }
           setFilteredCategories((prevState) => [
             ...prevState,
             categories.find(
@@ -91,6 +99,12 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
     } else {
       switch (model) {
         case 'categories':
+          if (e.target.id === 'no_category') {
+            setFilteredCategories((prevState) =>
+              prevState.filter((category) => category.id !== -1),
+            );
+            break;
+          }
           setFilteredCategories((prevState) =>
             prevState.filter((category) => category.id !== Number(e.target.id)),
           );
@@ -132,6 +146,19 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
                 />
               </li>
             ))}
+            <li>
+              <Checkbox
+                name='no_category'
+                id='no_category'
+                label='No category'
+                checked={
+                  !!filteredCategories.find(
+                    (checkedCategory) => checkedCategory.id === -1,
+                  )
+                }
+                handleCheck={(e) => handleCheck(e, 'categories')}
+              />
+            </li>
           </FilterListWrapper>
         ) : null}
         <p>Authors:</p>
