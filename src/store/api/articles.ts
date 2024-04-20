@@ -1,8 +1,14 @@
-import { IArticleType } from '@/mocks/types';
+import { IArticleType, IMetaType } from '@/mocks/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IArticleResponse {
   data: Array<IArticleType>;
+  meta: IMetaType;
+}
+
+interface IQuery {
+  page?: number;
+  pageSize?: number;
 }
 
 export const articlesApi = createApi({
@@ -12,9 +18,9 @@ export const articlesApi = createApi({
   }),
   tagTypes: ['Articles'],
   endpoints: (builder) => ({
-    getArticles: builder.query<IArticleResponse, void>({
-      query: () => ({
-        url: 'articles?populate=*&sort=publishedAt:desc',
+    getArticles: builder.query<IArticleResponse, IQuery>({
+      query: ({ pageSize, page }) => ({
+        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
       }),
       providesTags: ['Articles'],
     }),

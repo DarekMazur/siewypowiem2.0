@@ -6,7 +6,6 @@ export const StyledHeroArticle = styled.div`
   background-color: ${({ theme }) => theme.colors.glassBgr};
   box-shadow: ${({ theme }) => `0 0.8rem 3.2rem 0 ${theme.colors.glassShadow}`};
   backdrop-filter: blur(0.4rem);
-  -webkit-backdrop-filter: blur(0.7rem);
   border-radius: 1rem;
   box-sizing: content-box;
 

@@ -39,9 +39,9 @@ export const StyledHeroSection = styled.section<IHeroStyleProps>`
     background: transparent;
     background: linear-gradient(
       180deg,
-      rgba(222, 225, 237, 0) 50%,
-      rgba(222, 225, 237, 1) 95%,
-      rgba(222, 225, 237, 1) 100%
+      rgba(252, 252, 255, 0) 50%,
+      rgba(252, 252, 255, 1) 95%,
+      rgba(252, 252, 255, 1) 100%
     );
     z-index: -1;
   }

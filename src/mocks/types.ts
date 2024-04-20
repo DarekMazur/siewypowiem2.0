@@ -77,3 +77,12 @@ export interface IInstaType {
   caption: string;
   uuid?: string;
 }
+
+export interface IMetaType {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+}

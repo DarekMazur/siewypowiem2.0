@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledArticleShortHeader = styled.div<{ $isSpace?: boolean }>`
+export const StyledArticleShortHeader = styled.div`
   display: flex;
-  justify-content: ${({ $isSpace }) =>
-    $isSpace ? 'space-between' : 'flex-end'};
+  justify-content: space-between;
   align-items: center;
 `;
