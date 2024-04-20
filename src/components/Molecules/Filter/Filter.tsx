@@ -54,7 +54,9 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   useEffect(
     () =>
-      [...document.querySelectorAll('input')].some((input) => !input.checked)
+      [
+        ...document.querySelectorAll<HTMLInputElement>('input[type=checkbox]'),
+      ].some((input) => !input.checked)
         ? setIsSidebarHidden(false)
         : scrollPosition > window.innerHeight / 2
           ? setIsSidebarHidden(false)
@@ -127,80 +129,91 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
 
   return (
     <FilterWrapper $isSidebarHidden={isSidebarHidden} $isVisible={isVisible}>
-      <FilterOptions>
-        <p>Categories:</p>
-        {categories ? (
-          <FilterListWrapper>
-            {categories.map((category) => (
-              <li key={category.id}>
+      <div>
+        <FilterOptions>
+          <p>Categories:</p>
+          {categories ? (
+            <FilterListWrapper>
+              {categories.map((category) => (
+                <li key={category.id}>
+                  <Checkbox
+                    name={category.id.toString()}
+                    id={category.id.toString()}
+                    label={category.attributes.title}
+                    checked={
+                      !!filteredCategories.find(
+                        (checkedCategory) => checkedCategory.id === category.id,
+                      )
+                    }
+                    handleCheck={(e) => handleCheck(e, 'categories')}
+                  />
+                </li>
+              ))}
+              <li>
                 <Checkbox
-                  name={category.id.toString()}
-                  id={category.id.toString()}
-                  label={category.attributes.title}
+                  name='no_category'
+                  id='no_category'
+                  label='No category'
                   checked={
                     !!filteredCategories.find(
-                      (checkedCategory) => checkedCategory.id === category.id,
+                      (checkedCategory) => checkedCategory.id === -1,
                     )
                   }
                   handleCheck={(e) => handleCheck(e, 'categories')}
                 />
               </li>
-            ))}
-            <li>
-              <Checkbox
-                name='no_category'
-                id='no_category'
-                label='No category'
-                checked={
-                  !!filteredCategories.find(
-                    (checkedCategory) => checkedCategory.id === -1,
-                  )
-                }
-                handleCheck={(e) => handleCheck(e, 'categories')}
-              />
-            </li>
-          </FilterListWrapper>
-        ) : null}
-        <p>Authors:</p>
-        {users ? (
+            </FilterListWrapper>
+          ) : null}
+          <p>Authors:</p>
+          {users ? (
+            <FilterListWrapper>
+              {users.map((user) => (
+                <li key={user.uuid}>
+                  <Checkbox
+                    name={user.uuid}
+                    id={user.uuid}
+                    label={user.username}
+                    checked={
+                      !!filteredUsers.find(
+                        (checkedUser) => checkedUser.uuid === user.uuid,
+                      )
+                    }
+                    handleCheck={(e) => handleCheck(e, 'users')}
+                  />
+                </li>
+              ))}
+            </FilterListWrapper>
+          ) : null}
+          <p>Pinned:</p>
           <FilterListWrapper>
-            {users.map((user) => (
-              <li key={user.uuid}>
+            {[
+              { status: 'pinned', label: 'Yes' },
+              { status: 'not_pinned', label: 'No' },
+            ].map((pin) => (
+              <li key={pin.status}>
                 <Checkbox
-                  name={user.uuid}
-                  id={user.uuid}
-                  label={user.username}
+                  name={pin.status}
+                  id={pin.status}
+                  label={pin.label}
                   checked={
-                    !!filteredUsers.find(
-                      (checkedUser) => checkedUser.uuid === user.uuid,
-                    )
+                    !!filteredIsSticky.find((checked) => checked === pin.status)
                   }
-                  handleCheck={(e) => handleCheck(e, 'users')}
+                  handleCheck={(e) => handleCheck(e, 'isSticky')}
                 />
               </li>
             ))}
           </FilterListWrapper>
-        ) : null}
-        <p>Pinned:</p>
-        <FilterListWrapper>
-          {[
-            { status: 'pinned', label: 'Yes' },
-            { status: 'not_pinned', label: 'No' },
-          ].map((pin) => (
-            <li key={pin.status}>
-              <Checkbox
-                name={pin.status}
-                id={pin.status}
-                label={pin.label}
-                checked={
-                  !!filteredIsSticky.find((checked) => checked === pin.status)
-                }
-                handleCheck={(e) => handleCheck(e, 'isSticky')}
-              />
-            </li>
-          ))}
-        </FilterListWrapper>
-      </FilterOptions>
+        </FilterOptions>
+        <div>
+          <label htmlFor='sortValue'>
+            Sort by:
+            <select name='sortValue' id='sortValue'>
+              <option value='title'>Title</option>
+              <option value='publishedAt'>Date</option>
+            </select>
+          </label>
+        </div>
+      </div>
       <FontAwesomeIcon
         icon={['fas', 'filter']}
         style={{

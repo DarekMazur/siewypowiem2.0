@@ -26,7 +26,12 @@ const Home = () => {
         <h2>Latest on blog</h2>
         <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
         <HomeBlogInnerWrapper>
-          {articles ? <ArticlesList articles={articles.data.slice(1)} /> : null}
+          {articles ? (
+            <ArticlesList
+              articles={articles.data.slice(1)}
+              meta={articles.meta}
+            />
+          ) : null}
           <HomeAbout />
         </HomeBlogInnerWrapper>
       </section>

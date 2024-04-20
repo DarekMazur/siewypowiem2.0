@@ -15,7 +15,7 @@ const ArticlesList = ({
   meta,
 }: {
   articles: Array<IArticleType>;
-  meta?: IMetaType;
+  meta: IMetaType;
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
@@ -36,10 +36,7 @@ const ArticlesList = ({
   );
 
   const loadMoreArticles = async () => {
-    const apiArticles = await getArticles(
-      page,
-      meta?.pagination.pageSize || 25,
-    );
+    const apiArticles = await getArticles(page, meta.pagination.pageSize || 25);
     setArticlesList([...articlesList, ...apiArticles]);
     setPage(page + 1);
   };
@@ -48,6 +45,10 @@ const ArticlesList = ({
     const toDisplay: Array<IArticleType> = [];
     const categoriesFiltered: Array<IArticleType> = [];
     const usersFiltered: Array<IArticleType> = [];
+
+    if (pathname === '/') {
+      return articlesToFilter;
+    }
 
     articlesToFilter.forEach((article) => {
       if (
@@ -84,10 +85,11 @@ const ArticlesList = ({
 
   useEffect(() => {
     if (
-      inView ||
-      ((document.querySelector('main') as HTMLElement).offsetHeight <
-        window.innerHeight &&
-        articlesList.length < (meta as IMetaType).pagination.total)
+      (inView ||
+        ((document.querySelector('main') as HTMLElement).offsetHeight <
+          window.innerHeight &&
+          articlesList.length < meta.pagination.total)) &&
+      pathname !== '/'
     ) {
       loadMoreArticles();
     }
@@ -111,7 +113,8 @@ const ArticlesList = ({
             ))
           : null}
       </StyledArticleList>
-      {articlesList.length < (meta?.pagination.total || articles.length) ? (
+      {articlesList.length < (meta?.pagination.total || articles.length) &&
+      pathname !== '/' ? (
         <ArticlesLoader />
       ) : null}
       {pathname === '/' ? <GoToBlog /> : null}
