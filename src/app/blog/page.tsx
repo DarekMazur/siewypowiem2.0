@@ -42,6 +42,7 @@ export const Page = () => {
       style={{
         paddingBottom: '3rem',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
       }}
     >
