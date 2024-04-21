@@ -111,16 +111,39 @@ export const handlers = [
 
     const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
     const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
+    const sort = url.searchParams.get('sort');
+
+    const sortValue = sort?.split(':')[0];
+    const sortDirection = sort?.split(':')[1];
 
     const articles = db.article.getAll();
     articles.sort((a, b) => {
-      const dateA = a.attributes.publishedAt
-        ? new Date(a.attributes.publishedAt).getTime()
-        : 0;
-      const dateB = b.attributes.publishedAt
-        ? new Date(b.attributes.publishedAt).getTime()
-        : 0;
-      return dateB - dateA;
+      let sortA: string | number | Date = '';
+      let sortB: string | number | Date = '';
+
+      if (sortValue === 'publishedAt') {
+        sortA = a.attributes.publishedAt
+          ? new Date(a.attributes.publishedAt).getTime()
+          : 0;
+        sortB = b.attributes.publishedAt
+          ? new Date(b.attributes.publishedAt).getTime()
+          : 0;
+      }
+
+      if (sortValue) {
+        sortA = a.attributes.title || 0;
+        sortB = b.attributes.title || 0;
+      }
+
+      if (sortA < sortB) {
+        return sortDirection === 'desc' ? 1 : -1;
+      }
+
+      if (sortA > sortB) {
+        return sortDirection === 'desc' ? -1 : 1;
+      }
+
+      return 0;
     });
 
     const responseModel: any = {

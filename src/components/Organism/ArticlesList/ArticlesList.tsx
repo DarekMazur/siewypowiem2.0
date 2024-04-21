@@ -15,10 +15,12 @@ const ArticlesList = ({
   meta,
 }: {
   articles: Array<IArticleType>;
-  meta?: IMetaType;
+  meta: IMetaType;
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
+  const sortValue = useSelector((state: RootState) => state.sortValue);
+  const sortDirection = useSelector((state: RootState) => state.sortDirection);
 
   const filtersForCategories = useSelector(
     (state: RootState) => state.filteredCategories,
@@ -38,7 +40,9 @@ const ArticlesList = ({
   const loadMoreArticles = async () => {
     const apiArticles = await getArticles(
       page,
-      meta?.pagination.pageSize || 25,
+      meta.pagination.pageSize || 25,
+      sortValue,
+      sortDirection as 'desc' | 'asc',
     );
     setArticlesList([...articlesList, ...apiArticles]);
     setPage(page + 1);
@@ -48,6 +52,10 @@ const ArticlesList = ({
     const toDisplay: Array<IArticleType> = [];
     const categoriesFiltered: Array<IArticleType> = [];
     const usersFiltered: Array<IArticleType> = [];
+
+    if (pathname === '/') {
+      return articlesToFilter;
+    }
 
     articlesToFilter.forEach((article) => {
       if (
@@ -83,11 +91,17 @@ const ArticlesList = ({
   };
 
   useEffect(() => {
+    setPage(2);
+    setArticlesList([...articles]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortDirection, sortValue]);
+
+  useEffect(() => {
     if (
-      inView ||
-      ((document.querySelector('main') as HTMLElement).offsetHeight <
-        window.innerHeight &&
-        articlesList.length < (meta as IMetaType).pagination.total)
+      ((articlesList.length < meta.pagination.total && inView) ||
+        (document.querySelector('main') as HTMLElement).offsetHeight <
+          window.innerHeight) &&
+      pathname !== '/'
     ) {
       loadMoreArticles();
     }
@@ -111,7 +125,8 @@ const ArticlesList = ({
             ))
           : null}
       </StyledArticleList>
-      {articlesList.length < (meta?.pagination.total || articles.length) ? (
+      {articlesList.length < (meta?.pagination.total || articles.length) &&
+      pathname !== '/' ? (
         <ArticlesLoader />
       ) : null}
       {pathname === '/' ? <GoToBlog /> : null}

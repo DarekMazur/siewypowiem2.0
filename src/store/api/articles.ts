@@ -9,6 +9,8 @@ interface IArticleResponse {
 interface IQuery {
   page?: number;
   pageSize?: number;
+  sort?: string;
+  sortDir?: 'asc' | 'desc';
 }
 
 export const articlesApi = createApi({
@@ -19,8 +21,8 @@ export const articlesApi = createApi({
   tagTypes: ['Articles'],
   endpoints: (builder) => ({
     getArticles: builder.query<IArticleResponse, IQuery>({
-      query: ({ pageSize, page }) => ({
-        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
+      query: ({ pageSize, page, sort, sortDir }) => ({
+        url: `articles?populate=*&sort=${sort || 'publishedAt'}:${sortDir || 'desc'}&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
       }),
       providesTags: ['Articles'],
     }),
