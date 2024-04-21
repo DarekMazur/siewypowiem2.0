@@ -43,7 +43,7 @@ const filteredPinnedSlice = createSlice({
 
 const sortValueSlice = createSlice({
   name: 'sortValue',
-  initialState: 'date',
+  initialState: 'publishedAt',
   reducers: {
     setSortValue(_state, action) {
       return action.payload;

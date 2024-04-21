@@ -10,7 +10,7 @@ const Sort = () => {
   const handleSortValue = (
     e: OnChangeValue<{ value: string; label: string }, false>,
   ) => {
-    dispatch(setSortValue(e?.value || 'date'));
+    dispatch(setSortValue(e?.value || 'publishedAt'));
   };
 
   const handleSortDirection = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,10 +21,10 @@ const Sort = () => {
     <form>
       <p>Sort by:</p>
       <Select
-        defaultValue={{ value: 'date', label: 'Date' }}
+        defaultValue={{ value: 'publishedAt', label: 'Date' }}
         name='sortValue'
         options={[
-          { value: 'date', label: 'Date' },
+          { value: 'publishedAt', label: 'Date' },
           { value: 'title', label: 'Title' },
         ]}
         onChange={handleSortValue}

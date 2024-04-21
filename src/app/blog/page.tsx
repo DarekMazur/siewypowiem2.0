@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 TODO pinned articles on homepage
 TODO hero section with dynamic content depend of path
 //TODO blog page filters
-TODO blog page sorting
+//TODO blog page sorting
 */
 
 export const Page = () => {
@@ -35,7 +35,6 @@ export const Page = () => {
   });
 
   const { data: categories } = useGetCategoriesQuery({ pageSize: 25, page: 1 });
-
   const { data: users } = useGetUsersQuery({ pageSize: 25, page: 1 });
 
   return (
@@ -53,7 +52,11 @@ export const Page = () => {
         <Loader isLoading={false} isError isReady={false} />
       )}
       {articles ? (
-        <ArticlesList articles={articles.data} meta={articles.meta} />
+        <ArticlesList
+          articles={articles.data}
+          meta={articles.meta}
+          key={articles.data[0].id}
+        />
       ) : null}
     </main>
   );

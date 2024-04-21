@@ -91,6 +91,12 @@ const ArticlesList = ({
   };
 
   useEffect(() => {
+    setPage(2);
+    setArticlesList([...articles]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortDirection, sortValue]);
+
+  useEffect(() => {
     if (
       ((articlesList.length < meta.pagination.total && inView) ||
         (document.querySelector('main') as HTMLElement).offsetHeight <
