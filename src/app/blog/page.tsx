@@ -4,10 +4,12 @@ import Filter from '@/components/Molecules/Filter/Filter';
 import Loader from '@/components/Molecules/Loader/Loader';
 import ArticlesList from '@/components/Organism/ArticlesList/ArticlesList';
 import {
+  RootState,
   useGetArticlesQuery,
   useGetCategoriesQuery,
   useGetUsersQuery,
 } from '@/store';
+import { useSelector } from 'react-redux';
 
 /*
 ! important features list:
@@ -18,11 +20,19 @@ TODO blog page sorting
 */
 
 export const Page = () => {
+  const sortDirection = useSelector((state: RootState) => state.sortDirection);
+  const sortValue = useSelector((state: RootState) => state.sortValue);
+
   const {
     data: articles,
     isLoading,
     error,
-  } = useGetArticlesQuery({ pageSize: 6, page: 1 });
+  } = useGetArticlesQuery({
+    pageSize: 6,
+    page: 1,
+    sort: sortValue,
+    sortDir: sortDirection as 'asc' | 'desc',
+  });
 
   const { data: categories } = useGetCategoriesQuery({ pageSize: 25, page: 1 });
 

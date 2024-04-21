@@ -19,6 +19,8 @@ const ArticlesList = ({
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
+  const sortValue = useSelector((state: RootState) => state.sortValue);
+  const sortDirection = useSelector((state: RootState) => state.sortDirection);
 
   const filtersForCategories = useSelector(
     (state: RootState) => state.filteredCategories,
@@ -36,7 +38,12 @@ const ArticlesList = ({
   );
 
   const loadMoreArticles = async () => {
-    const apiArticles = await getArticles(page, meta.pagination.pageSize || 25);
+    const apiArticles = await getArticles(
+      page,
+      meta.pagination.pageSize || 25,
+      sortValue,
+      sortDirection as 'desc' | 'asc',
+    );
     setArticlesList([...articlesList, ...apiArticles]);
     setPage(page + 1);
   };
@@ -85,10 +92,9 @@ const ArticlesList = ({
 
   useEffect(() => {
     if (
-      (inView ||
-        ((document.querySelector('main') as HTMLElement).offsetHeight <
-          window.innerHeight &&
-          articlesList.length < meta.pagination.total)) &&
+      ((articlesList.length < meta.pagination.total && inView) ||
+        (document.querySelector('main') as HTMLElement).offsetHeight <
+          window.innerHeight) &&
       pathname !== '/'
     ) {
       loadMoreArticles();

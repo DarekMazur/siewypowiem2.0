@@ -9,6 +9,7 @@ export type RootState = ReturnType<typeof store.getState>;
 const initialFilteredCategories: Array<number> = [];
 const initialFilteredUsers: Array<string> = [];
 const initialFilteredPinned: Array<string> = [];
+const initialSortDiserction: string = 'desc';
 
 const filteredCategoriesSlice = createSlice({
   name: 'filteredCategories',
@@ -40,9 +41,31 @@ const filteredPinnedSlice = createSlice({
   },
 });
 
+const sortValueSlice = createSlice({
+  name: 'sortValue',
+  initialState: 'date',
+  reducers: {
+    setSortValue(_state, action) {
+      return action.payload;
+    },
+  },
+});
+
+const sortDirectionSlice = createSlice({
+  name: 'sortDirection',
+  initialState: initialSortDiserction,
+  reducers: {
+    setSortDirection(_state, action) {
+      return action.payload;
+    },
+  },
+});
+
 export const { modifyCategoriesFilters } = filteredCategoriesSlice.actions;
 export const { modifyUsesFilters } = filteredUsersSlice.actions;
 export const { modifyPinnedFilters } = filteredPinnedSlice.actions;
+export const { setSortValue } = sortValueSlice.actions;
+export const { setSortDirection } = sortDirectionSlice.actions;
 
 export * from './api/articles';
 export * from './api/categories';
@@ -58,6 +81,8 @@ export const store = configureStore({
     filteredCategories: filteredCategoriesSlice.reducer,
     filteredUsers: filteredUsersSlice.reducer,
     filteredPinned: filteredPinnedSlice.reducer,
+    sortValue: sortValueSlice.reducer,
+    sortDirection: sortDirectionSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

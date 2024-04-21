@@ -1,19 +1,20 @@
-import { useState } from 'react';
+import { RootState, setSortDirection, setSortValue } from '@/store';
+import { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Select, { OnChangeValue } from 'react-select';
 
 const Sort = () => {
-  const [sortValue, setSortValue] = useState('date');
-  const [sortDirection, setSortDirection] = useState('desc');
+  const dispatch = useDispatch();
+  const sortDirection = useSelector((state: RootState) => state.sortDirection);
 
   const handleSortValue = (
     e: OnChangeValue<{ value: string; label: string }, false>,
   ) => {
-    console.log(sortValue);
-    setSortValue(e?.value || 'date');
+    dispatch(setSortValue(e?.value || 'date'));
   };
 
-  const handleSortDirection = (e) => {
-    setSortDirection(e.target.value);
+  const handleSortDirection = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSortDirection(e.target.value));
   };
 
   return (
