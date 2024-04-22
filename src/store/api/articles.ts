@@ -41,4 +41,8 @@ export const articlesApi = createApi({
   }),
 });
 
-export const { useGetLastArticleQuery, useGetArticlesQuery } = articlesApi;
+export const {
+  useGetLastArticleQuery,
+  useGetArticlesQuery,
+  useGetStickyArticlesQuery,
+} = articlesApi;

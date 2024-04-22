@@ -90,6 +90,7 @@ const theme = {
     l: '2rem',
     m: '1.6rem',
     s: '1rem',
+    button: '1.8rem',
   },
 };
 
