@@ -14,14 +14,6 @@ import {
 } from '@/store';
 import { useSelector } from 'react-redux';
 
-/*
-! important features list:
-//TODO pinned articles on homepage
-TODO hero section with dynamic content depend of path
-//TODO blog page filters
-//TODO blog page sorting
-*/
-
 export const Page = () => {
   const sortDirection = useSelector((state: RootState) => state.sortDirection);
   const sortValue = useSelector((state: RootState) => state.sortValue);
