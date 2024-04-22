@@ -1,15 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
 import { useGetLastArticleQuery } from '@/store';
+import { usePathname } from 'next/navigation';
 import { StyledHeroSection } from './HeroSection.styles';
 import Loader from '../Loader/Loader';
 import HeroArticle from '../HeroArticle/HeroArticle';
+import HeroSlogan from '../HeroSlogan/HeroSlogan';
 
 interface IHeroProps {
   sectionHeight: number;
 }
 
 const HeroSection: FC<IHeroProps> = ({ sectionHeight }) => {
+  const pathname = usePathname();
+
   const handleClick = () => {
     const headerElement = document.querySelector('header');
     const headerHeight = headerElement ? headerElement.offsetHeight : 0;
@@ -22,7 +26,7 @@ const HeroSection: FC<IHeroProps> = ({ sectionHeight }) => {
   return (
     <StyledHeroSection $sectionHeight={sectionHeight}>
       <Loader isLoading={isLoading} isError={!!error} isReady={!!article} />
-      <HeroArticle />
+      {pathname === '/' ? <HeroArticle /> : <HeroSlogan />}
       <FontAwesomeIcon
         role='button'
         icon={['fas', 'chevron-down']}

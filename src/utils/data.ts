@@ -12,3 +12,10 @@ export const data: IDataTypes = {
   bio: faker.person.bio(),
   avatar: faker.image.avatar(),
 };
+
+export const slogan = {
+  blog: {
+    title: 'Blog',
+    slogan: 'Lorem Ipsum Dolor Sit Amet',
+  },
+};
