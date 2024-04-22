@@ -112,11 +112,17 @@ export const handlers = [
     const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
     const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
     const sort = url.searchParams.get('sort');
+    const filter = url.searchParams.get('filters[isSticky][$eq]');
 
     const sortValue = sort?.split(':')[0];
     const sortDirection = sort?.split(':')[1];
 
-    const articles = db.article.getAll();
+    let articles = db.article.getAll();
+
+    if (filter) {
+      articles = [...articles.filter((article) => article.attributes.isSticky)];
+    }
+
     articles.sort((a, b) => {
       let sortA: string | number | Date = '';
       let sortB: string | number | Date = '';

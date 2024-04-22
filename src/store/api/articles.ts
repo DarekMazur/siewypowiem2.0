@@ -32,7 +32,17 @@ export const articlesApi = createApi({
       }),
       providesTags: ['Articles'],
     }),
+    getStickyArticles: builder.query<IArticleResponse, void>({
+      query: () => ({
+        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=25&filters[isSticky][$eq]=true`,
+      }),
+      providesTags: ['Articles'],
+    }),
   }),
 });
 
-export const { useGetLastArticleQuery, useGetArticlesQuery } = articlesApi;
+export const {
+  useGetLastArticleQuery,
+  useGetArticlesQuery,
+  useGetStickyArticlesQuery,
+} = articlesApi;

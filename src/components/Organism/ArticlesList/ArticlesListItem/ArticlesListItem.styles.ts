@@ -1,6 +1,9 @@
+import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 import styled from 'styled-components';
 
-export const ArticleContentWrapper = styled.div<{ $isHidden?: boolean }>`
+export const ArticleContentWrapper = styled.div<{
+  $isHidden?: boolean;
+}>`
   display: flex;
   width: calc(100% - 2rem);
   height: 20rem;
@@ -43,9 +46,9 @@ export const ArticleDetails = styled.div<{ $isVisible?: boolean }>`
     $isVisible ? 'translateY(-100%)' : 'translateY(0)'};
 `;
 
-export const ArticleListItemWrapper = styled.article`
+export const ArticleListItemWrapper = styled.article<{ $height?: number }>`
   position: relative;
-  min-height: 70rem;
+  min-height: ${({ $height }) => ($height ? `${height}px` : '70rem')};
   overflow: hidden;
 
   a {

@@ -15,7 +15,13 @@ import {
   ArticleListItemWrapper,
 } from './ArticlesListItem.styles';
 
-const ArticlesListItem = ({ article }: { article: IArticleType }) => {
+const ArticlesListItem = ({
+  article,
+  height,
+}: {
+  article: IArticleType;
+  height?: number;
+}) => {
   const [isOver, setIsOver] = useState(false);
 
   const spliceParagraph = (paragraph: string) => {
@@ -40,6 +46,7 @@ const ArticlesListItem = ({ article }: { article: IArticleType }) => {
     <ArticleListItemWrapper
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      $height={height}
     >
       <Link href='/'>
         <ArticleThumb
