@@ -2,7 +2,9 @@ import slugify from 'slugify';
 import { server } from '@/mocks/server';
 import { ICategoryType } from '@/mocks/types';
 
-server.listen();
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  server.listen();
+}
 
 const Category = async ({ params }: { params: { slug: string } }) => {
   async function getData() {
