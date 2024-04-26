@@ -47,7 +47,7 @@ export interface IArticleAttributes {
     };
   };
   categories: { data: Array<ICategoryTypes> };
-  author: IUserAsPopulate;
+  author: { data: IUserAsPopulate };
   comments: { data: Array<ICommentTypes> };
 }
 

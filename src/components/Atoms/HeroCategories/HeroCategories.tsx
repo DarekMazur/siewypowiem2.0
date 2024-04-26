@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import { ICategoryTypes } from '@/utils/types';
 import icon from '../../../assets/icons/logo.svg';
 import { StyledHeroCategories } from './HeroCategories.styles';
-import { ICategoryTypes } from '@/utils/types';
 
 const HeroCategories = ({
   categories,

@@ -8,12 +8,12 @@ import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.st
 import { dateFormat } from '@/utils/dateFormat';
 import { stringityArray } from '@/utils/stringifyArray';
 import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
+import { IArticleTypes } from '@/utils/types';
 import {
   ArticleContentWrapper,
   ArticleDetails,
   ArticleListItemWrapper,
 } from './ArticlesListItem.styles';
-import { IArticleTypes } from '@/utils/types';
 
 const ArticlesListItem = ({
   article,

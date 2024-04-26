@@ -24,7 +24,7 @@ export const articlesApi = createApi({
   endpoints: (builder) => ({
     getArticles: builder.query<IArticleResponse, IQuery>({
       query: ({ pageSize, page, sort, sortDir, categoryUuid, authorUuid }) => ({
-        url: `articles?populate=*&sort=${sort || 'publishedAt'}:${sortDir || 'desc'}&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : ''}${authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`,
+        url: `articles?populate=*&sort=${sort || 'publishedAt'}:${sortDir || 'desc'}&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`,
       }),
       providesTags: ['Articles'],
     }),

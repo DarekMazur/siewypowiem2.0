@@ -3,13 +3,13 @@
 // import { useGetStickyArticlesQuery } from '@/store';
 import Link from 'next/link';
 import 'react-animated-slider/build/horizontal.css';
+import { IArticleTypes } from '@/utils/types';
 import {
   SlideWrapper,
   SliderButton,
   SliderImage,
   StyledSlider,
 } from './Slider.styles';
-import { IArticleTypes } from '@/utils/types';
 
 const CustomSlider = ({
   stickyPosts,

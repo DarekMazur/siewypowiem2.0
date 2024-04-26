@@ -2,7 +2,7 @@ import { ICategoryTypes, IMetaTypes } from '@/utils/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface ICategoryResponse {
-  data: Array<ICategoryTypes>;
+  data: { data: Array<ICategoryTypes> };
   meta: IMetaTypes;
 }
 

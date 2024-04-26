@@ -1,21 +1,27 @@
 import GoToBlog from '@/components/Atoms/GoToBlog/GoToBlog';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { getArticles } from '@/utils/getArticles';
 import { useInView } from 'react-intersection-observer';
 import ArticlesLoader from '@/components/Atoms/ArticlesLoader/ArticlesLoader';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
+import { IArticleTypes, IMetaTypes } from '@/utils/types';
 import { ArticlesWrapper, StyledArticleList } from './ArticlesList.styles';
 import ArticlesListItem from './ArticlesListItem/ArticlesListItem';
-import { IArticleTypes, IMetaTypes } from '@/utils/types';
 
-const ArticlesList = ({
-  articles,
-  meta,
-}: {
+interface IArticlesListProps {
   articles: Array<IArticleTypes>;
   meta: IMetaTypes;
+  categoryUuid?: string;
+  authorUuid?: string;
+}
+
+const ArticlesList: FC<IArticlesListProps> = ({
+  articles,
+  meta,
+  categoryUuid,
+  authorUuid,
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
@@ -43,6 +49,8 @@ const ArticlesList = ({
       meta.pagination.pageSize || 25,
       sortValue,
       sortDirection as 'desc' | 'asc',
+      categoryUuid,
+      authorUuid,
     );
     setArticlesList([...articlesList, ...apiArticles]);
     setPage(page + 1);
@@ -59,7 +67,7 @@ const ArticlesList = ({
 
     articlesToFilter.forEach((article) => {
       if (
-        article.attributes.categories.length === 0 &&
+        article.attributes.categories.data.length === 0 &&
         filtersForCategories.includes(-1)
       ) {
         categoriesFiltered.push(article);
@@ -68,7 +76,7 @@ const ArticlesList = ({
 
     categoriesFiltered.push(
       ...articlesToFilter.filter((articleWithCategories) =>
-        articleWithCategories.attributes.categories.some((articleCat) =>
+        articleWithCategories.attributes.categories.data.some((articleCat) =>
           filtersForCategories.includes(articleCat.id),
         ),
       ),
@@ -76,7 +84,9 @@ const ArticlesList = ({
 
     usersFiltered.push(
       ...categoriesFiltered.filter((article) =>
-        filtersForUsers.includes(article.attributes.author.uuid),
+        filtersForUsers.includes(
+          article.attributes.author.data.attributes.uuid,
+        ),
       ),
     );
 

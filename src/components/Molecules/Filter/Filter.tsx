@@ -9,13 +9,13 @@ import {
   modifyUsesFilters,
 } from '@/store';
 import { useDispatch } from 'react-redux';
+import { ICategoryTypes, IUserTypes } from '@/utils/types';
 import {
   FilterListWrapper,
   OptionsWrapper,
   FilterWrapper,
 } from './Filter.styles';
 import Sort from '../Sort/Sort';
-import { ICategoryTypes, IUserTypes } from '@/utils/types';
 
 interface IFilterProps {
   users: { data: Array<IUserTypes> };
