@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { ICategoryType } from '@/mocks/types';
 import icon from '../../../assets/icons/logo.svg';
 import { StyledHeroCategories } from './HeroCategories.styles';
+import { ICategoryTypes } from '@/utils/types';
 
 const HeroCategories = ({
   categories,
 }: {
-  categories: Array<ICategoryType>;
+  categories: Array<ICategoryTypes>;
 }) => {
   const categoriesTitles: Array<string> = [];
 

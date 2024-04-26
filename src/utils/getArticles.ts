@@ -1,10 +1,10 @@
 'use client';
 
-import { IArticleType, IMetaType } from '@/mocks/types';
+import { IArticleTypes, IMetaTypes } from './types';
 
 interface IArticleResponse {
-  data: Array<IArticleType>;
-  meta: IMetaType;
+  data: Array<IArticleTypes>;
+  meta: IMetaTypes;
 }
 
 export const getArticles = async (

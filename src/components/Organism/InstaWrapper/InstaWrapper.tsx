@@ -1,4 +1,3 @@
-import { IInstaType } from '@/mocks/types';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';

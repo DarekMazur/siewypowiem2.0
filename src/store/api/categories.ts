@@ -1,9 +1,9 @@
-import { ICategoryType, IMetaType } from '@/mocks/types';
+import { ICategoryTypes, IMetaTypes } from '@/utils/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface ICategoryResponse {
-  data: Array<ICategoryType>;
-  meta: IMetaType;
+  data: Array<ICategoryTypes>;
+  meta: IMetaTypes;
 }
 
 interface IQuery {
@@ -14,7 +14,7 @@ interface IQuery {
 export const categoriesApi = createApi({
   reducerPath: 'categoriesApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api/',
+    baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/`,
   }),
   tagTypes: ['Categories'],
   endpoints: (builder) => ({

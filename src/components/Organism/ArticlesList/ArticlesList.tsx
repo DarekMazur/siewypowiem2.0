@@ -1,4 +1,3 @@
-import { IArticleType, IMetaType } from '@/mocks/types';
 import GoToBlog from '@/components/Atoms/GoToBlog/GoToBlog';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -9,13 +8,14 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { ArticlesWrapper, StyledArticleList } from './ArticlesList.styles';
 import ArticlesListItem from './ArticlesListItem/ArticlesListItem';
+import { IArticleTypes, IMetaTypes } from '@/utils/types';
 
 const ArticlesList = ({
   articles,
   meta,
 }: {
-  articles: Array<IArticleType>;
-  meta: IMetaType;
+  articles: Array<IArticleTypes>;
+  meta: IMetaTypes;
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView();
@@ -48,10 +48,10 @@ const ArticlesList = ({
     setPage(page + 1);
   };
 
-  const filterArticles = (articlesToFilter: Array<IArticleType>) => {
-    const toDisplay: Array<IArticleType> = [];
-    const categoriesFiltered: Array<IArticleType> = [];
-    const usersFiltered: Array<IArticleType> = [];
+  const filterArticles = (articlesToFilter: Array<IArticleTypes>) => {
+    const toDisplay: Array<IArticleTypes> = [];
+    const categoriesFiltered: Array<IArticleTypes> = [];
+    const usersFiltered: Array<IArticleTypes> = [];
 
     if (pathname === '/') {
       return articlesToFilter;

@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ICategoryType, IUserType } from '@/mocks/types';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useScrollPosition from '@/hooks/useScrollPosition';
@@ -16,10 +15,11 @@ import {
   FilterWrapper,
 } from './Filter.styles';
 import Sort from '../Sort/Sort';
+import { ICategoryTypes, IUserTypes } from '@/utils/types';
 
 interface IFilterProps {
-  users: Array<IUserType>;
-  categories: Array<ICategoryType>;
+  users: { data: Array<IUserTypes> };
+  categories: { data: Array<ICategoryTypes> };
 }
 
 const Filter: FC<IFilterProps> = ({ users, categories }) => {
@@ -29,7 +29,7 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
   const [filteredCategories, setFilteredCategories] = useState<
-    Array<ICategoryType | { id: number }>
+    Array<ICategoryTypes | { id: number }>
   >([...categories, { id: -1 }]);
   const [filteredUsers, setFilteredUsers] = useState(users);
   const [filteredIsSticky, setFilteredIsSticky] = useState<Array<string>>([
@@ -84,13 +84,13 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
             ...prevState,
             categories.find(
               (category) => category.id === Number(e.target.id),
-            ) as ICategoryType,
+            ) as ICategoryTypes,
           ]);
           break;
         case 'users':
           setFilteredUsers((prevState) => [
             ...prevState,
-            users.find((user) => user.uuid === e.target.id) as IUserType,
+            users.find((user) => user.uuid === e.target.id) as IUserTypes,
           ]);
           break;
         case 'isSticky':

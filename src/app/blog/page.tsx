@@ -54,7 +54,7 @@ export const Page = () => {
           {stickyPosts && stickyPosts.data.length > 0 ? (
             <div>
               <SectionTitle>Hey, check this out!</SectionTitle>
-              <CustomSlider />
+              <CustomSlider stickyPosts={stickyPosts.data} />
             </div>
           ) : null}
           <ArticlesList

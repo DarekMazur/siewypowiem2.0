@@ -1,9 +1,9 @@
-import { IMetaType, IUserType } from '@/mocks/types';
+import { IMetaTypes, IUserTypes } from '@/utils/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IUserResponse {
-  data: Array<IUserType>;
-  meta: IMetaType;
+  data: Array<IUserTypes>;
+  meta: IMetaTypes;
 }
 
 interface IQuery {
@@ -14,7 +14,7 @@ interface IQuery {
 export const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api/',
+    baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/`,
   }),
   tagTypes: ['Users'],
   endpoints: (builder) => ({

@@ -1,4 +1,3 @@
-import { IArticleType } from '@/mocks/types';
 import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
 import { useState } from 'react';
@@ -14,12 +13,13 @@ import {
   ArticleDetails,
   ArticleListItemWrapper,
 } from './ArticlesListItem.styles';
+import { IArticleTypes } from '@/utils/types';
 
 const ArticlesListItem = ({
   article,
   height,
 }: {
-  article: IArticleType;
+  article: IArticleTypes;
   height?: number;
 }) => {
   const [isOver, setIsOver] = useState(false);
@@ -61,7 +61,7 @@ const ArticlesListItem = ({
               date={dateFormat(article.attributes.publishedAt)}
             />
             <ArticleCategories
-              categories={stringityArray(article.attributes.categories)}
+              categories={stringityArray(article.attributes.categories.data)}
             />
           </div>
           <ArticleDetails $isVisible={isOver}>
@@ -70,7 +70,7 @@ const ArticlesListItem = ({
                 spliceParagraph(article.attributes.body)}
             </p>
             <ArticleAuthor>
-              by {article.attributes.author.username}
+              by {article.attributes.author.data.attributes.username}
             </ArticleAuthor>
             <ArticleCta call='Read more' />
           </ArticleDetails>
