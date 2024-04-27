@@ -45,7 +45,9 @@ export const Page = () => {
     >
       <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
       {users && categories ? (
-        <Filter users={users.data} categories={categories.data} />
+        <>
+          <Filter users={users} categories={categories.data} />
+        </>
       ) : (
         <Loader isLoading={false} isError isReady={false} />
       )}

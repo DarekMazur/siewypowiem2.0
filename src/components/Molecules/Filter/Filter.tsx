@@ -44,9 +44,11 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   }, [filteredCategories]);
 
   useEffect(() => {
-    const usersToDisplay: Array<string> = [];
-    filteredUsers.map((user) => usersToDisplay.push(user.uuid));
-    dispatch(modifyUsesFilters(usersToDisplay));
+    if (filteredUsers) {
+      const usersToDisplay: Array<string> = [];
+      filteredUsers.map((user) => usersToDisplay.push(user.uuid));
+      dispatch(modifyUsesFilters(usersToDisplay));
+    }
   }, [filteredUsers]);
 
   useEffect(() => {

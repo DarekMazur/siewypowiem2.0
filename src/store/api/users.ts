@@ -1,10 +1,5 @@
-import { IMetaTypes, IUserTypes } from '@/utils/types';
+import { IUserTypes } from '@/utils/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-interface IUserResponse {
-  data: Array<IUserTypes>;
-  meta: IMetaTypes;
-}
 
 interface IQuery {
   page?: number;
@@ -18,9 +13,9 @@ export const usersApi = createApi({
   }),
   tagTypes: ['Users'],
   endpoints: (builder) => ({
-    getUsers: builder.query<IUserResponse, IQuery>({
-      query: ({ pageSize, page }) => ({
-        url: `users?populate=*&sort=username:desc&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
+    getUsers: builder.query<Array<IUserTypes>, IQuery>({
+      query: () => ({
+        url: `users?populate=*&sort=username:desc`,
       }),
       providesTags: ['Users'],
     }),
