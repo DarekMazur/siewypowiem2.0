@@ -1,6 +1,6 @@
-import { ICategoryType } from '@/mocks/types';
+import { ICategoryTypes } from './types';
 
-export const stringityArray = (list: Array<ICategoryType>) => {
+export const stringityArray = (list: Array<ICategoryTypes>) => {
   const stringify: Array<string> = [];
 
   list.forEach((listItem) => stringify.push(listItem.attributes.title));

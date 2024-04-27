@@ -1,8 +1,8 @@
 'use client';
 
-import { useGetStickyArticlesQuery } from '@/store';
 import Link from 'next/link';
 import 'react-animated-slider/build/horizontal.css';
+import { IArticleTypes } from '@/utils/types';
 import {
   SlideWrapper,
   SliderButton,
@@ -10,14 +10,16 @@ import {
   StyledSlider,
 } from './Slider.styles';
 
-const CustomSlider = () => {
-  const { data: stickyPosts } = useGetStickyArticlesQuery();
-
+const CustomSlider = ({
+  stickyPosts,
+}: {
+  stickyPosts: Array<IArticleTypes>;
+}) => {
   return (
     <>
       {stickyPosts ? (
         <StyledSlider autoplay={3000}>
-          {stickyPosts?.data.map((article) => (
+          {stickyPosts?.map((article) => (
             <div key={article.id}>
               <SliderImage
                 src={article.attributes.cover.data.attributes.url}

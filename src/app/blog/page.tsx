@@ -29,7 +29,7 @@ export const Page = () => {
     sortDir: sortDirection as 'asc' | 'desc',
   });
 
-  const { data: stickyPosts } = useGetStickyArticlesQuery();
+  const { data: stickyPosts } = useGetStickyArticlesQuery({});
   const { data: categories } = useGetCategoriesQuery({ pageSize: 25, page: 1 });
   const { data: users } = useGetUsersQuery({ pageSize: 25, page: 1 });
 
@@ -45,7 +45,9 @@ export const Page = () => {
     >
       <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
       {users && categories ? (
-        <Filter users={users.data} categories={categories.data} />
+        <>
+          <Filter users={users} categories={categories.data} />
+        </>
       ) : (
         <Loader isLoading={false} isError isReady={false} />
       )}
@@ -54,7 +56,7 @@ export const Page = () => {
           {stickyPosts && stickyPosts.data.length > 0 ? (
             <div>
               <SectionTitle>Hey, check this out!</SectionTitle>
-              <CustomSlider />
+              <CustomSlider stickyPosts={stickyPosts.data} />
             </div>
           ) : null}
           <ArticlesList

@@ -8,6 +8,10 @@ import { IArticleType, ICategoryType, ICommentType, IUserType } from './types';
 
 export const server = setupServer(...handlers);
 
+server.events.on('request:start', ({ request }) => {
+  console.log('MSW intercepted:', request.method, request.url);
+});
+
 let counter = 5;
 
 const createCategories = () => {

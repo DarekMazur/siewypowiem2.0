@@ -1,12 +1,12 @@
-import { IInstaType } from '@/mocks/types';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { IInstaTypes } from '@/utils/types';
 import { StyledInstaWrapper } from './InstaWrapper.styles';
 
-const InstaWrapper = ({ instagram }: { instagram: Array<IInstaType> }) => {
-  const getRandom = (images: Array<IInstaType>) => {
-    const randomizeImages: Array<IInstaType> = [];
+const InstaWrapper = ({ instagram }: { instagram: Array<IInstaTypes> }) => {
+  const getRandom = (images: Array<IInstaTypes>) => {
+    const randomizeImages: Array<IInstaTypes> = [];
     const indexList: Array<number> = [];
 
     for (let i = 0; indexList.length < 3; i += 1) {

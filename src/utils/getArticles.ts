@@ -1,10 +1,10 @@
 'use client';
 
-import { IArticleType, IMetaType } from '@/mocks/types';
+import { IArticleTypes, IMetaTypes } from './types';
 
 interface IArticleResponse {
-  data: Array<IArticleType>;
-  meta: IMetaType;
+  data: Array<IArticleTypes>;
+  meta: IMetaTypes;
 }
 
 export const getArticles = async (
@@ -12,9 +12,11 @@ export const getArticles = async (
   pageSize: number,
   sort: string,
   sortDir: 'asc' | 'desc',
+  categoryUuid?: string,
+  authorUuid?: string,
 ) => {
   try {
-    const url = `http://localhost:3000/api/articles?populate=*&sort=${sort}:${sortDir}&pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*&sort=${sort}:${sortDir}&pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`;
     const response = await fetch(url);
     const data = (await response.json()) as IArticleResponse;
     return data.data;

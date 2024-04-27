@@ -6,6 +6,8 @@ const nextConfig = {
       'cloudflare-ipfs.com',
       'loremflickr.com',
       'picsum.photos',
+      'scontent-waw2-2.cdninstagram.com',
+      'res.cloudinary.com',
     ],
   },
 };

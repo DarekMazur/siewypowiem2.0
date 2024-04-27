@@ -17,11 +17,11 @@ const HeroArticle = () => {
           <Link href='/'>
             <HeroTitle title={article.data[0].attributes.title} />
             <Handwritting>
-              by {article.data[0].attributes.author.username}
+              by {article.data[0].attributes.author.data.attributes.username}
             </Handwritting>
-            {article.data[0].attributes.categories.length > 0 ? (
+            {article.data[0].attributes.categories.data.length > 0 ? (
               <HeroCategories
-                categories={article.data[0].attributes.categories}
+                categories={article.data[0].attributes.categories.data}
               />
             ) : null}
             <ArticleDate

@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ICategoryType, IUserType } from '@/mocks/types';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useScrollPosition from '@/hooks/useScrollPosition';
@@ -10,6 +9,7 @@ import {
   modifyUsesFilters,
 } from '@/store';
 import { useDispatch } from 'react-redux';
+import { ICategoryTypes, IUserTypes } from '@/utils/types';
 import {
   FilterListWrapper,
   OptionsWrapper,
@@ -18,8 +18,8 @@ import {
 import Sort from '../Sort/Sort';
 
 interface IFilterProps {
-  users: Array<IUserType>;
-  categories: Array<ICategoryType>;
+  users: Array<IUserTypes>;
+  categories: Array<ICategoryTypes>;
 }
 
 const Filter: FC<IFilterProps> = ({ users, categories }) => {
@@ -29,7 +29,7 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState(true);
 
   const [filteredCategories, setFilteredCategories] = useState<
-    Array<ICategoryType | { id: number }>
+    Array<ICategoryTypes | { id: number }>
   >([...categories, { id: -1 }]);
   const [filteredUsers, setFilteredUsers] = useState(users);
   const [filteredIsSticky, setFilteredIsSticky] = useState<Array<string>>([
@@ -44,9 +44,11 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
   }, [filteredCategories]);
 
   useEffect(() => {
-    const usersToDisplay: Array<string> = [];
-    filteredUsers.map((user) => usersToDisplay.push(user.uuid));
-    dispatch(modifyUsesFilters(usersToDisplay));
+    if (filteredUsers) {
+      const usersToDisplay: Array<string> = [];
+      filteredUsers.map((user) => usersToDisplay.push(user.uuid));
+      dispatch(modifyUsesFilters(usersToDisplay));
+    }
   }, [filteredUsers]);
 
   useEffect(() => {
@@ -84,13 +86,13 @@ const Filter: FC<IFilterProps> = ({ users, categories }) => {
             ...prevState,
             categories.find(
               (category) => category.id === Number(e.target.id),
-            ) as ICategoryType,
+            ) as ICategoryTypes,
           ]);
           break;
         case 'users':
           setFilteredUsers((prevState) => [
             ...prevState,
-            users.find((user) => user.uuid === e.target.id) as IUserType,
+            users.find((user) => user.uuid === e.target.id) as IUserTypes,
           ]);
           break;
         case 'isSticky':

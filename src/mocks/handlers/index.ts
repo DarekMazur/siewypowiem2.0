@@ -234,6 +234,8 @@ export const handlers = [
   http.get('/api/categories', async ({ request }) => {
     const url = await new URL(request.url);
 
+    console.log('load!');
+
     const pageSize = Number(url.searchParams.get('pagination[pageSize]')) || 25;
     const currentPage = Number(url.searchParams.get('pagination[page]')) || 1;
 
