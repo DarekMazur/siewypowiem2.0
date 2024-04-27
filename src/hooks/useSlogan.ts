@@ -14,17 +14,17 @@ export const useSlogan = (data?: ICategoryTypes | IUserTypes) => {
   const dynamicSlogan = {
     title: '',
     slogan:
-      data && data.attributes && dynamic[0] === 'categories'
-        ? data.attributes.description
+      data && (data as ICategoryTypes).attributes && dynamic[0] === 'categories'
+        ? (data as ICategoryTypes).attributes.description
         : '',
   };
 
   switch (dynamic[0]) {
     case 'categories':
-      dynamicSlogan.title = `Category ${(data && data.attributes && data.attributes.title) || ''}`;
+      dynamicSlogan.title = `Category ${(data && (data as ICategoryTypes).attributes && (data as ICategoryTypes).attributes.title) || ''}`;
       return dynamicSlogan;
     case 'authors':
-      dynamicSlogan.title = `About ${(data && data.username) || ''}`;
+      dynamicSlogan.title = `About ${(data && (data as IUserTypes).username) || ''}`;
       return dynamicSlogan;
     default:
       break;

@@ -18,8 +18,8 @@ import {
 import Sort from '../Sort/Sort';
 
 interface IFilterProps {
-  users: { data: Array<IUserTypes> };
-  categories: { data: Array<ICategoryTypes> };
+  users: Array<IUserTypes>;
+  categories: Array<ICategoryTypes>;
 }
 
 const Filter: FC<IFilterProps> = ({ users, categories }) => {
