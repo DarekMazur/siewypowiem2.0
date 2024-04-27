@@ -24,7 +24,7 @@ const HeroSlogan = () => {
     };
   } else if (pathname.includes('authors') && users) {
     sloganData = {
-      ...users.data.filter(
+      ...users.filter(
         (user) =>
           slugify(user.username, { lower: true }) ===
           pathname.split('/').slice(1)[1],

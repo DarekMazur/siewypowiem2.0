@@ -15,6 +15,11 @@ interface IQuery {
   authorUuid?: string;
 }
 
+interface IStickyQuery {
+  categoryUuid?: string;
+  authorUuid?: string;
+}
+
 export const articlesApi = createApi({
   reducerPath: 'articlesApi',
   baseQuery: fetchBaseQuery({
@@ -34,9 +39,9 @@ export const articlesApi = createApi({
       }),
       providesTags: ['Articles'],
     }),
-    getStickyArticles: builder.query<IArticleResponse, void>({
-      query: () => ({
-        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=25&filters[isSticky][$eq]=true`,
+    getStickyArticles: builder.query<IArticleResponse, IStickyQuery>({
+      query: ({ categoryUuid, authorUuid }) => ({
+        url: `articles?populate=*&sort=publishedAt:desc&pagination[page]=1&pagination[pageSize]=25&filters[isSticky][$eq]=true${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`,
       }),
       providesTags: ['Articles'],
     }),

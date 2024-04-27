@@ -1,6 +1,5 @@
 'use client';
 
-// import { useGetStickyArticlesQuery } from '@/store';
 import Link from 'next/link';
 import 'react-animated-slider/build/horizontal.css';
 import { IArticleTypes } from '@/utils/types';
@@ -16,8 +15,6 @@ const CustomSlider = ({
 }: {
   stickyPosts: Array<IArticleTypes>;
 }) => {
-  // const { data: stickyPosts } = useGetStickyArticlesQuery();
-
   return (
     <>
       {stickyPosts ? (

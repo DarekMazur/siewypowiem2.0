@@ -29,7 +29,7 @@ export const Page = () => {
     sortDir: sortDirection as 'asc' | 'desc',
   });
 
-  const { data: stickyPosts } = useGetStickyArticlesQuery();
+  const { data: stickyPosts } = useGetStickyArticlesQuery({});
   const { data: categories } = useGetCategoriesQuery({ pageSize: 25, page: 1 });
   const { data: users } = useGetUsersQuery({ pageSize: 25, page: 1 });
 
