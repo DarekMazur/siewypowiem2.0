@@ -4,7 +4,7 @@ import { StyledBlogLink } from './GoToBlog.styles';
 const GoToBlog = () => {
   return (
     <StyledBlogLink>
-      <Link href='/'>
+      <Link href='/blog'>
         <span>Check for more</span>
         <span>Go to blog!</span>
       </Link>

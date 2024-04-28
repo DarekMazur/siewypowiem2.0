@@ -1,20 +1,32 @@
 'use client';
 
 import {
+  RootState,
   useGetArticlesQuery,
   useGetCategoriesQuery,
   useGetStickyArticlesQuery,
   useGetUsersQuery,
 } from '@/store';
-import Filter from '../Molecules/Filter/Filter';
-import ArticlesList from '../Organism/ArticlesList/ArticlesList';
-import Loader from '../Molecules/Loader/Loader';
-import { SectionTitle } from '../Atoms/SectionTitle/SectionTitle.styles';
-import CustomSlider from '../Organism/Slider/Slider';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import Filter from '../../Molecules/Filter/Filter';
+import ArticlesList from '../../Organism/ArticlesList/ArticlesList';
+import Loader from '../../Molecules/Loader/Loader';
+import { SectionTitle } from '../../Atoms/SectionTitle/SectionTitle.styles';
+import CustomSlider from '../../Organism/Slider/Slider';
+import { MainWrapper } from './PageView.styles';
 
-const CategoryView = ({ categoryUuid }: { categoryUuid: string }) => {
+interface IPageViewProps {
+  categoryUuid?: string;
+  authorUuid?: string;
+}
+
+const PageView: FC<IPageViewProps> = ({ categoryUuid, authorUuid }) => {
+  const sortDirection = useSelector((state: RootState) => state.sortDirection);
+  const sortValue = useSelector((state: RootState) => state.sortValue);
   const { data: stickyPosts } = useGetStickyArticlesQuery({
     categoryUuid,
+    authorUuid,
   });
   const { data: categories } = useGetCategoriesQuery({ pageSize: 25, page: 1 });
   const { data: users } = useGetUsersQuery({ pageSize: 25, page: 1 });
@@ -25,19 +37,14 @@ const CategoryView = ({ categoryUuid }: { categoryUuid: string }) => {
   } = useGetArticlesQuery({
     pageSize: 6,
     page: 1,
+    sort: sortValue,
+    sortDir: sortDirection as 'asc' | 'desc',
     categoryUuid,
+    authorUuid,
   });
 
   return (
-    <main
-      style={{
-        paddingBottom: '3rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '1rem 2rem',
-      }}
-    >
+    <MainWrapper>
       <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
       {users && categories ? (
         <Filter users={users} categories={categories.data} />
@@ -57,11 +64,12 @@ const CategoryView = ({ categoryUuid }: { categoryUuid: string }) => {
             meta={articles.meta}
             key={articles.data[0].id}
             categoryUuid={categoryUuid}
+            authorUuid={authorUuid}
           />
         </>
       ) : null}
-    </main>
+    </MainWrapper>
   );
 };
 
-export default CategoryView;
+export default PageView;

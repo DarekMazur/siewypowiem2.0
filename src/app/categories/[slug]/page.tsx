@@ -1,7 +1,7 @@
 import slugify from 'slugify';
 import { server } from '@/mocks/server';
-import CategoryView from '@/components/Views/CategoryView';
 import { ICategoryTypes } from '@/utils/types';
+import PageView from '@/components/Views/PageView/PageView';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   server.listen();
@@ -29,7 +29,7 @@ const Category = async ({ params }: { params: { slug: string } }) => {
       slugify(category.attributes.title, { lower: true }) === params.slug,
   );
 
-  return <CategoryView categoryUuid={currentCategory[0].attributes.uuid} />;
+  return <PageView categoryUuid={currentCategory[0].attributes.uuid} />;
 };
 
 export default Category;
