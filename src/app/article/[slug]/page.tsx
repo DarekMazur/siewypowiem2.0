@@ -42,18 +42,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
       ),
   );
 
-  const mostLiked = allArticles.data
-    .sort((a, b) => b.attributes.likes - a.attributes.likes)
-    .splice(0, 5);
-
   const similarArticles = [...similarTags];
-
-  if (similarArticles.length < 5) {
-    const missingItems = 5 - similarArticles.length;
-    for (let i = 0; i < missingItems; i += 1) {
-      similarArticles.push(mostLiked[i]);
-    }
-  }
 
   const nextArticle =
     currentIndex !== 0 ? allArticles.data[currentIndex - 1] : null;

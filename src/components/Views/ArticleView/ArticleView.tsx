@@ -6,6 +6,8 @@ import Link from 'next/link';
 import slugify from 'slugify';
 import { IArticleTypes } from '@/utils/types';
 import Image from 'next/image';
+import { stringityArray } from '@/utils/stringifyArray';
+import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import { MainWrapper } from '../PageView/PageView.styles';
 
 interface IArticleViewProps {
@@ -14,6 +16,36 @@ interface IArticleViewProps {
   next?: string;
   previous?: string;
 }
+
+const RelatedArticle = ({ realted }: { realted: IArticleTypes }) => {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '1rem',
+        alignItems: 'center',
+        padding: '1rem 0',
+      }}
+    >
+      <Image
+        src={realted.attributes.cover.data.attributes.url}
+        alt={realted.attributes.title}
+        width={160}
+        height={100}
+      />
+      <div>
+        <h4>
+          <Link href={slugify(realted.attributes.title, { lower: true })}>
+            {realted.attributes.title}
+          </Link>
+        </h4>
+        <ArticleCategories
+          categories={stringityArray(realted.attributes.categories.data)}
+        />
+      </div>
+    </div>
+  );
+};
 
 const ArticleView: FC<IArticleViewProps> = ({
   article,
@@ -28,22 +60,14 @@ const ArticleView: FC<IArticleViewProps> = ({
           style={{ width: '75%' }}
           dangerouslySetInnerHTML={{ __html: article.attributes.body }}
         />
-        <aside style={{ width: '25%' }}>
-          <h3>See also:</h3>
-          {similar.map((similarArticle) => (
-            <Link
-              href={slugify(similarArticle.attributes.title, { lower: true })}
-            >
-              <h4>{similarArticle.attributes.title}</h4>
-              <Image
-                src={similarArticle.attributes.cover.data.attributes.url}
-                alt={similarArticle.attributes.title}
-                width={160}
-                height={120}
-              />
-            </Link>
-          ))}
-        </aside>
+        {similar.length > 0 ? (
+          <aside style={{ width: '25%' }}>
+            <h3>See also:</h3>
+            {similar.map((similarArticle) => (
+              <RelatedArticle realted={similarArticle} />
+            ))}
+          </aside>
+        ) : null}
       </section>
       <section>
         {previous ? (
