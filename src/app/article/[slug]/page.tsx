@@ -32,6 +32,29 @@ const Article = async ({ params }: { params: { slug: string } }) => {
     }
   });
 
+  const articleTags = currentArticle[0].attributes.tags.split(', ');
+
+  const similarTags = allArticles.data.filter(
+    (article) =>
+      article.id !== currentArticle[0].id &&
+      articleTags.some((tag) =>
+        article.attributes.tags.split(', ').includes(tag),
+      ),
+  );
+
+  const mostLiked = allArticles.data
+    .sort((a, b) => b.attributes.likes - a.attributes.likes)
+    .splice(0, 5);
+
+  const similarArticles = [...similarTags];
+
+  if (similarArticles.length < 5) {
+    const missingItems = 5 - similarArticles.length;
+    for (let i = 0; i < missingItems; i += 1) {
+      similarArticles.push(mostLiked[i]);
+    }
+  }
+
   const nextArticle =
     currentIndex !== 0 ? allArticles.data[currentIndex - 1] : null;
 
@@ -42,6 +65,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <ArticleView
+      similar={similarArticles}
       article={currentArticle[0]}
       next={nextArticle?.attributes.title}
       previous={previousArticle?.attributes.title}
