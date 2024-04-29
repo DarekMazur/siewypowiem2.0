@@ -13,6 +13,11 @@ interface IQuery {
   sortDir?: 'asc' | 'desc';
   categoryUuid?: string;
   authorUuid?: string;
+  uuid?: string;
+}
+
+interface ISingleQuery {
+  id: number;
 }
 
 interface IStickyQuery {
@@ -28,8 +33,16 @@ export const articlesApi = createApi({
   tagTypes: ['Articles'],
   endpoints: (builder) => ({
     getArticles: builder.query<IArticleResponse, IQuery>({
-      query: ({ pageSize, page, sort, sortDir, categoryUuid, authorUuid }) => ({
-        url: `articles?populate=*&sort=${sort || 'publishedAt'}:${sortDir || 'desc'}&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`,
+      query: ({
+        pageSize,
+        page,
+        sort,
+        sortDir,
+        categoryUuid,
+        authorUuid,
+        uuid,
+      }) => ({
+        url: `articles?populate=*&sort=${sort || 'publishedAt'}:${sortDir || 'desc'}&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}${uuid ? `&filters[uuid]=${uuid}` : ''}`,
       }),
       providesTags: ['Articles'],
     }),
@@ -45,6 +58,12 @@ export const articlesApi = createApi({
       }),
       providesTags: ['Articles'],
     }),
+    getSingleArticle: builder.query<IArticleResponse, ISingleQuery>({
+      query: ({ id }) => ({
+        url: `articles/${id}?populate=*`,
+      }),
+      providesTags: ['Articles'],
+    }),
   }),
 });
 
@@ -52,4 +71,5 @@ export const {
   useGetLastArticleQuery,
   useGetArticlesQuery,
   useGetStickyArticlesQuery,
+  useGetSingleArticleQuery,
 } = articlesApi;
