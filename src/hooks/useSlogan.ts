@@ -24,7 +24,7 @@ export const useSlogan = (data?: ICategoryTypes | IUserTypes) => {
       dynamicSlogan.title = `Category ${(data && (data as ICategoryTypes).attributes && (data as ICategoryTypes).attributes.title) || ''}`;
       return dynamicSlogan;
     case 'authors':
-      dynamicSlogan.title = `About ${(data && (data as IUserTypes).username) || ''}`;
+      dynamicSlogan.title = `${(data && (data as IUserTypes).username) || ''}'s articles`;
       return dynamicSlogan;
     default:
       break;
