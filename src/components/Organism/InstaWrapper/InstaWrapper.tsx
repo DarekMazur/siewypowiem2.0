@@ -12,8 +12,10 @@ const InstaWrapper = ({ instagram }: { instagram: Array<IInstaTypes> }) => {
     for (let i = 0; indexList.length < 3; i += 1) {
       const randomIndex = Math.floor(Math.random() * (images.length - 1));
       if (!indexList.find((index) => index === randomIndex)) {
-        indexList.push(randomIndex);
-        randomizeImages.push(images[randomIndex]);
+        if (images[randomIndex].media_type !== 'VIDEO') {
+          indexList.push(randomIndex);
+          randomizeImages.push(images[randomIndex]);
+        }
       }
     }
 

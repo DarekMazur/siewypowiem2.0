@@ -86,7 +86,7 @@ export interface ICommentTypes {
 export interface IInstaTypes {
   permalink: string;
   media_url: string;
-  media_type: 'IMAGE' | 'CAROUSEL_ALBUM';
+  media_type: 'IMAGE' | 'CAROUSEL_ALBUM' | 'VIDEO';
   id: number;
   caption: string;
   uuid?: string;
