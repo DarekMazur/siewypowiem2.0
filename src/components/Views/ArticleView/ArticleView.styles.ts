@@ -31,6 +31,29 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
       color: ${({ theme }) => theme.colors.blue};
       text-decoration: none;
       font-weight: 600;
+
+      
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 0 0 2rem;
+
+      li {
+        position: relative;
+        left: 1rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          height: 0.1rem;
+          width: 0.6rem;
+          background-color: ${({ theme }) => theme.colors.orange};
+          top: 50%;
+          left: -1rem;
+        }
+      }
     }
 
     blockquote {
