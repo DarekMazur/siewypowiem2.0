@@ -18,4 +18,8 @@ export const slogan = {
     title: 'Blog',
     slogan: 'Lorem Ipsum Dolor Sit Amet',
   },
+  about: {
+    title: faker.internet.userName(),
+    slogan: faker.person.bio(),
+  },
 };

@@ -10,6 +10,10 @@ export const useSlogan = (data?: ICategoryTypes | IUserTypes) => {
     return slogan.blog;
   }
 
+  if (pathname === '/about') {
+    return slogan.about;
+  }
+
   const dynamic = pathname.split('/').slice(1);
   const dynamicSlogan = {
     title: '',
