@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import slugify from 'slugify';
 
-export const useArticleCover = () => {
+export const useArticleInfo = () => {
   const pathname = usePathname();
   const { data: articles } = useGetArticlesQuery({ pageSize: 9999 });
   const [current, setCurrent] = useState<IArticleTypes>();
@@ -19,8 +19,10 @@ export const useArticleCover = () => {
         )[0],
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [articles, pathname]);
 
-  return current?.attributes.cover.data.attributes.url;
+  const cover = current?.attributes.cover.data.attributes.url;
+  const uuid = current?.attributes.uuid;
+
+  return { cover, uuid };
 };
