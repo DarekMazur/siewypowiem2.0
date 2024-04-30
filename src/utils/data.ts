@@ -13,6 +13,32 @@ export const data: IDataTypes = {
   avatar: faker.image.avatar(),
 };
 
+export const about = {
+  name: faker.internet.userName(),
+  image: faker.image.avatar(),
+  body: `<p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p>`,
+  inspirations: [
+    {
+      title: 'Lorem',
+      url: '/',
+    },
+    {
+      title: 'Ipsum',
+      url: '/',
+    },
+  ],
+  links: [
+    {
+      title: 'Dolor',
+      url: '/',
+    },
+    {
+      title: 'Sit amet',
+      url: '/',
+    },
+  ],
+};
+
 export const slogan = {
   blog: {
     title: 'Blog',
