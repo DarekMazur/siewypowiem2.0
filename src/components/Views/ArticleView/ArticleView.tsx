@@ -4,10 +4,8 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import slugify from 'slugify';
+import RelatedArticle from '@/components/Molecules/RelatedArticle/RelatedArticle';
 import { IArticleTypes } from '@/utils/types';
-import Image from 'next/image';
-import { stringityArray } from '@/utils/stringifyArray';
-import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import { MainWrapper } from '../PageView/PageView.styles';
 
 interface IArticleViewProps {
@@ -16,36 +14,6 @@ interface IArticleViewProps {
   next?: string;
   previous?: string;
 }
-
-const RelatedArticle = ({ realted }: { realted: IArticleTypes }) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '1rem',
-        alignItems: 'center',
-        padding: '1rem 0',
-      }}
-    >
-      <Image
-        src={realted.attributes.cover.data.attributes.url}
-        alt={realted.attributes.title}
-        width={160}
-        height={100}
-      />
-      <div>
-        <h4>
-          <Link href={slugify(realted.attributes.title, { lower: true })}>
-            {realted.attributes.title}
-          </Link>
-        </h4>
-        <ArticleCategories
-          categories={stringityArray(realted.attributes.categories.data)}
-        />
-      </div>
-    </div>
-  );
-};
 
 const ArticleView: FC<IArticleViewProps> = ({
   article,
