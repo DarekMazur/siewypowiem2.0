@@ -31,8 +31,24 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
       color: ${({ theme }) => theme.colors.blue};
       text-decoration: none;
       font-weight: 600;
+      position: relative;
 
-      
+      &::after {
+        content: '';
+        position: absolute;
+        height: 0.2rem;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        transform-origin: 0 0;
+        transition: transform 200ms ease;
+        transform: scaleX(0);
+        background-color: ${({ theme }) => theme.colors.blue};
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
     }
 
     ul {
