@@ -18,29 +18,26 @@ export const StyledRelatedArticle = styled.div`
   padding: 1rem 0;
 
   h4 {
-    font-size: ${({ theme }) => theme.fontSize.l};
-  }
+    a {
+      text-decoration: none;
+      position: relative;
 
-  a {
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.orange};
-    position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0.2rem;
+        width: 100%;
+        background-color: ${({ theme }) => theme.colors.blue};
+        transform-origin: 0 0;
+        transform: scaleX(0);
+        transition: transform 200ms ease;
+      }
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 0.2rem;
-      width: 100%;
-      background-color: ${({ theme }) => theme.colors.orange};
-      transform-origin: 0 0;
-      transform: scaleX(0);
-      transition: transform 200ms ease;
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
+      &:hover::after {
+        transform: scaleX(1);
+      }
     }
   }
 `;

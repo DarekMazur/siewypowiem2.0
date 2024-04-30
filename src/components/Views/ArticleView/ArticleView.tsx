@@ -7,6 +7,7 @@ import slugify from 'slugify';
 import RelatedArticle from '@/components/Molecules/RelatedArticle/RelatedArticle';
 import { IArticleTypes } from '@/utils/types';
 import { MainWrapper } from '../PageView/PageView.styles';
+import { SingleArticleWrapper } from './ArticleView.styles';
 
 interface IArticleViewProps {
   article: IArticleTypes;
@@ -23,11 +24,8 @@ const ArticleView: FC<IArticleViewProps> = ({
 }) => {
   return (
     <MainWrapper>
-      <section style={{ display: 'flex', gap: '2rem' }}>
-        <div
-          style={{ width: '75%' }}
-          dangerouslySetInnerHTML={{ __html: article.attributes.body }}
-        />
+      <SingleArticleWrapper $withAside={similar.length > 0}>
+        <div dangerouslySetInnerHTML={{ __html: article.attributes.body }} />
         {similar.length > 0 ? (
           <aside style={{ width: '25%' }}>
             <h3>See also:</h3>
@@ -36,7 +34,7 @@ const ArticleView: FC<IArticleViewProps> = ({
             ))}
           </aside>
         ) : null}
-      </section>
+      </SingleArticleWrapper>
       <section>
         {previous ? (
           <Link href={`/article/${slugify(previous, { lower: true })}`}>
