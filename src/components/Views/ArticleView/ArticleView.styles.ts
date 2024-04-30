@@ -106,3 +106,41 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
     }
   }
 `;
+
+export const ArticlesNavigationWrapper = styled.section<{
+  $isOnlyNext: boolean;
+}>`
+  width: 100%;
+  margin: 5rem 0 3rem;
+  display: flex;
+  justify-content: ${({ $isOnlyNext }) =>
+    $isOnlyNext ? 'flex-end' : `space-between`};
+
+  button {
+    padding: 0 2rem;
+    height: 6rem;
+    border: ${({ theme }) => `solid ${theme.colors.black} 0.1rem`};
+    background-color: transparent;
+    overflow: hidden;
+
+    &:hover {
+      span {
+        transform: translateY(-100%);
+      }
+    }
+
+    span {
+      display: block;
+      padding: 0;
+      margin: 0;
+      height: 6rem;
+      line-height: 6rem;
+      transition: transform 200ms ease-in-out;
+      font-weight: 600;
+
+      &:last-of-type {
+        color: ${({ theme }) => theme.colors.orange};
+      }
+    }
+  }
+`;

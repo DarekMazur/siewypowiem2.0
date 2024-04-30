@@ -7,7 +7,10 @@ import slugify from 'slugify';
 import RelatedArticle from '@/components/Molecules/RelatedArticle/RelatedArticle';
 import { IArticleTypes } from '@/utils/types';
 import { MainWrapper } from '../PageView/PageView.styles';
-import { SingleArticleWrapper } from './ArticleView.styles';
+import {
+  ArticlesNavigationWrapper,
+  SingleArticleWrapper,
+} from './ArticleView.styles';
 
 interface IArticleViewProps {
   article: IArticleTypes;
@@ -35,19 +38,25 @@ const ArticleView: FC<IArticleViewProps> = ({
           </aside>
         ) : null}
       </SingleArticleWrapper>
-      <section>
+      <ArticlesNavigationWrapper $isOnlyNext={!!(next && !previous)}>
         {previous ? (
           <Link href={`/article/${slugify(previous, { lower: true })}`}>
-            <button type='button'>Previous: {previous}</button>
+            <button type='button'>
+              <span>PREVIOUS</span>
+              <span>{previous}</span>
+            </button>
           </Link>
         ) : null}
 
         {next ? (
           <Link href={`/article/${slugify(next, { lower: true })}`}>
-            <button type='button'>Next: {next}</button>
+            <button type='button'>
+              <span>NEXT</span>
+              <span>{next}</span>
+            </button>
           </Link>
         ) : null}
-      </section>
+      </ArticlesNavigationWrapper>
     </MainWrapper>
   );
 };
