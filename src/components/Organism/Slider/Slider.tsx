@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import 'react-animated-slider/build/horizontal.css';
 import { IArticleTypes } from '@/utils/types';
+import slugify from 'slugify';
 import {
   SlideWrapper,
   SliderButton,
@@ -38,7 +39,9 @@ const CustomSlider = ({
               >
                 <h3>{article.attributes.title}</h3>
                 <p>{article.attributes.description}</p>
-                <Link href='/'>
+                <Link
+                  href={`/article/${slugify(article.attributes.title, { lower: true })}`}
+                >
                   <SliderButton type='button'>Go to article</SliderButton>
                 </Link>
               </SlideWrapper>
