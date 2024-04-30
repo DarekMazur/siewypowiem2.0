@@ -2,6 +2,7 @@ import ArticleThumb from '@/components/Atoms/ArticleThumb/ArticleThumb';
 import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
 import { useState } from 'react';
 import Link from 'next/link';
+import slugify from 'slugify';
 import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
 import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
 import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.styles';
@@ -48,7 +49,9 @@ const ArticlesListItem = ({
       onMouseLeave={handleMouseLeave}
       $height={height}
     >
-      <Link href='/'>
+      <Link
+        href={`/article/${slugify(article.attributes.title, { lower: true })}`}
+      >
         <ArticleThumb
           name={article.attributes.cover.data.attributes.name}
           url={article.attributes.cover.data.attributes.url}

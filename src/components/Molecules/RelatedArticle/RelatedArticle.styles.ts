@@ -1,0 +1,43 @@
+import styled from 'styled-components';
+
+export const RelatedThumb = styled.div`
+  display: block;
+  position: relative;
+  min-height: 9rem;
+  width: 40%;
+
+  img {
+    object-fit: cover;
+  }
+`;
+
+export const StyledRelatedArticle = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+
+  h4 {
+    a {
+      text-decoration: none;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0.2rem;
+        width: 100%;
+        background-color: ${({ theme }) => theme.colors.blue};
+        transform-origin: 0 0;
+        transform: scaleX(0);
+        transition: transform 200ms ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+`;

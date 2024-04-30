@@ -1,4 +1,5 @@
 import { createRef, useEffect, useState } from 'react';
+import { useArticleCover } from '@/hooks/useArticleCover';
 import HeroSection from '../../Molecules/HeroSection/HeroSection';
 import MainNavWrapper from '../../Molecules/MainNavWrapper/MainNavWrapper';
 import TitleWrapper from '../../Molecules/HeaderTitleWrapper/HeaderTitleWrapper';
@@ -7,6 +8,7 @@ import { StyledHeader } from './Header.styles';
 const Header = () => {
   const titleRef = createRef<HTMLDivElement>();
   const navRef = createRef<HTMLElement>();
+  const articleCover = useArticleCover();
 
   const [sectionHeight, setSectionHeight] = useState(0);
 
@@ -21,7 +23,7 @@ const Header = () => {
   }, [titleRef, navRef]);
 
   return (
-    <StyledHeader>
+    <StyledHeader $cover={articleCover}>
       <TitleWrapper ref={titleRef} />
       <MainNavWrapper ref={navRef} />
       <HeroSection sectionHeight={sectionHeight} />

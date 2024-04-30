@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import hero from '../../../assets/hero.jpg';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.header<{ $cover?: string }>`
   width: 100%;
   height: 100vh;
-  background: url(${hero.src}) 10% / cover no-repeat;
+  background: ${({ $cover }) =>
+    `url(${$cover || hero.src}) 10% / cover no-repeat`};
 
   &::after {
     content: '';

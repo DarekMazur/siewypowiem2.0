@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import slugify from 'slugify';
 import { ICategoryTypes } from '@/utils/types';
 import icon from '../../../assets/icons/logo.svg';
 import { StyledHeroCategories } from './HeroCategories.styles';
+import { StyledLink } from '../Link/Link.styles';
 
 const HeroCategories = ({
   categories,
@@ -23,7 +25,16 @@ const HeroCategories = ({
         alt=''
         style={{ position: 'relative', bottom: '-0.7rem' }}
       />{' '}
-      {categoriesTitles.join(', ')}
+      {categoriesTitles.map((category, index) => (
+        <StyledLink
+          href={`/categories/${slugify(category, { lower: true })}`}
+          target='_blanc'
+          style={{ padding: '0 0.5rem' }}
+        >
+          {category}
+          {index < categoriesTitles.length - 1 ? ',' : null}
+        </StyledLink>
+      ))}
     </StyledHeroCategories>
   );
 };
