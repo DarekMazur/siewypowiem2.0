@@ -50,6 +50,7 @@ export const ArticleListItemWrapper = styled.article<{ $height?: number }>`
   position: relative;
   min-height: ${({ $height }) => ($height ? `${height}px` : '70rem')};
   overflow: hidden;
+  border: ${({ theme }) => `solid 0.1rem ${theme.colors.black}`};
 
   a {
     color: inherit;
