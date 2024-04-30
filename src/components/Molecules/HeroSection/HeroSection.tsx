@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
 import { useGetLastArticleQuery } from '@/store';
 import { usePathname } from 'next/navigation';
-import { useArticleUuid } from '@/hooks/useArticleUuid';
+import { useArticleInfo } from '@/hooks/useArticleInfo';
 import { StyledHeroSection } from './HeroSection.styles';
 import Loader from '../Loader/Loader';
 import HeroArticle from '../HeroArticle/HeroArticle';
@@ -14,7 +14,7 @@ interface IHeroProps {
 
 const HeroSection: FC<IHeroProps> = ({ sectionHeight }) => {
   const pathname = usePathname();
-  const articleUuid = useArticleUuid();
+  const { uuid } = useArticleInfo();
 
   const handleClick = () => {
     const headerElement = document.querySelector('header');
@@ -29,7 +29,7 @@ const HeroSection: FC<IHeroProps> = ({ sectionHeight }) => {
     <StyledHeroSection $sectionHeight={sectionHeight}>
       <Loader isLoading={isLoading} isError={!!error} isReady={!!article} />
       {pathname === '/' || pathname.includes('/article/') ? (
-        <HeroArticle uuid={articleUuid} />
+        <HeroArticle uuid={uuid} />
       ) : (
         <HeroSlogan />
       )}
