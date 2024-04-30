@@ -22,7 +22,11 @@ const SocialMenu = ({
       <span>Follow me </span>
       <ul>
         <li>
-          <Link href='https://instagram.com' target='_blank' rel='noreffer'>
+          <Link
+            href={`https://instagram.com/${process.env.NEXT_PUBLIC_IG_PROFILE}`}
+            target='_blank'
+            rel='noreffer'
+          >
             <FontAwesomeIcon icon={['fab', 'instagram']} />
           </Link>
         </li>
