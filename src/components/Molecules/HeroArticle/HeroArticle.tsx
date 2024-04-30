@@ -28,7 +28,8 @@ const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
             by{' '}
             <StyledLink
               href={`/authors/${singleArticle?.data.length === 1 ? slugify(singleArticle?.data[0].attributes.author.data.attributes.username, { lower: true }) : slugify(article.data[0].attributes.author.data.attributes.username, { lower: true })}`}
-              target='_blanc'
+              target='_blank'
+              rel='noreferer'
               style={{ padding: 0 }}
             >
               {singleArticle?.data.length === 1
