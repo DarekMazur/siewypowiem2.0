@@ -3,10 +3,9 @@
 /* eslint-disable react/no-danger */
 import Image from 'next/image';
 import { MainWrapper } from '@/components/Views/PageView/PageView.styles';
-import { about } from '@/utils/data';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { faker } from '@faker-js/faker';
-import Link from 'next/link';
+import { about, contact } from '@/utils/data';
+import { StyledLink } from '@/components/Atoms/Link/Link.styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const About = () => {
   return (
@@ -23,29 +22,59 @@ const About = () => {
           />
         </div>
         <div>
-          <h3>
-            {faker.helpers.fake(
-              'Hi, my name is {{person.firstName}} {{person.lastName}}!',
-            )}
-          </h3>
+          <h3>{about.greetings}</h3>
           <div dangerouslySetInnerHTML={{ __html: about.body }} />
-          <div>
-            <h4>My other projects:</h4>
-            <ul style={{ listStyle: 'none' }}>
-              {about.inspirations.map((inspiring) => (
-                <Link key={inspiring.title} href={inspiring.url}>
-                  <li>{inspiring.title}</li>
-                </Link>
-              ))}
-            </ul>
-            <h4>Recommendations:</h4>
-            <ul style={{ listStyle: 'none' }}>
-              {about.links.map((link) => (
-                <Link key={link.title} href={link.url}>
-                  <li>{link.title}</li>
-                </Link>
-              ))}
-            </ul>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+            {about.inspirations.length > 0 ? (
+              <div>
+                <h4>My other projects:</h4>
+                <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                  {about.inspirations.map((inspiring) => (
+                    <StyledLink key={inspiring.title} href={inspiring.url}>
+                      <li style={{ padding: '1rem 0' }}>{inspiring.title}</li>
+                    </StyledLink>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {about.links.length > 0 ? (
+              <div>
+                <h4>Recommendations:</h4>
+                <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                  {about.links.map((link) => (
+                    <StyledLink key={link.title} href={link.url}>
+                      <li style={{ padding: '1rem 0' }}>{link.title}</li>
+                    </StyledLink>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+        <div style={{ minWidth: '30rem' }}>
+          <h3>Contact</h3>
+          <div
+            style={{
+              display: 'flex',
+              gap: '1rem',
+              justifyContent: 'space-evenly',
+              padding: '2rem 0 0',
+            }}
+          >
+            {contact.map((contactItem) => (
+              <StyledLink
+                key={contactItem.type}
+                $color='blue'
+                href={contactItem.link}
+                target='_blank'
+                rel='noreferer'
+              >
+                <FontAwesomeIcon
+                  icon={[contactItem.icon.prefix, contactItem.icon.name]}
+                  style={{ fontSize: '3rem' }}
+                />
+              </StyledLink>
+            ))}
           </div>
         </div>
       </section>

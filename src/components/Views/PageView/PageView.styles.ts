@@ -5,5 +5,5 @@ export const MainWrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 4rem;
 `;
