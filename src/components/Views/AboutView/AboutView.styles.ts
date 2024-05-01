@@ -11,7 +11,9 @@ export const AboutImage = styled.div`
   height: 30rem;
 
   img {
+    border-radius: 1rem;
     object-fit: cover;
+    box-shadow: 0.5rem 0.5rem 2.5rem -1rem rgba(37, 54, 61, 0.8);
   }
 `;
 
