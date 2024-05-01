@@ -60,7 +60,6 @@ const vt323 = VT323({
 const theme = {
   colors: {
     white: '#FCFCFF',
-    // grey: '#E9E8EA',
     grey: '#dee1ed',
     transparentGrey: '#e9e8eaa1',
     orange: '#BC4D13',
