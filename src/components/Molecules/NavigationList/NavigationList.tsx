@@ -1,20 +1,6 @@
+import { navList } from '@/utils/navigation';
 import NavigationListItem from './NavigationListItem/NavigationListItem';
 import { StyledNavigationList } from './NavigationList.styles';
-
-const navList = [
-  {
-    name: 'Home',
-    url: '/',
-  },
-  {
-    name: 'Blog',
-    url: '/blog',
-  },
-  {
-    name: 'Item',
-    url: '/item',
-  },
-];
 
 const NavigationList = ({
   color,
