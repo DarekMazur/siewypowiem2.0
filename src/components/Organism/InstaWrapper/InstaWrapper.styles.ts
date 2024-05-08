@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 
 export const StyledInstaWrapper = styled.section`
@@ -39,5 +40,14 @@ export const StyledInstaWrapper = styled.section`
     height: auto;
     transition: transform 200ms ease-in-out;
     object-fit: cover;
+  }
+
+  @media (max-width: ${mainTheme.breakpoints.wide}px) {
+    flex-direction: column !important;
+
+    & > div {
+      width: 80vw;
+      height: 80vw;
+    }
   }
 `;
