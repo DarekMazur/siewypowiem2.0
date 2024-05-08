@@ -1,6 +1,6 @@
 import PageView from '@/components/Views/PageView/PageView';
 import { server } from '@/mocks/server';
-import { IUserTypes } from '@/utils/types';
+import { IUserTypes } from '@/utils/data/types';
 import slugify from 'slugify';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {

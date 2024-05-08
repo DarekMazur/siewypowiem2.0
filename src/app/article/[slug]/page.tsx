@@ -1,5 +1,5 @@
 import ArticleView from '@/components/Views/ArticleView/ArticleView';
-import { IArticleTypes } from '@/utils/types';
+import { IArticleTypes } from '@/utils/data/types';
 import slugify from 'slugify';
 
 const Article = async ({ params }: { params: { slug: string } }) => {
