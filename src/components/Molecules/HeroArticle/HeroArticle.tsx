@@ -5,8 +5,8 @@ import ArticleDate from '@/components/Atoms/ArticleDate/ArticleDate';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
 import HeroTitle from '@/components/Atoms/HeroTitle/HeroTitle';
 import HeroCategories from '@/components/Atoms/HeroCategories/HeroCategories';
+import { dateFormat } from '@/utils/methods/dateFormat';
 import { useGetArticlesQuery, useGetLastArticleQuery } from '@/store';
-import { dateFormat } from '@/utils/dateFormat';
 import { StyledLink } from '@/components/Atoms/Link/Link.styles';
 import { StyledHeroArticle } from './HeroArticle.styles';
 

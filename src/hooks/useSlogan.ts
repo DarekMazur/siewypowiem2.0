@@ -1,5 +1,5 @@
-import { slogan } from '@/utils/data';
-import { ICategoryTypes, IUserTypes } from '@/utils/types';
+import { slogan } from '@/utils/data/data';
+import { ICategoryTypes, IUserTypes } from '@/utils/data/types';
 import { usePathname } from 'next/navigation';
 
 // eslint-disable-next-line consistent-return

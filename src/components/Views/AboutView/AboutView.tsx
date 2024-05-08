@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import Image from 'next/image';
-import { about, contact } from '@/utils/data';
+import { about, contact } from '@/utils/data/data';
 import { StyledLink } from '@/components/Atoms/Link/Link.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

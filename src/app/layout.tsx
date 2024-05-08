@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import dynamic from 'next/dynamic';
 import Footer from '@/components/Organism/Footer/Footer';
 import StyledComponentsRegistry from '../../lib/registry';
-import theme from '../utils/theme';
+import theme from '../utils/styles/theme';
 import Intro from '../components/Molecules/Intro/Intro';
 import MSWConfig from './MSWConfig';
 

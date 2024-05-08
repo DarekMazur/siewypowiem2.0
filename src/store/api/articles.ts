@@ -1,4 +1,4 @@
-import { IArticleTypes, IMetaTypes } from '@/utils/types';
+import { IArticleTypes, IMetaTypes } from '@/utils/data/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IArticleResponse {

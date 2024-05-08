@@ -1,5 +1,5 @@
 import { useGetArticlesQuery } from '@/store';
-import { IArticleTypes } from '@/utils/types';
+import { IArticleTypes } from '@/utils/data/types';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import slugify from 'slugify';

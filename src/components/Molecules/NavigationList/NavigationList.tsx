@@ -1,4 +1,4 @@
-import { navList } from '@/utils/navigation';
+import { navList } from '@/utils/data/navigation';
 import NavigationListItem from './NavigationListItem/NavigationListItem';
 import { StyledNavigationList } from './NavigationList.styles';
 
