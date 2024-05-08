@@ -42,7 +42,7 @@ export const StyledIntro = styled.div`
   font-size: ${({ theme }) => theme.fontSize.xxxl};
   font-family: ${({ theme }) => theme.fonts.intro};
   color: ${({ theme }) => theme.colors.orange};
-  line-height: 11.5rem;
+  line-height: 1.5;
   z-index: 999;
 
   div {
