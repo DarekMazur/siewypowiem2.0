@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 
 export const StyledNavigation = styled.nav<{ $isFooter?: boolean }>`
@@ -11,4 +12,8 @@ export const StyledNavigation = styled.nav<{ $isFooter?: boolean }>`
   background-color: ${({ theme, $isFooter }) =>
     $isFooter ? 'transparent' : theme.colors.transparentGrey};
   z-index: 1;
+
+  @media (max-width: ${mainTheme.breakpoints.wide}px) {
+    display: ${({ $isFooter }) => ($isFooter ? 'none' : 'flex')};
+  }
 `;
