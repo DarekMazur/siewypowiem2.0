@@ -91,6 +91,12 @@ const theme = {
     s: '1rem',
     button: '1.8rem',
   },
+
+  breakpoints: {
+    wide: '1024',
+    desktop: '800',
+    mobile: '640',
+  },
 };
 
 export default theme;
