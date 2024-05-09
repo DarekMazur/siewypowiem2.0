@@ -10,6 +10,14 @@ export const useSlogan = (data?: ICategoryTypes | IUserTypes) => {
     return slogan.blog;
   }
 
+  if (pathname === '/privacy') {
+    const privacyHero = {
+      title: 'Polityka Prywatności',
+      slogan: '',
+    };
+    return privacyHero;
+  }
+
   if (pathname === '/about') {
     return slogan.about;
   }
