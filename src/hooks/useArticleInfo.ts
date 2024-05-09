@@ -3,6 +3,7 @@ import { IArticleTypes } from '@/utils/data/types';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import slugify from 'slugify';
+import defaultCover from '@/assets/dafault.jpg';
 
 export const useArticleInfo = () => {
   const pathname = usePathname();
@@ -21,7 +22,11 @@ export const useArticleInfo = () => {
     }
   }, [articles, pathname]);
 
-  const cover = current?.attributes.cover.data.attributes.url;
+  const cover = current
+    ? current.attributes.cover.data
+      ? current?.attributes.cover.data.attributes.url
+      : defaultCover.src
+    : undefined;
   const uuid = current?.attributes.uuid;
 
   return { cover, uuid };

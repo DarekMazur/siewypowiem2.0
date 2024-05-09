@@ -10,6 +10,7 @@ import { dateFormat } from '@/utils/methods/dateFormat';
 import { stringityArray } from '@/utils/methods/stringifyArray';
 import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import { IArticleTypes } from '@/utils/data/types';
+import defaultCover from '@/assets/dafault.jpg';
 import {
   ArticleContentWrapper,
   ArticleDetails,
@@ -53,8 +54,16 @@ const ArticlesListItem = ({
         href={`/article/${slugify(article.attributes.title, { lower: true })}`}
       >
         <ArticleThumb
-          name={article.attributes.cover.data.attributes.name}
-          url={article.attributes.cover.data.attributes.url}
+          name={
+            article.attributes.cover.data
+              ? article.attributes.cover.data.attributes.name
+              : article.attributes.title
+          }
+          url={
+            article.attributes.cover.data
+              ? article.attributes.cover.data.attributes.url
+              : defaultCover.src
+          }
         />
         <ArticleContentWrapper $isHidden={isOver}>
           <div>

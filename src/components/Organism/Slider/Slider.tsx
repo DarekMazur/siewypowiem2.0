@@ -4,6 +4,7 @@ import Link from 'next/link';
 import 'react-animated-slider/build/horizontal.css';
 import { IArticleTypes } from '@/utils/data/types';
 import slugify from 'slugify';
+import defaultCover from '@/assets/dafault.jpg';
 import {
   SlideWrapper,
   SliderButton,
@@ -23,7 +24,11 @@ const CustomSlider = ({
           {stickyPosts?.map((article) => (
             <div key={article.id}>
               <SliderImage
-                src={article.attributes.cover.data.attributes.url}
+                src={
+                  article.attributes.cover.data
+                    ? article.attributes.cover.data.attributes.url
+                    : defaultCover.src
+                }
                 alt={article.attributes.title}
                 fill
               />
