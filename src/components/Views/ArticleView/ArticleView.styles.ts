@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 import '@fortawesome/free-solid-svg-icons';
 
@@ -103,6 +104,14 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
         background-repeat: space no-repeat;
         opacity: 0.7;
       }
+    }
+  }
+
+  @media (max-width: ${mainTheme.breakpoints.desktop}px) {
+    flex-direction: column;
+
+    div {
+      width: 100%;
     }
   }
 `;
