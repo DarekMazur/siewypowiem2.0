@@ -27,6 +27,7 @@ const HeroCategories = ({
       />{' '}
       {categoriesTitles.map((category, index) => (
         <StyledLink
+          key={category}
           href={`/categories/${slugify(category, { lower: true })}`}
           target='_blank'
           rel='noreferer'
