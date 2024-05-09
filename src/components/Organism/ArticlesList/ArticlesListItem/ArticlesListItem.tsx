@@ -84,7 +84,7 @@ const ArticlesListItem = ({
             <ArticleAuthor>
               by {article.attributes.author.data.attributes.username}
             </ArticleAuthor>
-            <ArticleCta call='Read more' />
+            <ArticleCta call='Zobacz więcej' />
           </ArticleDetails>
         </ArticleContentWrapper>
       </Link>

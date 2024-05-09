@@ -31,7 +31,7 @@ const ArticleView: FC<IArticleViewProps> = ({
         <div dangerouslySetInnerHTML={{ __html: article.attributes.body }} />
         {similar.length > 0 ? (
           <aside style={{ width: '25%' }}>
-            <h3>See also:</h3>
+            <h3>Zobacz także:</h3>
             {similar.map((similarArticle) => (
               <RelatedArticle realted={similarArticle} />
             ))}
@@ -42,7 +42,7 @@ const ArticleView: FC<IArticleViewProps> = ({
         {previous ? (
           <Link href={`/article/${slugify(previous, { lower: true })}`}>
             <button type='button'>
-              <span>PREVIOUS</span>
+              <span>POPRZEDNI</span>
               <span>{previous}</span>
             </button>
           </Link>
@@ -51,7 +51,7 @@ const ArticleView: FC<IArticleViewProps> = ({
         {next ? (
           <Link href={`/article/${slugify(next, { lower: true })}`}>
             <button type='button'>
-              <span>NEXT</span>
+              <span>NASTĘPNY</span>
               <span>{next}</span>
             </button>
           </Link>

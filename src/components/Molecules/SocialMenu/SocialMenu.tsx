@@ -19,7 +19,7 @@ const SocialMenu = ({
 }) => {
   return (
     <StyledSocialMenu $color={color}>
-      <span>Follow me </span>
+      <span>Obserwuj mnie </span>
       <ul>
         <li>
           <Link

@@ -23,7 +23,7 @@ const AboutView = () => {
           <AboutLinkSection>
             {about.inspirations.length > 0 ? (
               <div>
-                <h4>My other projects:</h4>
+                <h4>Moje projekty:</h4>
                 <ul>
                   {about.inspirations.map((inspiring) => (
                     <StyledLink key={inspiring.title} href={inspiring.url}>
@@ -35,7 +35,7 @@ const AboutView = () => {
             ) : null}
             {about.links.length > 0 ? (
               <div>
-                <h4>Recommendations:</h4>
+                <h4>Polecane:</h4>
                 <ul>
                   {about.links.map((link) => (
                     <StyledLink key={link.title} href={link.url}>
@@ -48,7 +48,7 @@ const AboutView = () => {
           </AboutLinkSection>
         </div>
         <AboutContactSection>
-          <h3>Contact</h3>
+          <h3>Kontakt</h3>
           <div>
             {contact.map((contactItem) => (
               <StyledLink

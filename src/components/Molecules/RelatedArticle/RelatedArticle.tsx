@@ -4,6 +4,7 @@ import slugify from 'slugify';
 import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
 import { stringityArray } from '@/utils/methods/stringifyArray';
 import { IArticleTypes } from '@/utils/data/types';
+import defaultCover from '@/assets/dafault.jpg';
 import { RelatedThumb, StyledRelatedArticle } from './RelatedArticle.styles';
 
 const RelatedArticle = ({ realted }: { realted: IArticleTypes }) => {
@@ -11,7 +12,11 @@ const RelatedArticle = ({ realted }: { realted: IArticleTypes }) => {
     <StyledRelatedArticle>
       <RelatedThumb>
         <Image
-          src={realted.attributes.cover.data.attributes.url}
+          src={
+            realted.attributes.cover.data
+              ? realted.attributes.cover.data.attributes.url
+              : defaultCover.src
+          }
           alt={realted.attributes.title}
           fill
         />
