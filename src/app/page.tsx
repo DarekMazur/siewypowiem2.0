@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <HomeWrapper>
       <section>
-        <h2>Latest on blog</h2>
+        <h2>Ostatnio na blogu</h2>
         <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
         <HomeBlogInnerWrapper>
           {articles ? (

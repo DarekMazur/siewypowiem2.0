@@ -75,14 +75,14 @@ export const contact: Array<IContactTypes> = [
       prefix: 'fas',
       name: 'at',
     },
-    link: `mailto:${process.env.NEXT_PUBLIC_MAIL}?subject=Message from SieWypowiem`,
+    link: `mailto:${process.env.NEXT_PUBLIC_MAIL}?subject=Wiadomość ze strony SieWypowiem`,
   },
 ];
 
 export const slogan = {
   blog: {
     title: 'Blog',
-    slogan: 'Lorem Ipsum Dolor Sit Amet',
+    slogan: 'Nie znam się, więc się wypowiem',
   },
   about: {
     title: faker.internet.userName(),

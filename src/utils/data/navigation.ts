@@ -1,6 +1,6 @@
 export const navList = [
   {
-    name: 'Home',
+    name: 'Zaczynamy!',
     url: '/',
   },
   {
@@ -8,7 +8,7 @@ export const navList = [
     url: '/blog',
   },
   {
-    name: 'About',
+    name: 'O mnie',
     url: '/about',
   },
 ];

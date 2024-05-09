@@ -47,7 +47,7 @@ const CustomSlider = ({
                 <Link
                   href={`/article/${slugify(article.attributes.title, { lower: true })}`}
                 >
-                  <SliderButton type='button'>Go to article</SliderButton>
+                  <SliderButton type='button'>Idź do artukułu</SliderButton>
                 </Link>
               </SlideWrapper>
             </div>

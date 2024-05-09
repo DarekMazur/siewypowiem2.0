@@ -10,7 +10,7 @@ const FooterPrivacyLink = () => {
         target='_blank'
         rel='noreferrer'
       >
-        Privacy Policy
+        Polityka prywatności
       </StyledLink>
     </StyledFooterPrivacfyLink>
   );

@@ -53,7 +53,7 @@ const PageView: FC<IPageViewProps> = ({ categoryUuid, authorUuid }) => {
       )}
       {stickyPosts && stickyPosts.data.length > 0 ? (
         <div>
-          <SectionTitle>Hey, check this out!</SectionTitle>
+          <SectionTitle>Sprawdź koniecznie! ⬇️</SectionTitle>
           <CustomSlider stickyPosts={stickyPosts.data} />
         </div>
       ) : null}
