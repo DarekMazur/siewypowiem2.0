@@ -16,10 +16,11 @@ export const data: IDataTypes = {
 };
 
 export const about = {
-  name: 'Jillian',
-  image: avatar.src,
-  greetings: 'Cześć, jestem Iza Antoszewska-Mazur!',
-  body: `<p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p>`,
+  name: data.username,
+  image: data.avatar,
+  greetings: 'Cześć, jestem Iza!',
+  body: `<p>Mam na imię Iza, choć w Internecie przyjęłam pseudonim Jillian. Raz wybieram czucie i wiarę, innym razem - szkiełko i oko. Jestem etatową mamą za administracyjnym biurkiem, zaś po godzinach bujam w obłokach i staram się iść przez życie śpiewająco 😉.</p>
+  <p>Lubię słuchać, czytać i oglądać - lubię zatapiać się w nowe historie. Uważam, że audiobooki to jeden z najlepszych wynalazków ludzkości. Nałogowo piję czarną herbatę, co myśli rozjaśnia ☕😉</p>`,
   inspirations: [
     {
       title: 'Lorem',
