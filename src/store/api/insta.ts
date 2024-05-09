@@ -1,4 +1,4 @@
-import { IInstaTypes } from '@/utils/types';
+import { IInstaTypes } from '@/utils/data/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IInstaResponse {

@@ -1,12 +1,12 @@
 import GoToBlog from '@/components/Atoms/GoToBlog/GoToBlog';
 import { usePathname } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
-import { getArticles } from '@/utils/getArticles';
+import { getArticles } from '@/utils/methods/getArticles';
 import { useInView } from 'react-intersection-observer';
 import ArticlesLoader from '@/components/Atoms/ArticlesLoader/ArticlesLoader';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
-import { IArticleTypes, IMetaTypes } from '@/utils/types';
+import { IArticleTypes, IMetaTypes } from '@/utils/data/types';
 import { ArticlesWrapper, StyledArticleList } from './ArticlesList.styles';
 import ArticlesListItem from './ArticlesListItem/ArticlesListItem';
 

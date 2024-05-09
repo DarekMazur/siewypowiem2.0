@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 import '@fortawesome/free-solid-svg-icons';
 
@@ -105,6 +106,14 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
       }
     }
   }
+
+  @media (max-width: ${mainTheme.breakpoints.desktop}px) {
+    flex-direction: column;
+
+    div {
+      width: 100%;
+    }
+  }
 `;
 
 export const ArticlesNavigationWrapper = styled.section<{
@@ -134,7 +143,7 @@ export const ArticlesNavigationWrapper = styled.section<{
       padding: 0;
       margin: 0;
       height: 6rem;
-      line-height: 1;
+      line-height: 6rem;
       transition: transform 200ms ease-in-out;
       font-weight: 600;
 

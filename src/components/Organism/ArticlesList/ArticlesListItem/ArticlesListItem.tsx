@@ -6,10 +6,10 @@ import slugify from 'slugify';
 import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
 import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
 import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.styles';
-import { dateFormat } from '@/utils/dateFormat';
-import { stringityArray } from '@/utils/stringifyArray';
+import { dateFormat } from '@/utils/methods/dateFormat';
+import { stringityArray } from '@/utils/methods/stringifyArray';
 import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
-import { IArticleTypes } from '@/utils/types';
+import { IArticleTypes } from '@/utils/data/types';
 import {
   ArticleContentWrapper,
   ArticleDetails,

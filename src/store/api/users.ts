@@ -1,4 +1,4 @@
-import { IUserTypes } from '@/utils/types';
+import { IUserTypes } from '@/utils/data/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface IQuery {

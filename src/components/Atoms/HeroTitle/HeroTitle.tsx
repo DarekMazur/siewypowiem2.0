@@ -1,4 +1,4 @@
-import { highlightText } from '@/utils/highlightText';
+import { highlightText } from '@/utils/methods/highlightText';
 import { Highlighted } from '../Highlighted/Highlighted.styles';
 import { StyledHeroTitle } from './HeroTitle.styles';
 

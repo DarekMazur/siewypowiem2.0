@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 import { server } from '@/mocks/server';
-import { ICategoryTypes } from '@/utils/types';
+import { ICategoryTypes } from '@/utils/data/types';
 import PageView from '@/components/Views/PageView/PageView';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {

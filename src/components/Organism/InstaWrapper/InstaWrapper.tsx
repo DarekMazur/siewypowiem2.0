@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { IInstaTypes } from '@/utils/types';
+import { IInstaTypes } from '@/utils/data/types';
 import { StyledInstaWrapper } from './InstaWrapper.styles';
 
 const InstaWrapper = ({ instagram }: { instagram: Array<IInstaTypes> }) => {

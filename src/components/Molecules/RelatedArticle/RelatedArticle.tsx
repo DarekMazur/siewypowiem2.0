@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import slugify from 'slugify';
 import ArticleCategories from '@/components/Atoms/ArticleCategories/ArticleCategories';
-import { stringityArray } from '@/utils/stringifyArray';
-import { IArticleTypes } from '@/utils/types';
+import { stringityArray } from '@/utils/methods/stringifyArray';
+import { IArticleTypes } from '@/utils/data/types';
 import { RelatedThumb, StyledRelatedArticle } from './RelatedArticle.styles';
 
 const RelatedArticle = ({ realted }: { realted: IArticleTypes }) => {

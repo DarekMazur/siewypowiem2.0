@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import slugify from 'slugify';
-import { ICategoryTypes } from '@/utils/types';
+import { ICategoryTypes } from '@/utils/data/types';
 import icon from '../../../assets/icons/logo.svg';
 import { StyledHeroCategories } from './HeroCategories.styles';
 import { StyledLink } from '../Link/Link.styles';

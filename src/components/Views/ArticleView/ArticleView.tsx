@@ -5,7 +5,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import slugify from 'slugify';
 import RelatedArticle from '@/components/Molecules/RelatedArticle/RelatedArticle';
-import { IArticleTypes } from '@/utils/types';
+import { IArticleTypes } from '@/utils/data/types';
 import { MainWrapper } from '../PageView/PageView.styles';
 import {
   ArticlesNavigationWrapper,

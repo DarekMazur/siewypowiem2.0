@@ -1,6 +1,6 @@
 import Avatar from '@/components/Atoms/Avatar/Avatar';
 import { Handwritting } from '@/components/Atoms/Handwritting/Handwritting.styles';
-import { data } from '@/utils/data';
+import { data } from '@/utils/data/data';
 import { StyledHomeAbout } from './HomeAbout.styles';
 
 const HomeAbout = () => {

@@ -9,7 +9,7 @@ import {
   modifyUsesFilters,
 } from '@/store';
 import { useDispatch } from 'react-redux';
-import { ICategoryTypes, IUserTypes } from '@/utils/types';
+import { ICategoryTypes, IUserTypes } from '@/utils/data/types';
 import {
   FilterListWrapper,
   OptionsWrapper,

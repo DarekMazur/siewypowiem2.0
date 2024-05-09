@@ -1,8 +1,13 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 
 export const AboutViewWrapper = styled.section`
   display: flex;
   gap: 2rem;
+
+  @media (max-width: ${mainTheme.breakpoints.wide}px) {
+    flex-direction: column;
+  }
 `;
 
 export const AboutImage = styled.div`
@@ -40,5 +45,11 @@ export const AboutContactSection = styled.aside`
     gap: 1rem;
     justify-content: space-evenly;
     padding: 2rem 0 0;
+  }
+
+  @media (max-width: ${mainTheme.breakpoints.wide}px) {
+    h3 {
+      text-align: center;
+    }
   }
 `;

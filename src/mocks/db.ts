@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { IRoleTypes } from '@/utils/data/types';
 import { faker } from '@faker-js/faker';
 import { factory, oneOf, manyOf, primaryKey, nullable } from '@mswjs/data';
-import { IRoleTypes } from './types';
 
 faker.seed(123);
 

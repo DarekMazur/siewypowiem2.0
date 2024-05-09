@@ -1,6 +1,6 @@
 'use client';
 
-import { IArticleTypes, IMetaTypes } from './types';
+import { IArticleTypes, IMetaTypes } from '../data/types';
 
 interface IArticleResponse {
   data: Array<IArticleTypes>;

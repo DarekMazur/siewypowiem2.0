@@ -1,4 +1,4 @@
-import { ICategoryTypes } from './types';
+import { ICategoryTypes } from '../data/types';
 
 export const stringityArray = (list: Array<ICategoryTypes>) => {
   const stringify: Array<string> = [];

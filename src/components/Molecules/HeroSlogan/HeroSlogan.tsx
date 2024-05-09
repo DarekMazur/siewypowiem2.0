@@ -4,7 +4,7 @@ import { useSlogan } from '@/hooks/useSlogan';
 import { usePathname } from 'next/navigation';
 import { useGetCategoriesQuery, useGetUsersQuery } from '@/store';
 import slugify from 'slugify';
-import { ICategoryTypes, IUserTypes } from '@/utils/types';
+import { ICategoryTypes, IUserTypes } from '@/utils/data/types';
 import { StyledHeroArticle } from '../HeroArticle/HeroArticle.styles';
 
 const HeroSlogan = () => {
