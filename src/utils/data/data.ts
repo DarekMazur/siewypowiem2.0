@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { faker } from '@faker-js/faker';
 import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+import avatar from '@/assets/author.jpg';
 
 interface IDataTypes {
   username: string;
@@ -9,17 +10,15 @@ interface IDataTypes {
 }
 
 export const data: IDataTypes = {
-  username: faker.internet.userName(),
+  username: 'Jillian',
   bio: faker.person.bio(),
-  avatar: faker.image.avatar(),
+  avatar: avatar.src,
 };
 
 export const about = {
-  name: faker.internet.userName(),
-  image: faker.image.avatar(),
-  greetings: faker.helpers.fake(
-    'Hi, my name is {{person.firstName}} {{person.lastName}}!',
-  ),
+  name: 'Jillian',
+  image: avatar.src,
+  greetings: 'Cześć, jestem Iza Antoszewska-Mazur!',
   body: `<p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p><p>${faker.lorem.paragraph({ min: 2, max: 10 })}</p>`,
   inspirations: [
     {
@@ -85,7 +84,7 @@ export const slogan = {
     slogan: 'Nie znam się, więc się wypowiem',
   },
   about: {
-    title: faker.internet.userName(),
-    slogan: faker.person.bio(),
+    title: data.username,
+    slogan: data.bio,
   },
 };
