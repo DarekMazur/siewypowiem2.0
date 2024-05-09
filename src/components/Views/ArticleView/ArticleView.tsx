@@ -33,7 +33,10 @@ const ArticleView: FC<IArticleViewProps> = ({
           <aside style={{ width: '25%' }}>
             <h3>See also:</h3>
             {similar.map((similarArticle) => (
-              <RelatedArticle realted={similarArticle} />
+              <RelatedArticle
+                key={similarArticle.attributes.uuid}
+                realted={similarArticle}
+              />
             ))}
           </aside>
         ) : null}
