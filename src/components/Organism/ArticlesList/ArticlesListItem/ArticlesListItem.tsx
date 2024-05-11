@@ -3,6 +3,7 @@ import ArticleTitle from '@/components/Atoms/AtricleTitle/ArticleTitle';
 import { useState } from 'react';
 import Link from 'next/link';
 import slugify from 'slugify';
+import { getReadingTime } from '@/utils/methods/getReadingTime';
 import ArticleCta from '@/components/Atoms/ArticleCta/ArticleCta';
 import ArticleShortHeader from '@/components/Molecules/ArticleShortHeader/ArticleShortHeader';
 import { ArticleAuthor } from '@/components/Atoms/ArticleAuthor/ArticelAuthor.styles';
@@ -68,6 +69,19 @@ const ArticlesListItem = ({
         <ArticleContentWrapper $isHidden={isOver}>
           <div>
             <ArticleTitle title={article.attributes.title} size={40} />
+            <p>
+              <i>
+                Przeczytasz w{' '}
+                <strong>
+                  {getReadingTime(article.attributes.body)}{' '}
+                  {getReadingTime(article.attributes.body) === 1
+                    ? 'minutę'
+                    : getReadingTime(article.attributes.body) < 5
+                      ? 'minuty'
+                      : 'minut'}
+                </strong>
+              </i>
+            </p>
             <ArticleShortHeader
               likes={article.attributes.likes}
               date={dateFormat(article.attributes.publishedAt)}
