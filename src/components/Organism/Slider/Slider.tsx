@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import 'react-animated-slider/build/horizontal.css';
 import { IArticleTypes } from '@/utils/data/types';
 import slugify from 'slugify';
 import defaultCover from '@/assets/dafault.jpg';
