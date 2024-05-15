@@ -17,7 +17,9 @@ export const getArticles = async (
 ) => {
   try {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*&sort=${sort}:${sortDir}&pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}${categoryUuid ? `&filters[categories][uuid]=${categoryUuid}` : authorUuid ? `&filters[author][uuid]=${authorUuid}` : ''}`;
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` },
+    });
     const data = (await response.json()) as IArticleResponse;
     return data.data;
   } catch (error: unknown) {

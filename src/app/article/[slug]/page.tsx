@@ -7,6 +7,9 @@ const Article = async ({ params }: { params: { slug: string } }) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*&sort=publishedAt:desc&pagination[pageSize]=9999`,
       {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
         cache: 'no-store',
       },
     );

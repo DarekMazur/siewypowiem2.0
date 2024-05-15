@@ -12,6 +12,9 @@ const Category = async ({ params }: { params: { slug: string } }) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/categories?populate=*`,
       {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
         cache: 'no-store',
       },
     );
@@ -37,11 +40,14 @@ export default Category;
 export async function generateStaticParams() {
   const categories: { data: Array<ICategoryTypes> } = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/categories?populate=*`,
+    {
+      headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` },
+    },
   ).then((res) => res.json());
 
   return categories.data
     ? categories.data.map((category) => ({
         slug: slugify(category.attributes.title, { lower: true }),
       }))
-    : null;
+    : [];
 }

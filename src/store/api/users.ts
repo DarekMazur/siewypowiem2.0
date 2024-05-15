@@ -16,6 +16,9 @@ export const usersApi = createApi({
     getUsers: builder.query<Array<IUserTypes>, IQuery>({
       query: () => ({
         url: `users?populate=*&sort=username:desc`,
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
       }),
       providesTags: ['Users'],
     }),
