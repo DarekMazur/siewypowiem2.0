@@ -12,6 +12,9 @@ const Author = async ({ params }: { params: { slug: string } }) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/users?populate=*`,
       {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
         cache: 'no-store',
       },
     );

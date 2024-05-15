@@ -21,6 +21,9 @@ export const categoriesApi = createApi({
     getCategories: builder.query<ICategoryResponse, IQuery>({
       query: ({ pageSize, page }) => ({
         url: `categories?populate=*&sort=title:desc&pagination[page]=${page || 1}&pagination[pageSize]=${pageSize || 25}`,
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
       }),
       providesTags: ['Categories'],
     }),

@@ -23,14 +23,16 @@ const Home = () => {
   return (
     <HomeWrapper>
       <section>
-        <h2>Ostatnio na blogu</h2>
         <Loader isLoading={isLoading} isError={!!error} isReady={!!articles} />
         <HomeBlogInnerWrapper>
-          {articles ? (
-            <ArticlesList
-              articles={articles.data.slice(1)}
-              meta={articles.meta}
-            />
+          {articles && articles.data.length > 1 ? (
+            <>
+              <h2>Ostatnio na blogu</h2>
+              <ArticlesList
+                articles={articles.data.slice(1)}
+                meta={articles.meta}
+              />
+            </>
           ) : null}
           <HomeAbout />
         </HomeBlogInnerWrapper>
