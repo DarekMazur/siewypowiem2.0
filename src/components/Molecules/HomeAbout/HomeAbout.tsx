@@ -6,7 +6,7 @@ import { StyledHomeAbout } from './HomeAbout.styles';
 const HomeAbout = () => {
   return (
     <StyledHomeAbout>
-      <h2>Któtko o mnie</h2>
+      <h2>Krótko o mnie</h2>
       <div>
         <Avatar username={data.username} image={data.avatar} />
         <div>
