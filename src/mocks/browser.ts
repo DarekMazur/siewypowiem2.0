@@ -1,9 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { setupWorker } from 'msw/browser';
 import { faker } from '@faker-js/faker';
+import {
+  IArticleTypes,
+  ICategoryTypes,
+  ICommentTypes,
+  IUserTypes,
+} from '@/utils/data/types';
 import { handlers } from './handlers';
 import { db } from './db';
-import { IArticleType, ICategoryType, ICommentType, IUserType } from './types';
 
 declare global {
   interface Window {
@@ -94,8 +99,8 @@ const updateComments = () => {
       },
       data: {
         attributes: {
-          author: author as any | IUserType, // eslint-disable-line @typescript-eslint/no-explicit-any
-          article: commentedArticle as any | IArticleType, // eslint-disable-line @typescript-eslint/no-explicit-any
+          author: author as any | IUserTypes, // eslint-disable-line @typescript-eslint/no-explicit-any
+          article: commentedArticle as any | IArticleTypes, // eslint-disable-line @typescript-eslint/no-explicit-any
         },
       },
     });
@@ -146,9 +151,9 @@ const updateArticles = () => {
       },
       data: {
         attributes: {
-          author: author as any | IUserType, // eslint-disable-line @typescript-eslint/no-explicit-any
-          categories: articleCategories as any | Array<ICategoryType>, // eslint-disable-line @typescript-eslint/no-explicit-any
-          comments: articleComments || ([] as any | Array<ICommentType>), // eslint-disable-line @typescript-eslint/no-explicit-any
+          author: author as any | IUserTypes, // eslint-disable-line @typescript-eslint/no-explicit-any
+          categories: articleCategories as any | Array<ICategoryTypes>, // eslint-disable-line @typescript-eslint/no-explicit-any
+          comments: articleComments || ([] as any | Array<ICommentTypes>), // eslint-disable-line @typescript-eslint/no-explicit-any
         },
       },
     });
