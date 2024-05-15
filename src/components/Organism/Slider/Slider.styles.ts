@@ -1,8 +1,8 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Slider from 'react-animated-slider';
 
-export const StyledSlider = styled(Slider)`
+export const StyledSlider = styled.div`
   position: relative;
   width: 100%;
   height: 500px;
@@ -13,6 +13,11 @@ export const StyledSlider = styled(Slider)`
     & div {
       width: calc(100% - 12rem);
       transform: translateX(6rem);
+
+      @media (max-width: ${mainTheme.breakpoints.desktop}px) {
+        width: calc(100% - 2rem);
+        transform: translateX(1rem);
+      }
     }
   }
 
@@ -102,4 +107,24 @@ export const SliderButton = styled.button`
 
 export const SliderImage = styled(Image)`
   object-fit: cover;
+`;
+
+export const SliderNavigationButton = styled.button<{ $isLeft?: boolean }>`
+  position: absolute;
+  top: 50%;
+  left: ${({ $isLeft }) => ($isLeft ? '1rem' : 'unset')};
+  right: ${({ $isLeft }) => ($isLeft ? 'unset' : '1rem')};
+  z-index: 2;
+  transform: translateY(-50%);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: none;
+  background: ${({ theme }) => theme.colors.orange};
+  transition: transform 100ms ease-in-out;
+  color: ${({ theme }) => theme.colors.white};
+
+  &:hover {
+    transform: translateY(-50%) scale(1.2);
+  }
 `;
