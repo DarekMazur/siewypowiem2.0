@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+    <img alt="Siewypowiem logo" src="src/assets/icons/logo.svg" width="150" />
+</p>
 
-## Getting Started
+<h1 align="center">
+  SieWypowiem blog
+</h1>
 
-First, run the development server:
+## Version: 2.0.0-beta
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Live demo: [app]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :black_nib: About app
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Hello world! Welcome on Siewypowiem project - blog based on Next.js connected with Strapi backend.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+In this project you will find frontned part of blog.
 
-## Learn More
+You can check current live version of this project <a href="https://siewypowiem.pl" target="_blank">HERE</a>
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Quick start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Requirement**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    - npm (v10.2.4)
 
-## Deploy on Vercel
+2.  **Installation**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    To install application navigate to app's directory and use npm command
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```shell
+    cd app-main-dir/
+    npm install
+    npm run build
+    ```
+
+3.  **Developer mode**
+
+    You can run app in developer mode by using command
+
+    ```shell
+    npm run dev
+    ```
+
+    Application will run on port 3000 (localhost:3000)
+
+## :computer: Frontend
+
+This application is created using Next.js and CSSinJS (styled-components).
+
+Other libraries:
+
+- redux
+- redux toolkit
+- fontawesome
+- gsap
+- react infinite scroll component
+- slugify
+
+## :wrench: Backend
+
+App is designed to work with [Strapi.io] (used v4). You can also use this tool, choose other API provider (Wordpress, DatoCMS etc) or design your API server.
+
+[app]: https://siewypowiem.pl/
+[strapi.io]: https://strapi.io/
