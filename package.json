@@ -29,7 +29,6 @@
     "next": "14.1.4",
     "react": "^18",
     "react-animated-cursor": "^2.11.2",
-    "react-animated-slider": "^2.0.0",
     "react-dom": "^18",
     "react-intersection-observer": "^9.8.2",
     "react-paginate": "^8.2.0",
@@ -65,6 +64,9 @@
     "msw": "^2.2.13",
     "prettier": "^3.2.5",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "react-animated-slider": "^2.0.0"
   },
   "msw": {
     "workerDirectory": [
