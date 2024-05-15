@@ -5,7 +5,7 @@ export const highlightText = (string: string) => {
   if (splitWords.length > 3) {
     highlitedPart.push(splitWords[0], splitWords[1]);
     splitWords = splitWords.slice(2);
-  } else if (splitWords.length > 1) {
+  } else {
     highlitedPart.push(splitWords[0]);
     splitWords = splitWords.slice(1);
   }
