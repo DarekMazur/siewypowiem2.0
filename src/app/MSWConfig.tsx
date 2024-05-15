@@ -20,7 +20,7 @@ export default function MSWConfig({ children }: Props) {
 
   return (
     <MSWContext.Provider value=''>
-      {loaded ? children : <>Mocking...</>}
+      {loaded ? children : null}
     </MSWContext.Provider>
   );
 }

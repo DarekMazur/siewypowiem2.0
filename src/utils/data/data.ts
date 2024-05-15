@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { faker } from '@faker-js/faker';
 import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 import avatar from '@/assets/author.jpg';
 
@@ -11,7 +9,7 @@ interface IDataTypes {
 
 export const data: IDataTypes = {
   username: 'Jillian',
-  bio: faker.person.bio(),
+  bio: 'Strzeżcie się rozczarowań, bo pozory mylą. Takimi, jakimi wydają się być, rzeczy są rzadko. A kobiety nigdy.',
   avatar: avatar.src,
 };
 
@@ -23,23 +21,23 @@ export const about = {
   <p>Lubię słuchać, czytać i oglądać - lubię zatapiać się w nowe historie. Uważam, że audiobooki to jeden z najlepszych wynalazków ludzkości. Nałogowo piję czarną herbatę, co myśli rozjaśnia ☕😉</p>`,
   inspirations: [
     {
-      title: 'Lorem',
-      url: '/',
+      title: "Zespół Wokalny A'Capella",
+      url: 'https://www.facebook.com/ZespolwokalnyACapella',
     },
-    {
-      title: 'Ipsum',
-      url: '/',
-    },
+    // {
+    //   title: 'Podcast Ściśle Humanistyczny',
+    //   url: '/',
+    // },
   ],
   links: [
     {
-      title: 'Dolor',
-      url: '/',
+      title: 'Nerdistry',
+      url: 'https://nerdistry.pl',
     },
-    {
-      title: 'Sit amet',
-      url: '/',
-    },
+    // {
+    //   title: 'Sit amet',
+    //   url: '/',
+    // },
   ],
 };
 
