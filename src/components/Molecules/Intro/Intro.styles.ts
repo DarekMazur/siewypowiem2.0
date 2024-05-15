@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import styled, { keyframes } from 'styled-components';
 
 const iconSlideIn = keyframes`
@@ -113,5 +114,9 @@ export const StyledIntro = styled.div`
         animation: 800ms linear 1500ms forwards ${iconSlideIn};
       }
     }
+  }
+
+  @media (min-width: ${mainTheme.breakpoints.mobile}px) {
+    display: none;
   }
 `;
