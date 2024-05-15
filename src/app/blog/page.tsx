@@ -2,7 +2,7 @@
 
 import PageView from '@/components/Views/PageView/PageView';
 
-export const Page = () => {
+const Page = () => {
   return <PageView />;
 };
 
