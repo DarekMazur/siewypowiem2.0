@@ -39,7 +39,9 @@ export async function generateStaticParams() {
     `${process.env.NEXT_PUBLIC_API_URL}/api/categories?populate=*`,
   ).then((res) => res.json());
 
-  return categories.data.map((category) => ({
-    slug: slugify(category.attributes.title, { lower: true }),
-  }));
+  return categories.data
+    ? categories.data.map((category) => ({
+        slug: slugify(category.attributes.title, { lower: true }),
+      }))
+    : null;
 }
