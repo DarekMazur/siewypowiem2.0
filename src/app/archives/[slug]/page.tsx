@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import { getArchiveData } from '@/lib/archives';
+import { dateFormat } from '@/utils/methods/dateFormat';
 
 const SingleArchive = async ({ params }: { params: { slug: string } }) => {
   const articleData = await getArchiveData(params.slug);
@@ -9,7 +10,7 @@ const SingleArchive = async ({ params }: { params: { slug: string } }) => {
       <h2>{articleData.title}</h2>
       <p>by Jillian</p>
       <div>
-        <p>{articleData.date.toString()}</p>
+        <p>{dateFormat(articleData.date.toString())}</p>
       </div>
       <article dangerouslySetInnerHTML={{ __html: articleData.contentHtml }} />
     </section>

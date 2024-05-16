@@ -65,7 +65,7 @@ export const getArchiveData = async (id: string) => {
     id,
     contentHtml,
     title: matterResult.data.Title,
-    date: moment(matterResult.data.date, 'DD.MM.YYYY').format('MMMM Do YYYY'),
+    date: moment(matterResult.data.date, 'DD.MM.YYYY').format('YYYY-MM-DD'),
     category: matterResult.data.Category,
     cover: matterResult.data.cover,
   };
