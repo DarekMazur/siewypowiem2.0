@@ -1,10 +1,8 @@
-date: 6.02.2020
-
-Title: Koniec Doktora House'a
-
-Category: Film
-
-Body:
+---
+date: '06.02.2020'
+Title: 'Koniec Doktora House'a'
+Category: 'Film'
+---
 
 Reklamy na Youtube mnie wkurzają…
 Przerywają Ci filmiki w losowych momentach, a Ty gubisz wątek. Słuchasz dajmy na to, w jakich kolorach będzie Twoja wiosenna garderoba, a tu nagle ktoś zaczyna Cię po angielsku przekonywać do zakupu nowych perfum…

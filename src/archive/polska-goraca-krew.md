@@ -1,10 +1,8 @@
-date: 25.08.2016
-
-Title: Polska gorąca krew
-
-Category: Miszmasz
-
-Body:
+---
+date: '25.08.2016'
+Title: 'Polska gorąca krew'
+Category: 'Miszmasz'
+---
 
 Należę do pokolenia kobiet, których dzieciństwo przypadało na lata 90. Był to czas, gdy w telewizji królowały telenowele argentyńskie. Przeciętny widz miał maksymalnie 10 kanałów, no więc z lubością i zaangażowaniem oglądało się tasiemce ze świata, który można było zobaczyć jedynie na szklanym ekranie. Były to obrazy nieznane nam, jednak czy zupełnie obce?
 
@@ -23,4 +21,3 @@ Latynos zapytany, co u niego słychać, zawsze odpowiada, że dobrze, choćby ni
 Inspirację do tej notki zaczerpnęłam z kanału So KAYKA.
 
 Pozdrawiam wszystkich 🙂
-

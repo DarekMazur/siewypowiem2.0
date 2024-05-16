@@ -1,10 +1,8 @@
-date: 2.02.2015
-
-Title: Krótka historia białego kołnierzyka
-
-Category: Miszmasz
-
-Body:
+---
+date: '02.02.2015'
+Title: 'Krótka historia białego kołnierzyka'
+Category: 'Miszmasz'
+---
 
 18 grudnia 2014 roku telewizja Fox wyemitowała ostatni odcinek serialu White Collar. Ostatnia – szósta – seria liczyła tylko 6 odcinków, a decyzja o zakończeniu emisji została podjęta ze względu na niską według stacji oglądalność. Lubiłam ten serial, miał w sobie wszystkie elementy, które cenię. Postanowiłam więc poświęcić notkę tej produkcji.
 

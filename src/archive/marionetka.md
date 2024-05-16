@@ -1,10 +1,8 @@
-date: 27.04.2015
-
-Title: MARIONETKA
-
-Category: Miszmasz
-
-Body:
+---
+date: '27.04.2015'
+Title: 'MARIONETKA'
+Category: 'Miszmasz'
+---
 
 Tekst, który dziś zamieszczam, powstał jakieś 5 lat temu z myślą o naszym dawnym zespole Kapuccino Band, dzięki któremu stał się piosenką. Zdrowie za stare dzieje:)
 

@@ -1,10 +1,8 @@
-date: 13.09.2019
-
-Title: I Ty bądź Lekko Stronniczy
-
-Category: SocialMedia
-
-Body:
+---
+date: '13.09.2019'
+Title: 'I Ty bądź Lekko Stronniczy'
+Category: 'SocialMedia'
+---
 
 Wrócili!!! Nieco starsi, nieco bardziej doświadczeni życiowo, ale nadal jakby lekko stronniczy 😉
 

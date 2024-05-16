@@ -1,10 +1,8 @@
-date: 28.09.2015
-
-Title: Księżyc czerwony niczym krew
-
-Category: Miszmasz
-
-Body:
+---
+date: '28.09.2015'
+Title: 'Księżyc czerwony niczym krew'
+Category: 'Miszmasz'
+---
 
 Tej nocy obudziłam się podczas zaćmienia, mimo że tego nie planowałam. Właściwie uczynił to krwawy księżyc, który mi się przyśnił. Po przebudzeniu zaczęłam obserwować niebo. Jak dla mnie księżyc ten był raczej różowy, niż krwawoczerwony,
 

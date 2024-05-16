@@ -1,10 +1,8 @@
-date: 3.02.2016
-
-Title: Oda pisana w autobusie miejskim linii 180 lub 116 w godzinach szczytu
-
-Category: Miszmasz
-
-Body:
+---
+date: '03.02.2016'
+Title: 'Oda pisana w autobusie miejskim linii 180 lub 116 w godzinach szczytu'
+Category: 'Miszmasz'
+---
 
 Znów widzę Ciebie, drogi Motorku,
 

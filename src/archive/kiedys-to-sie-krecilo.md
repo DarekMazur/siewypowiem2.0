@@ -1,10 +1,8 @@
-date: 23.08.2016
-
-Title: Kiedyś to się kręciło… West Side Story
-
-Category: Miszmasz
-
-Body:
+---
+date: '23.08.2016'
+Title: 'Kiedyś to się kręciło… West Side Story'
+Category: 'Miszmasz'
+---
 
 Ostatnio miałam przyjemność obejrzeć musical z 1961 roku w reżyserii Roberta Wise’a i Jerome Robbinsa, West Side Story. Jest to adaptacja brodwayowskiego musicalu autorstwa Arthura Laurentsa. Film został nagrodzony dziesięcioma Oscarami i został uznany za arcydzieło. Czy słusznie?
 
@@ -29,4 +27,3 @@ Film jest dopracowany pod względem artystycznym. Ma spójną estetykę, zachwyc
 Jeśli ktoś nie widział West Side Story, polecam, bo niewiele dzisiejszych filmów, mimo efektów specjalnych, sztabu specjalistów i ogromnych budżetów zostało wykonane z tak dużym wyczuciem i z taką dbałością o szczegóły.
 
 Pozdrawiam wszystkich 🙂
-

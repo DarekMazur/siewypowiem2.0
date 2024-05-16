@@ -1,10 +1,8 @@
-date: 28.04.2015
-
-Title: 10 randomowych faktów o mnie
-
-Category: Miszmasz
-
-Body:
+---
+date: '28.04.2015'
+Title: '10 randomowych faktów o mnie'
+Category: 'Miszmasz'
+---
 
 Ostatnio zauważyłam wśród youtuberów pewną modę na nagrywanie filmików: 10 faktów o mnie. Jest to całkiem ciekawy sposób na przedstawienie siebie w nietypowy sposób. W sumie żaden z nas nie jest monolitem, a nasza osobowość i historia składa się z takich właśnie drobnostek, dlatego postanowiłam dołączyć się do zabawy, choć youtuberką nie jestem 🙂
 

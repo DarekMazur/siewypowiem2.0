@@ -1,10 +1,8 @@
-date: 26.11.2019
-
-Title: Tego Ci w szkole nie powiedzą… czyli kilka faktów o Adamie Mickiewiczu
-
-Category: Literatura
-
-Body:
+---
+date: '26.11.2019'
+Title: 'Tego Ci w szkole nie powiedzą… czyli kilka faktów o Adamie Mickiewiczu'
+Category: 'Literatura'
+---
 
 Adam, Adaś, Adaśko...
 Adam Mickiewicz zapisał się złotymi zgłoskami w historii polskiej literatury. Kolejne pokolenia upatrują w nim wieszcza narodowego i bohatera, który walczył piórem o wolność i wzywał do wzięcia udziału w powstaniu listopadowym (na które swoją drogą sam nigdy nie dotarł😉).Tak przynajmniej uczono nas w szkole…

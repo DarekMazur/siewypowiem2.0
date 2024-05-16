@@ -1,10 +1,8 @@
-date: 20.09.2017
-
-Title: Bo ja lubię jesień…
-
-Category: Miszmasz
-
-Body:
+---
+date: '20.09.2017'
+Title: 'Bo ja lubię jesień…'
+Category: 'Miszmasz'
+---
 
 Zapachniało powiewem jesieni, z wiatrem zimnym uleciał słów sens. Tak być musi, Niczego nie mogą już zmienić, Brylanty na końcach twych rzęs…
 

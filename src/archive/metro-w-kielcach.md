@@ -1,10 +1,8 @@
-date: 28.06.2017
-
-Title: METRO w Kielcach
-
-Category: Miszmasz
-
-Body:
+---
+date: '28.06.2017'
+Title: 'METRO w Kielcach'
+Category: 'Miszmasz'
+---
 
 Świat się zmienia, Padają mury, otwierają się granice Teatr też się zmienia Niezmienne pozostają tylko marzenia – marzenia młodych ludzi, nasze marzenia
 

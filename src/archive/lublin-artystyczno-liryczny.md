@@ -1,10 +1,8 @@
-date: 23.10.2017
-
-Title: Lublin artystyczno-liryczny
-
-Category: Miszmasz
-
-Body:
+---
+date: '23.10.2017'
+Title: 'Lublin artystyczno-liryczny'
+Category: 'Miszmasz'
+---
 
 13 października, w piątek, wyruszyłam ku przygodzie i ku Lublinowi. Dzień ten (mimo przesądów) nie okazał się pechowy – wręcz przeciwnie – mieliśmy sporo szczęścia, wziąwszy pod uwagę wszystkie czynniki losowe, które mogły zepsuć naszą podróż, a działały na naszą korzyść 😉
 

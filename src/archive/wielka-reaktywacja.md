@@ -1,10 +1,8 @@
-date: 31.01.2015
-
-Title: Wielka reaktywacja, czyli czego człowiek nie zrobi, by tylko się nie uczyć…
-
-Category: Miszmasz
-
-Body:
+---
+date: '31.01.2015'
+Title: 'Wielka reaktywacja, czyli czego człowiek nie zrobi, by tylko się nie uczyć…'
+Category: 'Miszmasz'
+---
 
 Postanowiłam założyć bloga na wordpressie. Przy wybieraniu nicku odkryłam,że ten, którego zazwyczaj używam, jest zajęty, i tak – drogą dedukcji – znalazłam tę starą, zakurzoną z lekka od nieużywania stronę. Od czasu ostatniej notki minęła cała wieczność. Dziś piszę z Warszawy i jestem licencjonowaną polonistką z apetytem na tytuł magistra. Pożegnałam się z akademikami, przynajmniej na razie i wróciłam do śpiewania w chórze, choć miałam do tego pewien uraz. Jestem na etapie odkrywania Warszawy na nowo. Z mego okna widać symbol Polski Walczącej, mieszkam w okolicy, która obfituje w stare kamieniczki, pamiętające jeszcze czasy wojny. To bezduszne, brudne miasto zaczyna mieć dla mnie nowe oblicze.
 
@@ -17,4 +15,3 @@ naszą (ja do dziś mówiąc dom, mam na myśli Kielce i ich okolice), otoczeni 
 Jest to miasto nieco bez pomysłu, jeśli chodzi o zabudowania (spójrzcie na nowe stacje drugiej linii metra), ale na pewno nie bez duszy, choć by do niej dotrzeć, trzeba poszperać nieco głębiej i może wyjść poza ścisłe centrum. Polecam w tym celu Kopiec Powstańców, okolice dworca Wileńskiego, Park Skaryszewski i wiele innych miejsc, które raczej się omija przy zwiedzaniu, bo trzeba mieć czas na Złote Tarasy 😉
 
 Życzę owocnych poszukiwań
-

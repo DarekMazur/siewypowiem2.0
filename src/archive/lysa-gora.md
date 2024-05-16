@@ -1,10 +1,8 @@
-date: 11.07.2017
-
-Title: Łysa Góra – Miejsce magiczne
-
-Category: Miszmasz
-
-Body:
+---
+date: '11.07.2017'
+Title: 'Łysa Góra – Miejsce magiczne'
+Category: 'Miszmasz'
+---
 
 To zgrzebło, pokaż mi je — pokaż!…/Łzy mi płyną… poznaję Twardowskiego grzebień,
 

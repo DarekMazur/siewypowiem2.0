@@ -1,17 +1,14 @@
-date: 19.11.2019
-
-Title: My one and only love...
-
-Category: Literatura
-
-Body:
+---
+date: '19.11.2019'
+Title: 'My one and only love...'
+Category: 'Literatura'
+---
 
 Lubię tłumaczenia, zwłaszcza te dobre. Przeniesienie na rodzimy grunt cudzego tekstu, zakorzenionego w innym języku i zgoła odmiennej kulturze to sztuka, która niejednokrotnie może dorównywać tworzeniu dzieła autorskiego. Te najlepsze translacje nie są dosłownym przełożeniem znaczeń z jednego języka na drugi, ale właściwie stworzeniem tekstu na nowo tak, by nie tracił na wymowie, ale by brzmiał naturalnie w języku, na który został przetłumaczony i właściwie dorównywał walorom artystycznym oryginału. Taki zabieg nazywa się tłumaczeniem kongenialnym i zwykle ma miejsce w przypadku utworów poetyckich, to też powodził się jedynie wybitnym poetom, tj. jak Wisława Szymborska, Czesław Miłosz czy Tadeusz Boy-Żeleński.
 
 Tłumaczenie tekstów poetyckich to niezwykle zajmująca rozrywka, której i ja się poddałam. Jest to świetna zabawa! 😊 Moim próbom daleko oczywiście do translacji kongenialnych, jednak bywają takie, z których jestem dumna 😊 Dziś chciałabym się podzielić jednym z autorskich przekładów.
 
 Na warsztat wzięłam tekst znanego standardu jazzowego „My one and only love”. Muzykę napisał Guy Wood, zaś tekst – Robert Mellin.
-
 
 Oryginał:
 
@@ -38,7 +35,6 @@ I give myself in sweet surrender
 My one and only love
 
 My one and only love
-
 
 Tłumaczenie:
 

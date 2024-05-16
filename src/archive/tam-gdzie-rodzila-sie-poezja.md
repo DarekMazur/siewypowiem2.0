@@ -1,10 +1,8 @@
-date: 8.11.2019
-
-Title: Tam, gdzie rodziła się poezja
-
-Category: Literatura
-
-Body:
+---
+date: '8.11.2019'
+Title: 'Tam, gdzie rodziła się poezja'
+Category: 'Literatura'
+---
 
 Gdy byłam dzieckiem, wróżono mi, że zostanę poetką, albo polonistką. Połowicznie się udało, bo ukończyłam polonistykę, ale jakoś potem trochę odeszłam od pierwotnych założeń…
 

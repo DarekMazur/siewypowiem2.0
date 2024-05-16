@@ -1,10 +1,8 @@
-date: 10.10.2019
-
-Title: Joker, czyli bohater naszych czasów
-
-Category: Film
-
-Body:
+---
+date: '10.10.2019'
+Title: 'Joker, czyli bohater naszych czasów'
+Category: 'Film'
+---
 
 Miałam przyjemność ostatnio widzieć najnowszy film Todda Phillipsa zatytułowany „Joker”. Ukazuje on historię fikcyjnej postaci znanej z komiksów o Batmanie. Joker zwykle nie był głównym bohaterem powieści graficznych, ale stał się jednym z najbardziej charakterystycznych znaków rozpoznawczych serii opowieści o Gotham i jego mieszkańcach. Występował raczej w roli antagonisty do mrocznego rycerza, pojawiającego się pod osłoną nocy na ciemnych ulicach miasta, usiłując je ratować przed złoczyńcami i zaprowadzać porządek, zgodnie z przyjętą przez siebie wizją.
 
@@ -29,4 +27,3 @@ Phillips odchodzi też od tradycyjnego moralistycznego podejścia, że trzeba by
 Dobro i zło jest tu mocno relatywnym odczuciem, które balansuje na cienkiej granicy kształtowanej przez szereg – czasem zupełnie przypadkowych – wydarzeń i doświadczeń bohatera.
 
 Joker żyje wśród nas. Nie jest zmyślonym, kolorowym pajacem z namalowanym uśmiechem, tylko samotnym, niezrozumianym dziwakiem. Wyrzutkiem, który nie mógł liczyć na akceptację i sympatię społeczeństwa, więc w końcu obrócił się przeciw niemu i wśród przestępców znalazł to, czego szukał – odrobinę zrozumienia, trochę podziwu i poczucie, że jest częścią jakiejś wspólnoty. Nawet, jeśli jej członków łączy krzywdzenie tych, wobec których kiedyś było się bezbronnym.
-

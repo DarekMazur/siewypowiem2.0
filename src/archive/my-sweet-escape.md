@@ -1,10 +1,8 @@
-date: 11.04.2013
-
-Title: My sweet escape
-
-Category: Miszmasz
-
-Body:
+---
+date: '11.04.2013'
+Title: 'My sweet escape'
+Category: 'Miszmasz'
+---
 
 Jestem uciekinierką…
 
