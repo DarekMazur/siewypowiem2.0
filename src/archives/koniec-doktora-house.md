@@ -2,9 +2,11 @@
 date: '06.02.2020'
 Title: "Koniec Doktora House'a"
 Category: 'Film'
+cover: '/koniec-doktora-house-a/hugh-laurie-duży-format.jpeg'
 ---
 
-Reklamy na Youtube mnie wkurzają…
+### Reklamy na Youtube mnie wkurzają…
+
 Przerywają Ci filmiki w losowych momentach, a Ty gubisz wątek. Słuchasz dajmy na to, w jakich kolorach będzie Twoja wiosenna garderoba, a tu nagle ktoś zaczyna Cię po angielsku przekonywać do zakupu nowych perfum…
 
 Najbardziej jednak wkurza mnie, gdy te reklamy przykują moją uwagę, bo mam wtedy wrażenie, że moja silna wola przegrała walkę ze sztabem marketingowców i uległam, by obejrzeć spot do końca.
@@ -25,6 +27,8 @@ Jest to… jeden z dziwniejszych seriali, jakie miałam okazję oglądać, przez
 
 By nie zdradzić fabuły, ale coś jednak powiedzieć, rzec mogę, że Hugh Laurie odgrywa tu jedną z głównych ról. Jego bohater to kapitan wycieczkowego statku kosmicznego, który jest miły, czarujący i… totalnie pozbawiony wiedzy merytorycznej!
 
+![Avenue 5](/koniec-doktora-house-a/avenue-5-hbo-recenzja-serial.webp)
+
 Jest jak pan z telewizji, który częstuje cię przyklejonym uśmiechem w amerykańskiej reklamie, namawiając do kupna płatków śniadaniowych. Wygląda nienagannie, ma idealnie wymodelowaną, śnieżnobiałą brodę, elegancką fryzurę i galowy mundur. Chodzi po statku i zagaduje pasażerów, jakby prowadził jakiś teleturniej. Jego cechą charakterystyczną jest to, że ciągle zmienia akcent, nie mogąc się zdecydować, jakiego używać, co dość szybko zaczyna irytować rozmówców.
 
 Wspaniale jest zobaczyć tego aktora w takiej roli z przymrużeniem oka. Ja bawię się wybornie :D
@@ -32,3 +36,5 @@ Wspaniale jest zobaczyć tego aktora w takiej roli z przymrużeniem oka. Ja bawi
 W pewnym momencie fabuły jeden z bohaterów ulega wypadkowi i potrzebuje pomocy medycznej. I oto nasz Hugh Laurie, nasz doktor House, jako żywy stoi i… nic nie robi, bo nie ma pojęcia bladego o medycynie i ludzkiej fizjonomii, a właściwie o niczym :-)
 
 Serial jest absurdalny i sama nie wiem, co o nim myśleć. Wkrótce może się okazać wielkim niewypałem, ale na razie – po obejrzeniu trzech odcinków – nadal mnie ciekawi. Na pewno jest to coś świeżego, więc jeśli macie ochotę zaryzykować, to polecam sprawdzić. Produkcję można obejrzeć na HBO GO :-)
+
+![Avenue 5 Hugh Laurie](/koniec-doktora-house-a/avenue-5-social.webp)

@@ -2,6 +2,7 @@
 date: '13.09.2019'
 Title: 'I Ty bądź Lekko Stronniczy'
 Category: 'SocialMedia'
+cover: '/i-ty-badz-lekko-stronniczy/ls.jpg'
 ---
 
 Wrócili!!! Nieco starsi, nieco bardziej doświadczeni życiowo, ale nadal jakby lekko stronniczy 😉
@@ -19,3 +20,5 @@ Nowe odcinki są nieco inne, niż te sprzed czterech lat. Mam wrażenie, że nie
 Podsumowując: Bardzo cieszę się, że Lekko Stronniczy powrócił. To niby nic wielkiego, ot kilkuminutowy, humorystyczny materiał, komentujący zwykle jakiś artykuł z Wykopu czy Onetu. Jednak po intensywnym dniu, bez względu na to, jak kiepski by on nie był, to o 18 czeka na człowieka coś miłego – dwóch dorosłych facetów, którzy cieszą się jak dzieci, robiąc sobie czapeczki z folii aluminiowej, mające chronić ich przed Internetem 5G, śpiewają jakieś zwariowane, improwizowane piosenki, żartują z domniemanej fortuny Radka Kotarskiego, odgrywają improwizowane scenki rodzajowe albo zakładają na wizji nowy zespół weselny i którzy mają przy tym cały czas ogromne pokłady radości i energii, którą dzielą się z innymi. I to jest super!
 
 Do zobaczenia o 18! 😊
+
+![Lekko Stronniczy](/i-ty-badz-lekko-stronniczy/LekkoStronniczy-1180x541.jpg)

@@ -106,4 +106,5 @@ export interface IArchiveItem {
   title: string;
   date: string;
   category: string;
+  cover?: string;
 }

@@ -2,6 +2,7 @@
 date: '23.07.2018'
 Title: 'Wakacyjnie :)'
 Category: 'Miszmasz'
+cover: '/wakacyjnie/pieski.jpg'
 ---
 
 Sezon urlopowy w pełni. Po deszczowej pogodzie nadszedł czas na słoneczne lato 🙂 Może więc warto wykorzystać ten letni czas na zobaczenie tego, co w naszym kraju piękne i ciekawe 🙂

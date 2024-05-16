@@ -2,6 +2,7 @@
 date: '25.10.2017'
 Title: 'Świat ciszy'
 Category: 'Miszmasz'
+cover: '/swiat-ciszy/migowy.jpg'
 ---
 
 Rok temu trafiłam zrządzeniem losu na kurs języka migowego. Naszym lektorem jest pan Edward – głuchy z aparatami słuchowymi. Dzięki temu żyje on jakby w dwóch światach – z jednej strony należy do społeczności Głuchych, z drugiej jednak, dzięki aparatom, słyszy i mówi. Pan Edward opowiada nam często o Głuchych i o tym, jak oni postrzegają świat. Chciałabym się z Wami podzielić kilkoma informacjami, bo uświadomienie sobie pewnych kwestii pozwoli nam lepiej zrozumieć osoby, które żyją obok nas.

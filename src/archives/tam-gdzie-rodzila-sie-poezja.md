@@ -2,6 +2,7 @@
 date: '8.11.2019'
 Title: 'Tam, gdzie rodziła się poezja'
 Category: 'Literatura'
+cover: '/tam-gdzie-rodzila-sie-poezja/poezjas.jpg'
 ---
 
 Gdy byłam dzieckiem, wróżono mi, że zostanę poetką, albo polonistką. Połowicznie się udało, bo ukończyłam polonistykę, ale jakoś potem trochę odeszłam od pierwotnych założeń…

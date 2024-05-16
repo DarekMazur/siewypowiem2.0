@@ -23,6 +23,7 @@ export const getSortedArchives = (): IArchiveItem[] => {
       title: matterResult.data.Title,
       date: matterResult.data.date,
       category: matterResult.data.Category,
+      cover: matterResult.data.cover,
     };
 
     return archiveData;

@@ -2,6 +2,7 @@
 date: '10.10.2019'
 Title: 'Joker, czyli bohater naszych czasów'
 Category: 'Film'
+cover: '/joker-czyli-bohater-naszych-czasow/joker-payaso.jpg'
 ---
 
 Miałam przyjemność ostatnio widzieć najnowszy film Todda Phillipsa zatytułowany „Joker”. Ukazuje on historię fikcyjnej postaci znanej z komiksów o Batmanie. Joker zwykle nie był głównym bohaterem powieści graficznych, ale stał się jednym z najbardziej charakterystycznych znaków rozpoznawczych serii opowieści o Gotham i jego mieszkańcach. Występował raczej w roli antagonisty do mrocznego rycerza, pojawiającego się pod osłoną nocy na ciemnych ulicach miasta, usiłując je ratować przed złoczyńcami i zaprowadzać porządek, zgodnie z przyjętą przez siebie wizją.

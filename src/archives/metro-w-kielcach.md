@@ -2,6 +2,7 @@
 date: '28.06.2017'
 Title: 'METRO w Kielcach'
 Category: 'Miszmasz'
+cover: '/metro-w-kielcach/metro1.jpg'
 ---
 
 Świat się zmienia, Padają mury, otwierają się granice Teatr też się zmienia Niezmienne pozostają tylko marzenia – marzenia młodych ludzi, nasze marzenia
