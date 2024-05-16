@@ -1,6 +1,6 @@
 ---
 date: '06.02.2020'
-Title: 'Koniec Doktora House'a'
+Title: "Koniec Doktora House'a"
 Category: 'Film'
 ---
 
