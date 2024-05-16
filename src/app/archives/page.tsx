@@ -1,5 +1,6 @@
 import { getSortedArchives } from '@/lib/archives';
 import Link from 'next/link';
+import slugify from 'slugify';
 
 const HomePage = () => {
   const articles = getSortedArchives();
@@ -12,7 +13,11 @@ const HomePage = () => {
           {articles &&
             articles.map((article) => (
               <li key={article.id}>
-                <Link href={`archives/${article.id}`}>{article.title}</Link>
+                <Link
+                  href={`archives/${slugify(article.title, { lower: true })}`}
+                >
+                  {article.title}
+                </Link>
               </li>
             ))}
         </ul>
