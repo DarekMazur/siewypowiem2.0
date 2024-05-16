@@ -1,7 +1,6 @@
 import { getSortedArchives } from '@/lib/archives';
 import Link from 'next/link';
 import Image from 'next/image';
-import slugify from 'slugify';
 import defaultCover from '@/assets/dafault.jpg';
 
 const HomePage = () => {
@@ -21,11 +20,7 @@ const HomePage = () => {
                   width={300}
                   height={100}
                 />
-                <Link
-                  href={`archives/${slugify(article.title, { lower: true })}`}
-                >
-                  {article.title}
-                </Link>
+                <Link href={`archives/${article.id}`}>{article.title}</Link>
               </li>
             ))}
         </ul>
