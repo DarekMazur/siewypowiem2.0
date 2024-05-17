@@ -86,4 +86,8 @@ export const slogan = {
     title: data.username,
     slogan: data.bio,
   },
+  archives: {
+    title: 'Archiwum',
+    slogan: 'Dawno, dawno temu...',
+  },
 };

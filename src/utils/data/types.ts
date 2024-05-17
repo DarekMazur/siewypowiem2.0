@@ -100,3 +100,11 @@ export interface IMetaTypes {
     total: number;
   };
 }
+
+export interface IArchiveItem {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  cover?: string;
+}

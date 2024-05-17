@@ -30,7 +30,7 @@ const ArticleView: FC<IArticleViewProps> = ({
       <SingleArticleWrapper $withAside={similar.length > 0}>
         <div dangerouslySetInnerHTML={{ __html: article.attributes.body }} />
         {similar.length > 0 ? (
-          <aside style={{ width: '25%' }}>
+          <aside>
             <h3>Zobacz także:</h3>
             {similar.map((similarArticle) => (
               <RelatedArticle

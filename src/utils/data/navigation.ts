@@ -11,4 +11,8 @@ export const navList = [
     name: 'O mnie',
     url: '/about',
   },
+  {
+    name: 'Archiwum',
+    url: '/archives',
+  },
 ];

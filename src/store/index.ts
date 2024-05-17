@@ -10,6 +10,13 @@ const initialFilteredCategories: Array<number> = [];
 const initialFilteredUsers: Array<string> = [];
 const initialFilteredPinned: Array<string> = [];
 const initialSortDiserction: string = 'desc';
+const initialArchiveData = {
+  title: '',
+  category: '',
+  author: '',
+  cover: '',
+  date: '',
+};
 
 const filteredCategoriesSlice = createSlice({
   name: 'filteredCategories',
@@ -61,11 +68,22 @@ const sortDirectionSlice = createSlice({
   },
 });
 
+const archiveHeroDataSlice = createSlice({
+  name: 'archiveHero',
+  initialState: initialArchiveData,
+  reducers: {
+    setArchiveHeroData(_state, action) {
+      return action.payload;
+    },
+  },
+});
+
 export const { modifyCategoriesFilters } = filteredCategoriesSlice.actions;
 export const { modifyUsesFilters } = filteredUsersSlice.actions;
 export const { modifyPinnedFilters } = filteredPinnedSlice.actions;
 export const { setSortValue } = sortValueSlice.actions;
 export const { setSortDirection } = sortDirectionSlice.actions;
+export const { setArchiveHeroData } = archiveHeroDataSlice.actions;
 
 export * from './api/articles';
 export * from './api/categories';
@@ -83,6 +101,7 @@ export const store = configureStore({
     filteredPinned: filteredPinnedSlice.reducer,
     sortValue: sortValueSlice.reducer,
     sortDirection: sortDirectionSlice.reducer,
+    archiveHero: archiveHeroDataSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

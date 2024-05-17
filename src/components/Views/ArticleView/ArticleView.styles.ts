@@ -73,6 +73,14 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
       }
     }
 
+    img {
+      position: relative;
+      max-width: 100%;
+      max-height: 50rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     blockquote {
       font-style: italic;
       margin-inline: auto;
@@ -104,6 +112,14 @@ export const SingleArticleWrapper = styled.section<{ $withAside: boolean }>`
         background-repeat: space no-repeat;
         opacity: 0.7;
       }
+    }
+  }
+
+  aside {
+    width: 25%;
+
+    img {
+      transform: translateX(0);
     }
   }
 
