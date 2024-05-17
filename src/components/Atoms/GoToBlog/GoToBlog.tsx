@@ -5,8 +5,8 @@ const GoToBlog = () => {
   return (
     <StyledBlogLink>
       <Link href='/blog'>
-        <span>Check for more</span>
-        <span>Go to blog!</span>
+        <span>Zobacz więcej</span>
+        <span>Sprawdź blog!</span>
       </Link>
     </StyledBlogLink>
   );

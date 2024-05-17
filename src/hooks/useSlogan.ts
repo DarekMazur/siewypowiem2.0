@@ -37,10 +37,10 @@ export const useSlogan = (data?: ICategoryTypes | IUserTypes) => {
 
   switch (dynamic[0]) {
     case 'categories':
-      dynamicSlogan.title = `Category ${(data && (data as ICategoryTypes).attributes && (data as ICategoryTypes).attributes.title) || ''}`;
+      dynamicSlogan.title = `Kategoria ${(data && (data as ICategoryTypes).attributes && (data as ICategoryTypes).attributes.title) || ''}`;
       return dynamicSlogan;
     case 'authors':
-      dynamicSlogan.title = `${(data && (data as IUserTypes).username) || ''}'s articles`;
+      dynamicSlogan.title = `${(data && (data as IUserTypes).username) || ''} - wszystkie artykuyły`;
       return dynamicSlogan;
     default:
       break;
