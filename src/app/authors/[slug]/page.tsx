@@ -1,11 +1,16 @@
 import PageView from '@/components/Views/PageView/PageView';
 import { server } from '@/mocks/server';
 import { IUserTypes } from '@/utils/data/types';
+import { Metadata } from 'next';
 import slugify from 'slugify';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   server.listen();
 }
+
+export const metadata: Metadata = {
+  title: 'Autor',
+};
 
 const Author = async ({ params }: { params: { slug: string } }) => {
   async function getData() {

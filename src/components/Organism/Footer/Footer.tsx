@@ -1,3 +1,5 @@
+'use client';
+
 import Copyrights from '@/components/Atoms/Copyrights/Copyrights';
 import FooterPrivacyLink from '@/components/Atoms/FooterPrivacyLink/FooterPrivacyLink';
 import Creator from '@/components/Atoms/Creator/Creator';

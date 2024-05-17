@@ -1,3 +1,5 @@
+'use client';
+
 import { createRef, useEffect, useState } from 'react';
 import { useArticleInfo } from '@/hooks/useArticleInfo';
 import HeroSection from '../../Molecules/HeroSection/HeroSection';

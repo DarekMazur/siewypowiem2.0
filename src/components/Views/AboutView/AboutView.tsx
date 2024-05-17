@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react/no-danger */
 import Image from 'next/image';
 import { about, contact } from '@/utils/data/data';
@@ -9,10 +11,11 @@ import {
   AboutLinkSection,
   AboutViewWrapper,
 } from './AboutView.styles';
+import { MainWrapper } from '../PageView/PageView.styles';
 
 const AboutView = () => {
   return (
-    <>
+    <MainWrapper>
       <AboutViewWrapper>
         <AboutImage>
           <Image src={about.image} alt={about.name} fill />
@@ -67,7 +70,7 @@ const AboutView = () => {
           </div>
         </AboutContactSection>
       </AboutViewWrapper>
-    </>
+    </MainWrapper>
   );
 };
 

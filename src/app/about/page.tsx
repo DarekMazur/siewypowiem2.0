@@ -1,14 +1,12 @@
-'use client';
-
-import { MainWrapper } from '@/components/Views/PageView/PageView.styles';
 import AboutView from '@/components/Views/AboutView/AboutView';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'O mnie',
+};
 
 const About = () => {
-  return (
-    <MainWrapper>
-      <AboutView />
-    </MainWrapper>
-  );
+  return <AboutView />;
 };
 
 export default About;
