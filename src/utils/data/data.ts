@@ -9,7 +9,7 @@ interface IDataTypes {
 
 export const data: IDataTypes = {
   username: 'Jillian',
-  bio: 'Strzeżcie się rozczarowań, bo pozory mylą. Takimi, jakimi wydają się być, rzeczy są rzadko. A kobiety nigdy.',
+  bio: '„Strzeżcie się rozczarowań, bo pozory mylą. Takimi, jakimi wydają się być, rzeczy są rzadko. A kobiety nigdy.” 😉',
   avatar: avatar.src,
 };
 
