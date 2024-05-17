@@ -1,32 +1,10 @@
 import { getSortedArchives } from '@/lib/archives';
-import Link from 'next/link';
-import Image from 'next/image';
-import defaultCover from '@/assets/dafault.jpg';
+import ArchiveListView from '@/components/Views/ArchiveListView/ArchiveListView';
 
 const HomePage = () => {
   const articles = getSortedArchives();
 
-  return (
-    <section>
-      <header>
-        <h1>Archive</h1>
-        <ul>
-          {articles &&
-            articles.map((article) => (
-              <li key={article.id}>
-                <Image
-                  src={article.cover || defaultCover}
-                  alt={article.title}
-                  width={300}
-                  height={100}
-                />
-                <Link href={`archives/${article.id}`}>{article.title}</Link>
-              </li>
-            ))}
-        </ul>
-      </header>
-    </section>
-  );
+  return <ArchiveListView articles={articles} />;
 };
 
 export default HomePage;
