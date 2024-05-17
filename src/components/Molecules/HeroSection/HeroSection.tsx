@@ -28,7 +28,9 @@ const HeroSection: FC<IHeroProps> = ({ sectionHeight }) => {
   return (
     <StyledHeroSection $sectionHeight={sectionHeight}>
       <Loader isLoading={isLoading} isError={!!error} isReady={!!article} />
-      {pathname === '/' || pathname.includes('/article/') ? (
+      {pathname === '/' ||
+      pathname.includes('/article/') ||
+      pathname.includes('/archives/') ? (
         <HeroArticle uuid={uuid} />
       ) : (
         <HeroSlogan />
