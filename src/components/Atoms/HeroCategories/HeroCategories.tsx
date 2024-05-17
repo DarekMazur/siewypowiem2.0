@@ -36,6 +36,7 @@ const HeroCategories = ({
               rel='noreferer'
               style={{ padding: '0 0.5rem' }}
             >
+              {category}
               {index < categoriesTitles.length - 1 ? ',' : null}
             </StyledLink>
           ))
