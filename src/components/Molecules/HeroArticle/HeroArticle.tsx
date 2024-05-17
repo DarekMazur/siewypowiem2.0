@@ -18,6 +18,7 @@ import { StyledHeroArticle } from './HeroArticle.styles';
 const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
   const { data: article } = useGetLastArticleQuery();
   const { data: singleArticle } = useGetArticlesQuery({ uuid });
+  const pathname = usePathname();
   const archiveHero = useSelector((state: RootState) => state.archiveHero);
 
   return (
@@ -26,7 +27,7 @@ const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
         <>
           <HeroTitle
             title={
-              archiveHero.title
+              pathname.includes('/archives/') && archiveHero.title
                 ? archiveHero.title
                 : singleArticle?.data.length === 1
                   ? singleArticle?.data[0].attributes.title
@@ -35,7 +36,7 @@ const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
           />
           <Handwritting>
             by{' '}
-            {archiveHero.author ? (
+            {pathname.includes('/archives/') && archiveHero.author ? (
               archiveHero.author
             ) : (
               <StyledLink
@@ -57,7 +58,7 @@ const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
             singleArticle.data[0].attributes.categories.data.length > 0) ? (
             <HeroCategories
               categories={
-                archiveHero.category
+                pathname.includes('/archives/') && archiveHero.category
                   ? archiveHero.category
                   : singleArticle?.data.length === 1 &&
                       singleArticle.data[0].attributes.categories.data.length >
@@ -69,7 +70,7 @@ const HeroArticleContent = ({ uuid }: { uuid?: string }) => {
           ) : null}
           <ArticleDate
             date={
-              archiveHero.date ||
+              (pathname.includes('/archives/') && archiveHero.date) ||
               dateFormat(
                 singleArticle?.data.length === 1
                   ? singleArticle?.data[0].attributes.publishedAt
