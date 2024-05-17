@@ -1,6 +1,11 @@
 import ArticleView from '@/components/Views/ArticleView/ArticleView';
 import { IArticleTypes } from '@/utils/data/types';
+import { Metadata } from 'next';
 import slugify from 'slugify';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+};
 
 const Article = async ({ params }: { params: { slug: string } }) => {
   async function getData() {

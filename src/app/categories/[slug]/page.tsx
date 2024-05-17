@@ -2,10 +2,15 @@ import slugify from 'slugify';
 import { server } from '@/mocks/server';
 import { ICategoryTypes } from '@/utils/data/types';
 import PageView from '@/components/Views/PageView/PageView';
+import { Metadata } from 'next';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   server.listen();
 }
+
+export const metadata: Metadata = {
+  title: 'Kategorie',
+};
 
 const Category = async ({ params }: { params: { slug: string } }) => {
   async function getData() {

@@ -1,8 +1,11 @@
+'use client';
+
 import { StyledLink } from '@/components/Atoms/Link/Link.styles';
+import { MainWrapper } from '../PageView/PageView.styles';
 
 const PrivacyView = () => {
   return (
-    <>
+    <MainWrapper>
       <p>
         Polityka prywatności opisuje zasady przetwarzania przez nas informacji
         na Twój temat, w tym danych osobowych oraz ciasteczek, czyli tzw.
@@ -285,7 +288,7 @@ const PrivacyView = () => {
           </ol>
         </li>
       </ol>
-    </>
+    </MainWrapper>
   );
 };
 

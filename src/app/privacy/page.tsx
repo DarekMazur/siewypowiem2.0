@@ -1,14 +1,12 @@
-'use client';
-
-import { MainWrapper } from '@/components/Views/PageView/PageView.styles';
 import PrivacyView from '@/components/Views/PrivacyView/PrivacyView';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Polityka prywatności',
+};
 
 const Privacy = () => {
-  return (
-    <MainWrapper>
-      <PrivacyView />
-    </MainWrapper>
-  );
+  return <PrivacyView />;
 };
 
 export default Privacy;
