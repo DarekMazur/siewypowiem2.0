@@ -14,7 +14,7 @@ const ArchiveListView = ({ articles }: { articles: IArchiveItem[] }) => {
           articles.map((article) => (
             <li key={article.id}>
               <ArchiveCover
-                src={article.cover || defaultCover}
+                src={article.cover || defaultCover.src}
                 alt={article.title}
                 fill
               />

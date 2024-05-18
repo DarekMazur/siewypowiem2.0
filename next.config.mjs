@@ -8,6 +8,7 @@ const nextConfig = {
       'picsum.photos',
       'scontent-waw2-2.cdninstagram.com',
       'res.cloudinary.com',
+      'scontent-waw2-1.cdninstagram.com',
     ],
   },
 };

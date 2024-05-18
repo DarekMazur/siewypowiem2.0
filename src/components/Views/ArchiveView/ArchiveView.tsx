@@ -24,7 +24,7 @@ const ArchiveView = ({ archiveData }: { archiveData: IArchiveData }) => {
           title: archiveData.title,
           category: archiveData.category,
           author: 'Jillian',
-          cover: archiveData.cover || defaultCover,
+          cover: archiveData.cover || defaultCover.src,
           date: dateFormat(archiveData.date.toString()),
         }),
       );
