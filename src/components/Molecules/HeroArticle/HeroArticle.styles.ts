@@ -1,9 +1,9 @@
+import mainTheme from '@/utils/styles/theme';
 import styled from 'styled-components';
 
 export const StyledHeroArticle = styled.div`
   width: 70vw;
   min-height: 50rem;
-  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,5 +24,12 @@ export const StyledHeroArticle = styled.div`
 
   &:hover {
     backdrop-filter: blur(0.8rem);
+  }
+
+  @media (max-width: ${mainTheme.breakpoints.mobile}px) {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0.2rem);
+    box-shadow: unset;
   }
 `;

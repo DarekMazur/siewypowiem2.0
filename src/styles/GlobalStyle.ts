@@ -1,3 +1,5 @@
+import mainTheme from '@/utils/styles/theme';
+
 import { createGlobalStyle } from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -34,18 +36,33 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: ${({ theme }) => theme.fontSize.xxl};
+
+    @media (max-width: ${mainTheme.breakpoints.mobile}px) {
+      font-size: ${({ theme }) => theme.fontSize.l};
+  }
   }
 
   h2 {
     font-size: ${({ theme }) => theme.fontSize.xl};
+
+    @media (max-width: ${mainTheme.breakpoints.mobile}px) {
+      font-size: ${({ theme }) => theme.fontSize.l};
+  }
   }
 
   h3 {
     font-size: ${({ theme }) => theme.fontSize.l};
+
+    @media (min-width: ${mainTheme.breakpoints.mobile}px) {
+      font-size: ${({ theme }) => theme.fontSize.m};
+  }
   }
 
   h4, h5, h6 {
     font-size: ${({ theme }) => theme.fontSize.m};
+
+    @media (min-width: ${mainTheme.breakpoints.mobile}px) {
+  }
   }
 `;
 
