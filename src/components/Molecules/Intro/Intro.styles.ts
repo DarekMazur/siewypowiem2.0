@@ -116,7 +116,7 @@ export const StyledIntro = styled.div`
     }
   }
 
-  @media (min-width: ${mainTheme.breakpoints.mobile}px) {
+  @media (max-width: ${mainTheme.breakpoints.mobile}px) {
     display: none;
   }
 `;
