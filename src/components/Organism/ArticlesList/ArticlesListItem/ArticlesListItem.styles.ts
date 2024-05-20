@@ -1,3 +1,4 @@
+import mainTheme from '@/utils/styles/theme';
 import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 import styled from 'styled-components';
 
@@ -33,17 +34,31 @@ export const ArticleContentWrapper = styled.div<{
     z-index: -1;
     opacity: 0.7;
   }
+
+  @media (max-width: ${mainTheme.breakpoints.mobile}px) {
+    left: 0.5rem;
+    width: calc(100% - 1rem);
+    height: 30rem;
+
+    &::after {
+      height: 100%;
+    }
+  }
 `;
 
 export const ArticleDetails = styled.div<{ $isVisible?: boolean }>`
   width: 100%;
   position: absolute;
   padding: 1rem;
-  top: 20rem;
+  top: 30rem;
   left: 0;
   transition: transform 200ms ease-in-out;
   transform: ${({ $isVisible }) =>
     $isVisible ? 'translateY(-100%)' : 'translateY(0)'};
+
+  @media (max-width: ${mainTheme.breakpoints.mobile}px) {
+    top: rem;
+  }
 `;
 
 export const ArticleListItemWrapper = styled.article<{ $height?: number }>`
